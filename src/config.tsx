@@ -5,8 +5,7 @@ export const SITE_CONFIG = {
   title: "HorAIzon AI Trading Agent",
   description: "Experience and Unravel the Great Meme Trading HorAIzon",
   twitterHandle: "horaizon",
-  whitepaperUrl:
-    "https://vtcgenc6cacyyycu.public.blob.vercel-storage.com/horaizon-whitepaper-MdLtjj7UyGGR7c1bgok7i4sE8NKAOD.pdf",
+  whitepaperUrl:"https://coojaxsmotqcyfam.public.blob.vercel-storage.com/yuna-whitepaper.pdf",
   caUrl: "https://pump.fun/6Ynt9SHxVKpkdGBVxtkbQewJ3PHyHCCF4QGNWKQypump",
   socialLinks: {
     teamX: "https://x.com/horaizonai",

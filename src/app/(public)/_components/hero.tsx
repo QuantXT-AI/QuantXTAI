@@ -36,7 +36,7 @@ export function Hero() {
                 "font-bold text-4xl leading-tight transition-colors duration-100 md:text-7xl",
               )}
             >
-              Unlock Your Trading HorAIzon
+              Unlock Your Trading with Yuna AI
             </h1>
             <p
               className={cn(
@@ -46,7 +46,7 @@ export function Hero() {
                 "pt-5 text-xl transition-colors duration-100",
               )}
             >
-              with Yuna, The Smartest, (but Moody) Girl in crypto
+               The Smartest, (but Moody) Girl in crypto
             </p>
             <Link
               href={`/yuna/${currentCharacter?.id}`}
@@ -59,7 +59,7 @@ export function Hero() {
                 "px-8 py-6 uppercase transition-all duration-100",
               )}
             >
-              Chat to me now!
+            Chat Yuna Now
             </Link>
             <div className="mt-8 flex items-center gap-4">
               <div
@@ -106,21 +106,6 @@ export function Hero() {
             )}
           >
             <div className="flex-shrink-0">Meet us on X</div>
-            <Link
-              href={SITE_CONFIG.socialLinks.teamX}
-              target="_blank"
-              className="relative inline-flex size-14 items-center justify-center border border-white/20 bg-white/10 backdrop-blur-sm transition-colors hover:bg-white/20"
-            >
-              <XIcon className="h-6 w-6" />
-              <Image
-                src="/socials/team.png"
-                alt="Team"
-                width={24}
-                height={24}
-                className="absolute right-[-12px] bottom-[-12px] h-6 w-6 rounded-full bg-white p-0.5"
-              />
-              <span className="sr-only">X (Twitter)</span>
-            </Link>
             <Link
               href={SITE_CONFIG.socialLinks.aiX}
               target="_blank"

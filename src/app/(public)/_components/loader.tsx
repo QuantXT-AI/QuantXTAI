@@ -31,7 +31,7 @@ export function Loader() {
       <div className="mt-auto flex flex-col items-center justify-center gap-2 pb-4">
         <Image src="/logo.png" alt="Logo" width={86} height={31} priority />
         <p className="mt-2 text-sm">
-          &copy; {new Date().getFullYear()} HorAlzon. All rights reserved.
+          &copy; {new Date().getFullYear()} Yuna Interactive. All rights reserved.
         </p>
       </div>
     </div>

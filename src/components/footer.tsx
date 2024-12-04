@@ -26,7 +26,7 @@ export function Footer() {
               className="mx-auto md:mx-0"
             />
             <p className="mt-2 text-sm">
-              &copy; {new Date().getFullYear()} HorAlzon. All rights reserved.
+              &copy; {new Date().getFullYear()} Yuna Interactive. All rights reserved.
             </p>
           </div>
           <div className="flex flex-col items-center gap-8">
