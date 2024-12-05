@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { SOCIAL_LINKS } from "@/config";
+import { SITE_CONFIG, SOCIAL_LINKS } from "@/config";
 
 import { cn } from "@/lib/utils";
 
@@ -36,10 +36,10 @@ export function Footer() {
             </p>
             <div className="flex flex-row flex-wrap items-center justify-center gap-4">
               <div className="flex items-center justify-center space-x-4">
-                {SOCIAL_LINKS.map(({ name, icon: Icon, href }) => (
+                {SOCIAL_LINKS.map(({ name, icon: Icon }) => (
                   <Link
                     key={name}
-                    href={href}
+                    href={SITE_CONFIG.socialLinks.aiX}
                     className="border border-background p-2 text-background hover:text-background/80"
                   >
                     <span className="sr-only">{name}</span>

@@ -9,6 +9,7 @@ export const SITE_CONFIG = {
   caUrl: "https://pump.fun",
   socialLinks: {
     aiX: "https://x.com/YunaInteractive",
+    eritas:"https://x.com/8eritas"
   },
 } as const;
 
@@ -37,7 +38,7 @@ export const SOCIAL_LINKS = [
   {
     name: "X",
     icon: XIcon,
-    href: SITE_CONFIG.socialLinks.aiX,
+    href: SITE_CONFIG.socialLinks.eritas,
   },
 ] as const;
 

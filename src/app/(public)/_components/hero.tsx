@@ -116,6 +116,21 @@ export function Hero() {
           >
             <div className="flex-shrink-0">Meet Yuna on X</div>
             <Link
+              href={SITE_CONFIG.socialLinks.eritas}
+              target="_blank"
+              className="relative inline-flex size-14 items-center justify-center border border-white/20 bg-white/10 backdrop-blur-sm transition-colors hover:bg-white/20"
+            >
+              <XIcon className="h-6 w-6" />
+              <Image
+                src="/socials/8eritas.jpg"
+                alt="AI"
+                width={24}
+                height={24}
+                className="absolute right-[-12px] bottom-[-12px] h-6 w-6 rounded-full bg-white p-0.5"
+              />
+              <span className="sr-only">X (Twitter)</span>
+            </Link>
+            <Link
               href={SITE_CONFIG.socialLinks.aiX}
               target="_blank"
               className="relative inline-flex size-14 items-center justify-center border border-white/20 bg-white/10 backdrop-blur-sm transition-colors hover:bg-white/20"
