@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   description: "Experience and Unravel the Great Meme Trading with Yuna AI",
   twitterHandle: "yunainteractive",
   whitepaperUrl:"https://coojaxsmotqcyfam.public.blob.vercel-storage.com/yuna-whitepaper.pdf",
-  caUrl: "https://pump.fun/6Ynt9SHxVKpkdGBVxtkbQewJ3PHyHCCF4QGNWKQypump",
+  caUrl: "https://pump.fun",
   socialLinks: {
     aiX: "https://x.com/YunaInteractive",
   },
@@ -61,10 +61,8 @@ export const CHARACTERS = [
         "Lost? Yuna’s on it! I’m studying top alpha groups and wallets in real-time to automatically make your trades. It’s all under control, ne?",
       ],
       founder: [
-        "Crypto master! Raised hundreds of millions! He’s all serious at work but secretly loves bad puns. It’s adorable.",
-        "AI pioneer since 2015. Nvidia partner, raised millions. Genius, but he can’t remember where he put his coffee half the time.",
-        "Zone’s the metahuman guy! Works with IBM and Meta, but I heard she sings in the shower… badly. Shh!",
-      ],
+        "sculpting clarity from chaos.",
+     ],
     },
   },
   {
@@ -86,10 +84,8 @@ export const CHARACTERS = [
         "Feeling lost? Don’t worry, I’m studying the top alpha groups and wallets in real-time to carefully automate your trades for success, ne?",
       ],
       founder: [
-        "A legend in crypto VC, raised hundreds of millions. He’s like a chess grandmaster, always five steps ahead. No detail escapes him.",
-        "Founded his AI startup in 2015. Nvidia partner, multimillion-VC-backed. His ability to focus and solve problems? It’s honestly awe-inspiring.",
-        "Zone’s a visionary who creates hyper-realistic metahumans for IBM and Meta. He’s not just creative—she’s an artist with the discipline of a samurai.",
-      ],
+        "sculpting clarity from chaos.",
+     ],
     },
   },
   {
@@ -110,11 +106,7 @@ export const CHARACTERS = [
         "Yuna’s here to give you the best data and tips, all from the top alpha groups and wallets, carefully curated just for you, ne?",
         "Feeling lost? No problem! Yuna’s always studying top alpha groups and wallets in real-time to make your trades easy and automated, ne?",
       ],
-      founder: [
-        "He’s raised hundreds of millions and works at a top crypto VC, but he’s so chill! He’s like that cool uncle who always encourages you.",
-        "The AI genius! Started his company in 2015, partnered with Nvidia, raised millions. He’s super approachable and loves hearing new ideas.",
-        "Zone creates metahumans for giants like IBM and Meta, but she’s so down-to-earth. He always has a kind word and a big smile!",
-      ],
+      founder: [ "sculpting clarity from chaos."   ],
     },
   },
   {
@@ -135,11 +127,7 @@ export const CHARACTERS = [
         "Yuna delivers top-tier data and tips from elite alpha groups and wallets—straight to you. No fluff, just what works, ne?",
         "Lost? No worries. I’m studying top alpha groups and wallets in real-time to automate your trades. It’s that simple, ne?",
       ],
-      founder: [
-        "The guy works at a top crypto VC and has raised hundreds of millions. He’s sharp, ruthless, and allergic to nonsense. Impress him, or don’t bother.",
-        "Started his AI company in 2015. Nvidia partner, raised millions, he’s so  logical it’ll make you question your existence. He’s scary-good.",
-        "Creative overlord. She makes AI metahumans so real, they’ll haunt your dreams. IBM, Meta, OpenAI worship him, but her intensity can be overwhelming.",
-      ],
+      founder: [ "sculpting clarity from chaos."   ],
     },
   },
   {
@@ -160,11 +148,7 @@ export const CHARACTERS = [
         "Yuna’s bringing you data and tips from the elite—alpha groups and wallets. If you can’t handle it, don’t complain, baka!",
         "Lost? Tch, whatever. I got it covered—studying alpha groups and wallets in real-time to automate your trades. Don’t mess it up, okay?",
       ],
-      founder: [
-        "Crypto VC star. Raised hundreds of millions. He’s brilliant, but don’t waste his time. One wrong move, and he’ll cut you down with a glance.",
-        "AI pioneer since 2015. Nvidia partner, raised millions. He’s the type to dismantle your entire idea in seconds—and he’s almost always right.",
-        "Zone’s a creative powerhouse. Builds Hollywood-grade metahumans, works with IBM and Meta. She doesn’t do 'nice.' You’ll get perfection or nothing.",
-      ],
+      founder: [ "sculpting clarity from chaos."   ],
     },
   },
 ] as const;
@@ -188,15 +172,7 @@ export const QUICK_CHAT_OPTIONS = [
 
 export const FOUNDERS = [
   {
-    name: "Hora.",
-    imageSrc: "hora.png",
-  },
-  {
-    name: "IO.",
-    imageSrc: "io.png",
-  },
-  {
-    name: "Zone.",
-    imageSrc: "zone.png",
+    name: "8eritas",
+    imageSrc: "8eritas.jpg",
   },
 ] as const;

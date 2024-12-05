@@ -19,7 +19,7 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between md:flex-row">
           <div className="flex flex-col items-center gap-4 md:items-start">
             <Image
-              src="/logo-color.png"
+              src="/logo.png"
               alt="Yuna Logo"
               width={120}
               height={40}

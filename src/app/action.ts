@@ -21,7 +21,10 @@ export const askQuestion = cache(
     const characterTrait = CHARACTERS.find((c) => c.id === character)?.name;
 
     const processedQuestion = `User Wallet Address: ${walletAddress}\nCharacter Trait: ${characterTrait}\nUser Text: ${question}`;
-
+    console.log(JSON.stringify({
+      question: processedQuestion,
+      ...(chatId ? { chatId } : {}),
+    }))
     const response = await fetch(
       "https://flow.kata.ai/api/v1/prediction/ef96ce9d-cd40-432c-a10e-0664b9dc2321",
       {
@@ -36,6 +39,8 @@ export const askQuestion = cache(
         }),
       },
     );
+
+console.log(response)
 
     if (!response.ok) {
       throw new Error(`API request failed with status ${response.status}`);
