@@ -38,7 +38,7 @@ export const SOCIAL_LINKS = [
   {
     name: "X",
     icon: XIcon,
-    href: SITE_CONFIG.socialLinks.teamX,
+    href: SITE_CONFIG.socialLinks.aiX,
   },
 ] as const;
 
