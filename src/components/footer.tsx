@@ -63,13 +63,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <Image
-        src={`/hero/foot-${characterId}.png`}
-        alt={`Footer Background ${characterId}`}
-        width={323}
-        height={375}
-        className="lg:-translate-x-[50%] z-10 hidden select-none object-cover pt-4 lg:absolute lg:bottom-0 lg:left-[50%] lg:block lg:pt-0"
-      />
+
     </footer>
   );
 }
