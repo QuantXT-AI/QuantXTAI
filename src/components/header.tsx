@@ -68,7 +68,7 @@ export function Header() {
         >
           <Image
             src="/logo-light.png"
-            alt="HorAlzon Logo"
+            alt="Yuna Logo"
             width={100}
             height={36}
             className={
@@ -80,7 +80,7 @@ export function Header() {
           />
           <Image
             src="/logo.png"
-            alt="HorAlzon Logo"
+            alt="Yuna Logo"
             width={100}
             height={36}
             className={

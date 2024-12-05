@@ -1,10 +1,10 @@
 import { XIcon } from "@/components/icons";
 
 export const SITE_CONFIG = {
-  url: "https://hora1zon.com",
-  title: "HorAIzon AI Trading Agent",
-  description: "Experience and Unravel the Great Meme Trading HorAIzon",
-  twitterHandle: "horaizon",
+  url: "https://yunainteractive.com",
+  title: "Yuna AI Trading Agent",
+  description: "Experience and Unravel the Great Meme Trading with Yuna AI",
+  twitterHandle: "yunainteractive",
   whitepaperUrl:"https://coojaxsmotqcyfam.public.blob.vercel-storage.com/yuna-whitepaper.pdf",
   caUrl: "https://pump.fun/6Ynt9SHxVKpkdGBVxtkbQewJ3PHyHCCF4QGNWKQypump",
   socialLinks: {

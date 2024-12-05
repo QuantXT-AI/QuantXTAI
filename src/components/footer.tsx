@@ -20,7 +20,7 @@ export function Footer() {
           <div className="flex flex-col items-center gap-4 md:items-start">
             <Image
               src="/logo-color.png"
-              alt="Horaizon Logo"
+              alt="Yuna Logo"
               width={120}
               height={40}
               className="mx-auto md:mx-0"
@@ -54,7 +54,7 @@ export function Footer() {
                   "group inline-flex h-[42px] items-center uppercase",
                 )}
               >
-                Check Horaizon Now
+                Chat Yuna Now!
                 <span className="ml-2 transition-transform duration-200 group-hover:translate-x-1">
                   →
                 </span>

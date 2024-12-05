@@ -1,4 +1,4 @@
-# HorAIzon
+# Yuna Interactive
 
 Full-stack Development
 
