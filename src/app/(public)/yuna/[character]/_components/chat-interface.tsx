@@ -115,7 +115,7 @@ export function ChatInterface({
             ...prev.slice(0, -1),
             {
               role: "assistant",
-              content: "Sorry, something went wrong. Please try again.",
+              content: "Sorry, Yuna is busy. Please try again.",
               error: true,
               timestamp: new Date(),
             },
