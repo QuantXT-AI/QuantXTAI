@@ -78,14 +78,23 @@ export function Hero() {
                 style={{
                   color:
                     currentCharacter?.theme === "light" ? "white" : "black",
-                }}
+              }}
                 href={SITE_CONFIG.caUrl}
                 target="_blank"
-                className="group inline-flex items-center gap-2 py-3 font-medium text-lg transition-all"
+                className="group relative flex-col items-center gap-2 py-3 font-medium text-lg transition-all"
               >
-                <span>Buy $YUNA</span>
+                <div className="flex flex-row items-center gap-2">
+                <span >Buy $YUNA</span>
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </div>
+
+                <div className="w-full h-1 "    style={{
+                  color:
+                    currentCharacter?.theme === "light" ? "white" : "black",
+                    borderBottom:`1px solid ${ currentCharacter?.theme === "light" ? "white" : "black"}`
+                }} ></div>
               </Link>
+            
             </div>
             <p
               className={cn(
