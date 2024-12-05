@@ -8,7 +8,6 @@ export const SITE_CONFIG = {
   whitepaperUrl:"https://coojaxsmotqcyfam.public.blob.vercel-storage.com/yuna-whitepaper.pdf",
   caUrl: "https://pump.fun/6Ynt9SHxVKpkdGBVxtkbQewJ3PHyHCCF4QGNWKQypump",
   socialLinks: {
-    teamX: "https://x.com/horaizonai",
     aiX: "https://x.com/YunaInteractive",
   },
 } as const;
@@ -38,7 +37,7 @@ export const SOCIAL_LINKS = [
   {
     name: "X",
     icon: XIcon,
-    href: SITE_CONFIG.socialLinks.teamX,
+    href: SITE_CONFIG.socialLinks.aiX,
   },
 ] as const;
 
