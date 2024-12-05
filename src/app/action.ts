@@ -26,7 +26,7 @@ export const askQuestion = cache(
       ...(chatId ? { chatId } : {}),
     }))
     const response = await fetch(
-      "https://flow.kata.ai/api/v1/prediction/ef96ce9d-cd40-432c-a10e-0664b9dc2321",
+      "https://flow.katalabs.io/api/v1/prediction/cb6a8496-ada2-4180-ac61-6cf5233d77d3",
       {
         method: "POST",
         headers: {
