@@ -59,7 +59,7 @@ export function Hero() {
                 "px-8 py-6 uppercase transition-all duration-100",
               )}
             >
-            Chat Yuna Now
+            Chat With Yuna Now
             </Link>
             <div className="mt-8 flex items-center gap-4">
               <div
