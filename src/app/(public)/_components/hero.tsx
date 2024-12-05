@@ -105,7 +105,7 @@ export function Hero() {
               currentCharacter?.theme === "dark" ? "text-black" : "text-white",
             )}
           >
-            <div className="flex-shrink-0">Meet us on X</div>
+            <div className="flex-shrink-0">Meet Yuna on X</div>
             <Link
               href={SITE_CONFIG.socialLinks.aiX}
               target="_blank"
