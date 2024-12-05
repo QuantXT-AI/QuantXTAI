@@ -24,7 +24,7 @@ export function Founders() {
           {FOUNDERS.map((founder, index) => (
             <div
               key={founder.name}
-              className="overflow-hidden w-full lg:w-[706px] flex flex-col lg:flex-row h-auto lg:h-[384px] rounded-lg bg-white shadow-lg"
+              className="overflow-hidden w-full md:w-[706px] flex flex-col md:flex-row h-auto md:h-[384px] rounded-lg bg-white shadow-lg"
             >
               <div className="p-4">
                 <div className="bg-border">
@@ -33,7 +33,7 @@ export function Founders() {
                     alt={founder.name}
                     width={354}
                     height={354}
-             
+                    className="max-sm:w-full "
                   />
                 </div>
               </div>
