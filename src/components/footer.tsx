@@ -54,7 +54,7 @@ export function Footer() {
                   "group inline-flex h-[42px] items-center uppercase",
                 )}
               >
-                Chat Yuna Now!
+                Check Yuna Now!
                 <span className="ml-2 transition-transform duration-200 group-hover:translate-x-1">
                   →
                 </span>
