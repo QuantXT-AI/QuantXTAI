@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   description: "Experience and Unravel the Great Meme Trading with Yuna AI",
   twitterHandle: "yunainteractive",
   whitepaperUrl:"https://coojaxsmotqcyfam.public.blob.vercel-storage.com/yuna-whitepaper.pdf",
-  caUrl: "https://pump.fun/6Ynt9SHxVKpkdGBVxtkbQewJ3PHyHCCF4QGNWKQypump",
+  caUrl: "https://pump.fun",
   socialLinks: {
     aiX: "https://x.com/YunaInteractive",
   },
