@@ -188,15 +188,7 @@ export const QUICK_CHAT_OPTIONS = [
 
 export const FOUNDERS = [
   {
-    name: "Hora.",
-    imageSrc: "hora.png",
-  },
-  {
-    name: "IO.",
-    imageSrc: "io.png",
-  },
-  {
-    name: "Zone.",
-    imageSrc: "zone.png",
+    name: "8eritas",
+    imageSrc: "8eritas.jpg",
   },
 ] as const;

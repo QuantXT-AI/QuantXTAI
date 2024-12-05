@@ -67,7 +67,7 @@ export function Header() {
           className="relative font-bold text-2xl text-primary"
         >
           <Image
-            src="/logo-light.png"
+            src="/logo.png"
             alt="Yuna Logo"
             width={100}
             height={36}

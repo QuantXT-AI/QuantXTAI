@@ -14,7 +14,7 @@ export function Founders() {
     <section className="border-gray-200 border-t bg-background px-4 py-16 sm:px-6 lg:px-8">
       <div className="container mx-auto">
         <h2 className="mb-12 text-center font-bold text-7xl">
-          Meet the Founders
+          Meet the Architect
         </h2>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {FOUNDERS.map((founder, index) => (

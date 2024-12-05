@@ -36,7 +36,7 @@ export function Hero() {
                 "font-bold text-4xl leading-tight transition-colors duration-100 md:text-7xl",
               )}
             >
-              Unlock Your Trading with Yuna AI
+             Empower Your Memecoin Trades
             </h1>
             <p
               className={cn(
@@ -46,7 +46,7 @@ export function Hero() {
                 "pt-5 text-xl transition-colors duration-100",
               )}
             >
-               The Smartest, (but Moody) Girl in crypto
+             With Yuna, The Smartest, (but Moody) Girl in crypto
             </p>
             <Link
               href={`/yuna/${currentCharacter?.id}`}
@@ -83,7 +83,7 @@ export function Hero() {
                 target="_blank"
                 className="group inline-flex items-center gap-2 py-3 font-medium text-lg transition-all"
               >
-                <span>Buy $HRZN</span>
+                <span>Buy $YUNA</span>
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
