@@ -28,7 +28,7 @@ export const askQuestion = cache(
       }),
     );
     const response = await fetch(
-      "https://flow.kata.ai/api/v1/prediction/ef96ce9d-cd40-432c-a10e-0664b9dc2321˝",
+      "https://flow.kata.ai/api/v1/prediction/ef96ce9d-cd40-432c-a10e-0664b9dc2321",
       {
         method: "POST",
         headers: {
