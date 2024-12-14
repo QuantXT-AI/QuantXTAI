@@ -5,11 +5,12 @@ export const SITE_CONFIG = {
   title: "Yuna AI Trading Agent",
   description: "Experience and Unravel the Great Meme Trading with Yuna AI",
   twitterHandle: "yunainteractive",
-  whitepaperUrl:"https://coojaxsmotqcyfam.public.blob.vercel-storage.com/yuna-whitepaper.pdf",
+  whitepaperUrl:
+    "https://coojaxsmotqcyfam.public.blob.vercel-storage.com/yuna-whitepaper.pdf",
   caUrl: "https://pump.fun/Qd4mEuUSVaUjjAy358Yu4LuDEqvT8C7j3fnPrUUpump",
   socialLinks: {
     aiX: "https://x.com/YunaInteractive",
-    eritas:"https://x.com/8eritas"
+    eritas: "https://x.com/8eritas",
   },
 } as const;
 
@@ -61,9 +62,7 @@ export const CHARACTERS = [
         "Yuna’s got the inside scoop! Top data and tips from the coolest alpha groups and wallets, all just for you! Let’s make it fun, ne?",
         "Lost? Yuna’s on it! I’m studying top alpha groups and wallets in real-time to automatically make your trades. It’s all under control, ne?",
       ],
-      founder: [
-        "sculpting clarity from chaos.",
-     ],
+      founder: ["sculpting clarity from chaos."],
     },
   },
   {
@@ -84,9 +83,7 @@ export const CHARACTERS = [
         "Yuna provides you with top-tier data and tips from trusted alpha groups and wallets, curated with care and precision, just for your success, ne?",
         "Feeling lost? Don’t worry, I’m studying the top alpha groups and wallets in real-time to carefully automate your trades for success, ne?",
       ],
-      founder: [
-        "sculpting clarity from chaos.",
-     ],
+      founder: ["sculpting clarity from chaos."],
     },
   },
   {
@@ -107,7 +104,7 @@ export const CHARACTERS = [
         "Yuna’s here to give you the best data and tips, all from the top alpha groups and wallets, carefully curated just for you, ne?",
         "Feeling lost? No problem! Yuna’s always studying top alpha groups and wallets in real-time to make your trades easy and automated, ne?",
       ],
-      founder: [ "sculpting clarity from chaos."   ],
+      founder: ["sculpting clarity from chaos."],
     },
   },
   {
@@ -128,7 +125,7 @@ export const CHARACTERS = [
         "Yuna delivers top-tier data and tips from elite alpha groups and wallets—straight to you. No fluff, just what works, ne?",
         "Lost? No worries. I’m studying top alpha groups and wallets in real-time to automate your trades. It’s that simple, ne?",
       ],
-      founder: [ "sculpting clarity from chaos."   ],
+      founder: ["sculpting clarity from chaos."],
     },
   },
   {
@@ -149,7 +146,7 @@ export const CHARACTERS = [
         "Yuna’s bringing you data and tips from the elite—alpha groups and wallets. If you can’t handle it, don’t complain, baka!",
         "Lost? Tch, whatever. I got it covered—studying alpha groups and wallets in real-time to automate your trades. Don’t mess it up, okay?",
       ],
-      founder: [ "sculpting clarity from chaos."   ],
+      founder: ["sculpting clarity from chaos."],
     },
   },
 ] as const;

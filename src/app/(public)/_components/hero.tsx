@@ -36,7 +36,7 @@ export function Hero() {
                 "font-bold text-4xl leading-tight transition-colors duration-100 md:text-7xl",
               )}
             >
-             Empower Your Memecoin Trades
+              Empower Your Memecoin Trades
             </h1>
             <p
               className={cn(
@@ -46,7 +46,7 @@ export function Hero() {
                 "pt-5 text-xl transition-colors duration-100",
               )}
             >
-             With Yuna, The Smartest, (but Moody) Girl in crypto
+              With Yuna, The Smartest, (but Moody) Girl in crypto
             </p>
             <Link
               href={`/yuna/${currentCharacter?.id}`}
@@ -59,7 +59,7 @@ export function Hero() {
                 "px-8 py-6 uppercase transition-all duration-100",
               )}
             >
-            Chat With Yuna Now
+              Chat With Yuna Now
             </Link>
             <div className="mt-8 flex items-center gap-4">
               <div
@@ -78,23 +78,25 @@ export function Hero() {
                 style={{
                   color:
                     currentCharacter?.theme === "light" ? "white" : "black",
-              }}
+                }}
                 href={SITE_CONFIG.caUrl}
                 target="_blank"
                 className="group relative flex-col items-center gap-2 py-3 font-medium text-lg transition-all"
               >
                 <div className="flex flex-row items-center gap-2">
-                <span >Buy $YUNA</span>
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  <span>Buy $YUNA</span>
+                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </div>
 
-                <div className="w-full h-1 "    style={{
-                  color:
-                    currentCharacter?.theme === "light" ? "white" : "black",
-                    borderBottom:`1px solid ${ currentCharacter?.theme === "light" ? "white" : "black"}`
-                }} ></div>
+                <div
+                  className="h-1 w-full "
+                  style={{
+                    color:
+                      currentCharacter?.theme === "light" ? "white" : "black",
+                    borderBottom: `1px solid ${currentCharacter?.theme === "light" ? "white" : "black"}`,
+                  }}
+                />
               </Link>
-            
             </div>
             <p
               className={cn(

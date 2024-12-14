@@ -8,12 +8,14 @@ export const env = createEnv({
    * Will throw if you access these variables on the client.
    */
   server: {
+    NODE_ENV: z.enum(["development", "production"]),
     API_KEY: z.string().min(1),
     BIRDEYE_API_KEY: z.string().min(1),
     HELIUS_API_KEY: z.string().min(1),
     AI_API_KEY: z.string().min(1),
     UPSTASH_REDIS_URL: z.string().url(),
     UPSTASH_REDIS_TOKEN: z.string().min(1),
+    EDGE_CONFIG: z.string().min(1),
 
     TWITTER_USERNAME_1: z.string().min(1),
     TWITTER_PASSWORD_1: z.string().min(1),
@@ -85,12 +87,14 @@ export const env = createEnv({
    * 💡 You'll get type errors if not all variables from `server` & `client` are included here.
    */
   runtimeEnv: {
+    NODE_ENV: process.env.NODE_ENV,
     API_KEY: process.env.API_KEY,
     BIRDEYE_API_KEY: process.env.BIRDEYE_API_KEY,
     HELIUS_API_KEY: process.env.HELIUS_API_KEY,
     AI_API_KEY: process.env.AI_API_KEY,
     UPSTASH_REDIS_URL: process.env.UPSTASH_REDIS_URL,
     UPSTASH_REDIS_TOKEN: process.env.UPSTASH_REDIS_TOKEN,
+    EDGE_CONFIG: process.env.EDGE_CONFIG,
 
     TWITTER_USERNAME_1: process.env.TWITTER_USERNAME_1,
     TWITTER_PASSWORD_1: process.env.TWITTER_PASSWORD_1,

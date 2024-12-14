@@ -41,15 +41,16 @@ export const config = {
 };
 
 export async function middleware(request: NextRequest) {
-  // Check Edge Config to see if the maintenance page should be shown
-  const isInMaintenanceMode = await get("isInMaintenanceMode");
+  // Only proceed with edge config check if EDGE_CONFIG exists and NODE_ENV is not development
+  if (env.EDGE_CONFIG && env.NODE_ENV !== "development") {
+    // Check Edge Config to see if the maintenance page should be shown
+    const isInMaintenanceMode = await get("isInMaintenanceMode");
 
-  // If in maintenance mode, point the url pathname to the maintenance page
-  if (isInMaintenanceMode) {
-    request.nextUrl.pathname = "/maintenance";
-
-    // Rewrite to the url
-    return NextResponse.rewrite(request.nextUrl);
+    // If in maintenance mode, point the url pathname to the maintenance page
+    if (isInMaintenanceMode) {
+      request.nextUrl.pathname = "/maintenance";
+      return NextResponse.rewrite(request.nextUrl);
+    }
   }
 
   // Only match API routes
