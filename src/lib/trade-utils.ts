@@ -16,12 +16,15 @@ export function getCheckerLink(address: string, walletAddress: string) {
 export const EXCLUDED_TOKENS = [
   "USDC",
   "USDT",
+  "USDE",
   "SOL",
   "WSOL",
   "ETH",
   "WETH",
   "BTC",
   "WBTC",
+  "WSTETH",
+  "STETH",
 ] as const;
 
 export const isExcludedToken = (symbol: string): boolean => {
