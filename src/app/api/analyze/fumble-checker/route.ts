@@ -15,7 +15,7 @@ import {
 } from "@/data/services/token-market-data";
 import { getCachedTraderTrades } from "@/data/services/trader-trades-seek-by-time";
 import { WalletAddressRequestSchema } from "@/dto";
-import { getCheckerLink } from "@/lib/trade-utils";
+import { getCheckerLink, isExcludedToken } from "@/lib/trade-utils";
 import { formatZodError } from "@/lib/utils";
 
 export interface FumbleTradeItem extends EnhancedTradeItem {
@@ -29,7 +29,7 @@ export interface FumbleTradeItem extends EnhancedTradeItem {
   current_price_per_token_in_usd: number;
   ath_price_during_hold_in_usd: number;
   ath_price_after_sell_in_usd: number;
-  current_solana_price_in_usd: number;
+  current_ethereum_price_in_usd: number;
 
   // External links
   checker_link: string;
@@ -57,15 +57,7 @@ export async function POST(request: Request) {
   const parsedTrades = getParsedTrades(trades.data.items);
 
   const enhancedTrades = getEnhancedTrades(parsedTrades)
-    .filter(
-      (trade) =>
-        !trade.symbol.includes("USDC") &&
-        !trade.symbol.includes("USDT") &&
-        !trade.symbol.includes("SOL") &&
-        !trade.symbol.includes("WSOL") &&
-        !trade.symbol.includes("WETH") &&
-        !trade.symbol.includes("WBTC"),
-    )
+    .filter((trade) => !isExcludedToken(trade.symbol))
     .slice(0, 10); // Possible Fumble 10 trades
 
   // Get unique token addresses to minimize API calls
@@ -127,9 +119,9 @@ export async function POST(request: Request) {
   // Wait for all token data to be fetched
   await Promise.all(tokenDataPromises);
 
-  // Get Solana price data
-  const SOLANA_ADDRESS = "So11111111111111111111111111111111111111112";
-  const solanaPrice = await getCachedPrice(SOLANA_ADDRESS);
+  // Get Ethereum price data
+  const ETHEREUM_ADDRESS = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
+  const ethereumPrice = await getCachedPrice(ETHEREUM_ADDRESS);
 
   // Process trades using the cached token data
   const fumbleTrades = enhancedTrades.map((trade) => {
@@ -202,7 +194,7 @@ export async function POST(request: Request) {
       ath_price_after_sell_in_usd: athAfterSell.price,
       ath_price_after_sell_timestamp: athAfterSell.timestamp,
       missed_profit_potential: missedProfitPotential,
-      current_solana_price_in_usd: solanaPrice.data.value,
+      current_ethereum_price_in_usd: ethereumPrice.data.value,
       checker_link: getCheckerLink(trade.address, walletAddress),
       trades: trade.trades,
     };

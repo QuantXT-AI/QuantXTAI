@@ -54,7 +54,7 @@ export function InputSection({
         placeholder={
           walletAddress
             ? "Ask about your trades..."
-            : "Please insert your Solana wallet address first"
+            : "Please insert your Ethereum wallet address first"
         }
         className="min-h-[60px] resize-none placeholder:text-muted-foreground/70"
         disabled={isPending || !walletAddress}

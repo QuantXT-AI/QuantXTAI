@@ -62,7 +62,7 @@ function getInitialMessage({
 }) {
   if (!walletAddress) {
     return Promise.resolve({
-      text: "Hello! Please insert your Solana wallet address first.",
+      text: "Hello! Please insert your Ethereum wallet address first.",
     } as AIResponse);
   }
 

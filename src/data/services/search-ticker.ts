@@ -45,10 +45,10 @@ export const searchTicker = async (ticker: string): Promise<string | null> => {
     throw new Error("Failed to fetch search ticker data");
   }
 
-  // If no results, try ticker/SOL
+  // If no results, try ticker/WETH
   if (!searchData.pairs || searchData.pairs.length === 0) {
     searchResponse = await fetch(
-      `https://api.dexscreener.com/latest/dex/search?q=${encodeURIComponent(`${normalizedTicker}/SOL`)}`,
+      `https://api.dexscreener.com/latest/dex/search?q=${encodeURIComponent(`${normalizedTicker}/WETH`)}`,
       {
         headers: {
           accept: "application/json",
@@ -58,10 +58,10 @@ export const searchTicker = async (ticker: string): Promise<string | null> => {
     searchData = (await searchResponse.json()) as SearchTickerResponse;
   }
 
-  // Filter for Solana pairs and matching symbols
+  // Filter for Ethereum pairs and matching symbols
   const matchingPairs = searchData.pairs?.filter(
     (pair) =>
-      pair.chainId === "solana" &&
+      pair.chainId === "ethereum" &&
       isSymbolMatch(normalizedTicker, pair.baseToken.symbol),
   );
 

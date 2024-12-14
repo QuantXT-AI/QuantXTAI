@@ -73,7 +73,7 @@ export const getTraderTrades = async (
     {
       headers: {
         accept: "application/json",
-        "x-chain": "solana",
+        "x-chain": "ethereum",
         "X-API-KEY": env.BIRDEYE_API_KEY,
       },
     },

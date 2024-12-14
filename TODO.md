@@ -59,7 +59,7 @@ Full-stack Development
 - [x] Improvement
   - [x] ATH Price OHLCV for smaller timeframe
   - [x] Exit Time bug when no last selling
-  - [x] Add Solana price data
+  - [x] Add Ethereum price data
 - [x] Agree with Currency to Calculate PnL (SOL vs USD Value) -> USD + SOL (using USD Conversion)
 - [x] All Trades Data of a Wallet (last 100 trades or last 3 months)
   - [x] Is This Token Trades profiting or losing? Trading PnL

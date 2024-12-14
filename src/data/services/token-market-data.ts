@@ -25,11 +25,13 @@ export const getTokenMarketData = async (
       headers: {
         accept: "application/json",
         "X-API-KEY": env.BIRDEYE_API_KEY,
+        "x-chain": "ethereum",
       },
     },
   );
 
   if (!tokenMarketDataResponse.ok) {
+    console.error({ tokenMarketDataResponse });
     throw new Error("Failed to fetch token market data");
   }
 

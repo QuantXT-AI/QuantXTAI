@@ -128,7 +128,7 @@ export function WalletAddressSection({
             <Input
               type="text"
               id="wallet-address"
-              placeholder="Enter your Solana wallet address"
+              placeholder="Enter your Ethereum wallet address"
               value={walletAddressInput}
               onChange={(e) => setWalletAddressInput(e.target.value)}
               disabled={isPending}

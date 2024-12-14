@@ -22,6 +22,7 @@ export const getPrice = async (
       headers: {
         accept: "application/json",
         "X-API-KEY": env.BIRDEYE_API_KEY,
+        "x-chain": "ethereum",
       },
     },
   );

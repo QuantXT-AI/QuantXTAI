@@ -1,13 +1,9 @@
-import { PublicKey } from "@solana/web3.js";
+import { ethers } from "ethers";
 import { z } from "zod";
 
-const validateSolanaAddress = (address: string) => {
+const validateEVMAddress = (address: string) => {
   try {
-    const pubkey = new PublicKey(address);
-    if (!PublicKey.isOnCurve(pubkey)) {
-      return false;
-    }
-    return true;
+    return ethers.isAddress(address);
   } catch {
     return false;
   }
@@ -54,8 +50,8 @@ export const WalletAddressRequestSchema = z.object({
     .min(1, "Wallet address cannot be empty")
     .max(44, "Wallet address is too long")
     .trim()
-    .refine(validateSolanaAddress, {
-      message: "Invalid Solana wallet address. Please check and try again.",
+    .refine(validateEVMAddress, {
+      message: "Invalid Ethereum wallet address. Please check and try again.",
     }),
 });
 
@@ -67,8 +63,8 @@ export const RektCheckerRequestSchema = z.object({
     .min(1, "Wallet address cannot be empty")
     .max(44, "Wallet address is too long")
     .trim()
-    .refine(validateSolanaAddress, {
-      message: "Invalid Solana wallet address. Please check and try again.",
+    .refine(validateEVMAddress, {
+      message: "Invalid Ethereum wallet address. Please check and try again.",
     }),
 });
 
@@ -86,8 +82,8 @@ export const AskQuestionRequestSchema = z.object({
     .min(1, "Wallet address cannot be empty")
     .max(44, "Wallet address is too long")
     .trim()
-    .refine(validateSolanaAddress, {
-      message: "Invalid Solana wallet address. Please check and try again.",
+    .refine(validateEVMAddress, {
+      message: "Invalid Ethereum wallet address. Please check and try again.",
     }),
   chatId: z.string().optional(),
 });
