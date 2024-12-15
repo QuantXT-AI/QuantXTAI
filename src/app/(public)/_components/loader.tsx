@@ -20,19 +20,17 @@ export function Loader() {
       }}
       className="fixed top-0 left-0 z-50 flex h-screen w-screen flex-col items-center justify-center"
     >
-      <Image
-        src={"/loader.gif"}
-        alt={`Footer Background ${currentCharacter?.id}`}
-        width={164}
-        height={164}
-        className="mt-auto"
-      />
       <span className="text-center font-bold text-2xl">Loading</span>
       <div className="mt-auto flex flex-col items-center justify-center gap-2 pb-4">
-        <Image src="/logo.png" alt="Logo" width={86} height={31} priority />
+        <Image
+          src="/placeholder.svg"
+          alt="Logo"
+          width={86}
+          height={31}
+          priority
+        />
         <p className="mt-2 text-sm">
-          &copy; {new Date().getFullYear()} Yuna Interactive. All rights
-          reserved.
+          &copy; {new Date().getFullYear()} CryAIstal. All rights reserved.
         </p>
       </div>
     </div>

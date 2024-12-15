@@ -21,12 +21,7 @@ export const askQuestion = cache(
     const characterTrait = CHARACTERS.find((c) => c.id === character)?.name;
 
     const processedQuestion = `User Wallet Address: ${walletAddress}\nCharacter Trait: ${characterTrait}\nUser Text: ${question}`;
-    console.log(
-      JSON.stringify({
-        question: processedQuestion,
-        ...(chatId ? { chatId } : {}),
-      }),
-    );
+
     const response = await fetch(env.AI_API_URL, {
       method: "POST",
       headers: {
@@ -38,8 +33,6 @@ export const askQuestion = cache(
         ...(chatId ? { chatId } : {}),
       }),
     });
-
-    console.log(response);
 
     if (!response.ok) {
       throw new Error(`API request failed with status ${response.status}`);

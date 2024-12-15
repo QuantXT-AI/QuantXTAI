@@ -5,7 +5,7 @@ import { createContext, use, useCallback, useMemo, useState } from "react";
 
 import { CHARACTERS } from "@/config";
 
-const DEFAULT_CHARACTER_ID = "cute-and-funny";
+const DEFAULT_CHARACTER_ID = "good";
 
 type Ctx = {
   loading: boolean | string;
@@ -28,7 +28,7 @@ export default function useCharacter() {
 function loadPoster(id: string) {
   return new Promise((resolve) => {
     const img = new Image();
-    img.src = `/hero/poster-${id}.png`;
+    img.src = `/placeholder.svg?id=${id}`;
     img.onload = () => resolve(true);
     img.onerror = () => resolve(true);
   });

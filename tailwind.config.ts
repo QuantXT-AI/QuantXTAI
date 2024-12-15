@@ -57,7 +57,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-sansation)", "Arial", "Helvetica", "sans-serif"],
+        sans: ["Arial", "Helvetica", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
       },
     },

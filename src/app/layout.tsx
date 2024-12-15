@@ -11,42 +11,6 @@ import { Toaster } from "@/components/ui/sonner";
 
 import "./globals.css";
 
-const sansation = localFont({
-  src: [
-    {
-      path: "./fonts/Sansation-Light.ttf",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Sansation-LightItalic.ttf",
-      weight: "300",
-      style: "italic",
-    },
-    {
-      path: "./fonts/Sansation-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Sansation-Italic.ttf",
-      weight: "400",
-      style: "italic",
-    },
-    {
-      path: "./fonts/Sansation-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Sansation-BoldItalic.ttf",
-      weight: "700",
-      style: "italic",
-    },
-  ],
-  variable: "--font-sansation",
-});
-
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -78,9 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(sansation.variable, geistMono.variable, "antialiased")}
-      >
+      <body className={cn(geistMono.variable, "antialiased")}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
