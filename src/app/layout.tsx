@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Epilogue, Roboto_Mono } from "next/font/google";
 import localFont from "next/font/local";
 
 import { SITE_CONFIG } from "@/config";
@@ -7,6 +8,7 @@ import { cn } from "@/lib/utils";
 
 import { ThemeProvider } from "@/providers/theme";
 
+import Aos from "@/components/aos";
 import { Toaster } from "@/components/ui/sonner";
 
 import "./globals.css";
@@ -15,6 +17,28 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+});
+
+const fontRobotoMono = Roboto_Mono({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-roboto-mono",
+});
+
+const fontClashDisplay = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Clash-Display.ttf",
+      weight: "400",
+    },
+  ],
+  variable: "--font-clash-display",
+});
+
+const fontEpilogue = Epilogue({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-epilogue",
 });
 
 export const metadata: Metadata = {
@@ -27,6 +51,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: SITE_CONFIG.title,
     description: SITE_CONFIG.description,
+    url: SITE_CONFIG.url,
+    images: [
+      {
+        url: "/preview.png",
+        alt: "Preview",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -41,17 +72,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={cn(geistMono.variable, "antialiased")}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          disableTransitionOnChange
+    <>
+      <Aos />
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={cn(
+            geistMono.variable,
+            fontRobotoMono.variable,
+            fontClashDisplay.variable,
+            fontEpilogue.variable,
+            "antialiased bg-black font-roboto-mono ",
+          )}
         >
-          {children}
-        </ThemeProvider>
-        <Toaster />
-      </body>
-    </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+          <Toaster />
+        </body>
+      </html>
+    </>
   );
 }

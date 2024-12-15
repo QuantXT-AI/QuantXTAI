@@ -59,6 +59,19 @@ export default {
       fontFamily: {
         sans: ["Arial", "Helvetica", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
+        "roboto-mono": ["var(--font-roboto-mono)"],
+        "clash-display": ["var(--font-clash-display)"],
+        epilogue: ["var(--font-epilogue)"],
+      },
+      animation: {
+        shake: "shake 0.5s ease-in-out",
+      },
+      keyframes: {
+        shake: {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "25%, 75%": { transform: "translate(-4px, 4px)" },
+          "50%": { transform: "translate(4px, -4px)" },
+        },
       },
     },
   },
