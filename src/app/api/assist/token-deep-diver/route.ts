@@ -49,18 +49,6 @@ function generateDescription(
   overview: TokenOverviewResponse,
   security: TokenSecurityResponse,
 ) {
-  const creationDate = new Date(
-    Number(security.data.creationTime ?? "0") * 1000,
-  );
-  const formattedCreationTime = creationDate.toLocaleString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    timeZoneName: "short",
-  });
-
   const currentPhase =
     !overview.data.vBuy1h || !overview.data.vSell1h
       ? "Failed to fetch"
@@ -72,6 +60,17 @@ function generateDescription(
     !overview.data.vBuy1h || !overview.data.vSell1h
       ? "Failed to fetch"
       : `$${(overview.data.vBuy1h - overview.data.vSell1h).toFixed(2)}`;
+
+  // Add EVM-specific security checks
+  const securityWarnings = [];
+  if (security.data.canTakeBackOwnership === "1")
+    securityWarnings.push("⚠️ Contract can take back ownership");
+  if (security.data.hiddenOwner === "1")
+    securityWarnings.push("⚠️ Hidden owner detected");
+  if (security.data.isHoneypot === "1")
+    securityWarnings.push("⚠️ Potential honeypot");
+  if (security.data.isMintable === "1")
+    securityWarnings.push("⚠️ Token is mintable");
 
   return `
 This is a detailed analysis of the token at address ${tokenAddress}:
@@ -96,15 +95,22 @@ TRADING VOLUME (1h):
   * Net Volume: ${netVolume}
 
 SECURITY ANALYSIS:
-- Creation Time: ${formattedCreationTime}
 - Creator Address: ${security.data.creatorAddress}
 - Creator Balance: ${security.data.creatorBalance} tokens (${security.data.creatorPercentage}% of supply)
-- Top 10 Holders Control: ${security.data.top10HolderPercent}% of supply
-- Token Standard: ${security.data.isToken2022 ? "Token-2022" : "Token"}
-- Security Features:
-  * Freezeable: ${security.data.freezeable ? "Yes" : "No"}
-  * Non-Transferable: ${security.data.nonTransferable ? "Yes" : "No"}
-  * Transfer Fee Enabled: ${security.data.transferFeeEnable ? "Yes" : "No"}
-  * Mutable Metadata: ${security.data.mutableMetadata ? "Yes" : "No"}
+- Contract Features:
+  * Open Source: ${security.data.isOpenSource === "1" ? "Yes" : "No"}
+  * Proxy Contract: ${security.data.isProxy === "1" ? "Yes" : "No"}
+  * Anti-Whale: ${security.data.isAntiWhale === "1" ? "Yes" : "No"}
+  * Buy Tax: ${security.data.buyTax}%
+  * Trading Cooldown: ${security.data.tradingCooldown === "1" ? "Yes" : "No"}
+  * Transfer Pausable: ${security.data.transferPausable === "1" ? "Yes" : "No"}
+
+SECURITY WARNINGS:
+${securityWarnings.length > 0 ? securityWarnings.join("\n") : "No major security concerns detected"}
+
+LIQUIDITY ANALYSIS:
+- Number of LP Holders: ${security.data.lpHolderCount}
+- LP Total Supply: ${security.data.lpTotalSupply}
+${security.data.lpHolders?.[0] ? `- Largest LP Holder: ${security.data.lpHolders[0].address} (${security.data.lpHolders[0].percent}%)` : ""}
 `.trim();
 }

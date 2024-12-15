@@ -2,44 +2,40 @@ import { env } from "@/env";
 import { unstable_cache } from "next/cache";
 
 export interface TokenSecurityData {
-  creatorAddress: string | null;
-  creatorOwnerAddress: string | null;
-  ownerAddress: string | null;
-  ownerOfOwnerAddress: string | null;
-  creationTx: string | null;
-  creationTime: string | null;
-  creationSlot: number | null;
-  mintTx: string | null;
-  mintTime: string | null;
-  mintSlot: number | null;
-  creatorBalance: number | null;
-  ownerBalance: number | null;
-  ownerPercentage: number | null;
-  creatorPercentage: number | null;
-  metaplexUpdateAuthority: string | null;
-  metaplexOwnerUpdateAuthority: string | null;
-  metaplexUpdateAuthorityBalance: number;
-  metaplexUpdateAuthorityPercent: number;
-  mutableMetadata: boolean;
-  top10HolderBalance: number;
-  top10HolderPercent: number;
-  top10UserBalance: number;
-  top10UserPercent: number;
-  isTrueToken: boolean | null;
-  totalSupply: number;
-  preMarketHolder: unknown[]; // You might want to define a specific type for this
-  lockInfo: unknown | null; // You might want to define a specific type for this
-  freezeable: boolean | null;
-  freezeAuthority: string | null;
-  transferFeeEnable: boolean | null;
-  transferFeeData: unknown | null; // You might want to define a specific type for this
-  isToken2022: boolean;
-  nonTransferable: boolean | null;
+  antiWhaleModifiable: string;
+  buyTax: string;
+  canTakeBackOwnership: string;
+  cannotBuy: string;
+  cannotSellAll: string;
+  creatorAddress: string;
+  creatorBalance: string;
+  creatorPercentage: string;
+  hiddenOwner: string;
+  holderCount: string;
+  isHoneypot: string;
+  isOpenSource: string;
+  isProxy: string;
+  isAntiWhale: string;
+  isMintable: string;
+  tokenName: string;
+  tokenSymbol: string;
+  totalSupply: string;
+  tradingCooldown: string;
+  transferPausable: string;
+  lpHolderCount: string;
+  lpTotalSupply: string;
+  lpHolders?: Array<{
+    address: string;
+    percent: string;
+    balance: string;
+    is_locked: number;
+  }>;
 }
 
 export interface TokenSecurityResponse {
   data: TokenSecurityData;
   success: boolean;
+  statusCode: number;
 }
 
 export const getTokenSecurity = async (

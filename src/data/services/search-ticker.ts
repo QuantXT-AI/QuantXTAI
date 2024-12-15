@@ -29,9 +29,9 @@ interface SearchTickerResponse {
 export const searchTicker = async (ticker: string): Promise<string | null> => {
   const normalizedTicker = normalizeSymbol(ticker);
 
-  // Try ticker/USDC first
+  // Try ticker/WETH first
   let searchResponse = await fetch(
-    `https://api.dexscreener.com/latest/dex/search?q=${encodeURIComponent(`${normalizedTicker}/USDC`)}`,
+    `https://api.dexscreener.com/latest/dex/search?q=${encodeURIComponent(`${normalizedTicker}/WETH`)}`,
     {
       headers: {
         accept: "application/json",
@@ -45,10 +45,10 @@ export const searchTicker = async (ticker: string): Promise<string | null> => {
     throw new Error("Failed to fetch search ticker data");
   }
 
-  // If no results, try ticker/WETH
+  // If no results, try ticker/USDC
   if (!searchData.pairs || searchData.pairs.length === 0) {
     searchResponse = await fetch(
-      `https://api.dexscreener.com/latest/dex/search?q=${encodeURIComponent(`${normalizedTicker}/WETH`)}`,
+      `https://api.dexscreener.com/latest/dex/search?q=${encodeURIComponent(`${normalizedTicker}/USDC`)}`,
       {
         headers: {
           accept: "application/json",
