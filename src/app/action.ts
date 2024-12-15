@@ -27,20 +27,17 @@ export const askQuestion = cache(
         ...(chatId ? { chatId } : {}),
       }),
     );
-    const response = await fetch(
-      "https://flow.kata.ai/api/v1/prediction/ef96ce9d-cd40-432c-a10e-0664b9dc2321",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${env.AI_API_KEY}`,
-        },
-        body: JSON.stringify({
-          question: processedQuestion,
-          ...(chatId ? { chatId } : {}),
-        }),
+    const response = await fetch(env.AI_API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${env.AI_API_KEY}`,
       },
-    );
+      body: JSON.stringify({
+        question: processedQuestion,
+        ...(chatId ? { chatId } : {}),
+      }),
+    });
 
     console.log(response);
 
