@@ -7,7 +7,7 @@ import { FlowiseClient } from "flowise-sdk";
 import { NextResponse } from "next/server";
 
 export const POST = async (req: Request) => {
-  const { question, character, walletAddress, sessionId } =
+  const { question, character, walletAddress, chatId } =
     AskQuestionRequestSchema.parse(await req.json());
 
   await checkRateLimit(walletAddress, 10, "1 m", "chat_ask");
@@ -25,7 +25,7 @@ export const POST = async (req: Request) => {
     chatflowId: CHATFLOW_MAPPING.INTENT_RECOGNIZER,
     question: processedQuestion,
     overrideConfig: {
-      ...(sessionId ? { sessionId } : {}),
+      ...(chatId ? { chatId } : {}),
     },
   })) as IntentRecognizerResponse;
 
@@ -43,7 +43,7 @@ export const POST = async (req: Request) => {
     question: processedQuestion,
     streaming: true,
     override: {
-      sessionId: intentRecognizerPrediction.sessionId,
+      chatId: intentRecognizerPrediction.chatId,
     },
   });
 

@@ -103,7 +103,7 @@ export function ChatInterface({
               question: messageText,
               character: characterId,
               walletAddress,
-              sessionId: firstAskQuestionResponse.sessionId,
+              chatId: firstAskQuestionResponse.chatId,
             }),
           });
 
@@ -154,7 +154,7 @@ export function ChatInterface({
         }
       });
     },
-    [isPending, walletAddress, characterId, firstAskQuestionResponse.sessionId],
+    [isPending, walletAddress, characterId, firstAskQuestionResponse.chatId],
   );
 
   const handleSubmit = useCallback(() => {
