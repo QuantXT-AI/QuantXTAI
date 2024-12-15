@@ -7,7 +7,7 @@ import { ChatInterface } from "./_components/chat-interface";
 import { SidebarCharacterSelector } from "./_components/sidebar-character-selector";
 import { VideoDisplay } from "./_components/video-display";
 
-export const maxDuration = 300; // 5 minutes
+export const maxDuration = 60; // 1 minute
 
 export default async function CharacterPage({
   params,
