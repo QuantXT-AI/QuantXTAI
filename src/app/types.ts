@@ -1,3 +1,5 @@
+import type { CHATFLOW_MAPPING } from "@/config";
+
 export interface AgentMessage {
   agentName: string;
   messages: unknown[];
@@ -9,12 +11,23 @@ export interface AgentMessage {
   state?: Record<string, unknown>;
 }
 
-export interface AIResponse {
+export interface InitiatePredictionResponse {
   text: string;
   question: string;
   chatId: string;
   chatMessageId: string;
+  isStreamValid: boolean;
   sessionId: string;
   memoryType: string;
-  agentReasoning: AgentMessage[];
+}
+
+export interface IntentRecognizerResponse {
+  json: {
+    intent: keyof typeof CHATFLOW_MAPPING;
+  };
+  question: string;
+  chatId: string;
+  chatMessageId: string;
+  isStreamValid: boolean;
+  sessionId: string;
 }

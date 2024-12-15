@@ -1,8 +1,11 @@
 import { Suspense } from "react";
 
 import { ChatInterfaceSkeleton } from "@/app/(public)/chatbot/[character]/_components/chat-interface-skeleton";
-import { askQuestion } from "@/app/action";
-import type { AIResponse } from "@/app/types";
+import type { InitiatePredictionResponse } from "@/app/types";
+import { CHATFLOW_MAPPING } from "@/config";
+import { CHARACTERS } from "@/config";
+import { env } from "@/env";
+import { FlowiseClient } from "flowise-sdk";
 import { ChatInterface } from "./_components/chat-interface";
 import { SidebarCharacterSelector } from "./_components/sidebar-character-selector";
 
@@ -18,10 +21,19 @@ export default async function CharacterPage({
   const { character } = await params;
   const { walletAddress } = await searchParams;
 
-  const firstAskQuestionPromise = getInitialMessage({
-    character,
-    walletAddress,
+  const characterTrait = CHARACTERS.find((c) => c.id === character)?.name;
+
+  const processedQuestion = `User Wallet Address: ${walletAddress}\nCharacter Trait: ${characterTrait}\nUser Text: Say hi and introduce yourself`;
+
+  const client = new FlowiseClient({
+    baseUrl: "https://flow.kata.ai",
+    apiKey: env.AI_API_KEY,
   });
+
+  const firstAskQuestionPromise = client.createPrediction({
+    chatflowId: CHATFLOW_MAPPING.FAQ,
+    question: processedQuestion,
+  }) as Promise<InitiatePredictionResponse>;
 
   return (
     <div className="relative min-h-screen overflow-hidden">
@@ -49,27 +61,4 @@ export default async function CharacterPage({
       </div>
     </div>
   );
-}
-
-function getInitialMessage({
-  character,
-  walletAddress,
-}: {
-  character: string;
-  walletAddress: string | undefined;
-}) {
-  if (!walletAddress) {
-    return Promise.resolve({
-      text: "Hello! Please insert your Ethereum wallet address first.",
-    } as AIResponse);
-  }
-
-  const greeting =
-    "Hello! Please pause and introduce yourself without proceeding with any analysis.";
-
-  return askQuestion({
-    question: greeting,
-    character,
-    walletAddress,
-  });
 }

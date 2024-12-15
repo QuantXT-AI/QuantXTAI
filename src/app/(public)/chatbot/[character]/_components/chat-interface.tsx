@@ -10,11 +10,9 @@ import {
   useTransition,
 } from "react";
 
-import { askQuestion } from "@/app/action";
-import type { AIResponse } from "@/app/types";
-
 import useCharacter from "@/providers/character";
 
+import type { InitiatePredictionResponse } from "@/app/types";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { ChatMessage } from "./chat-message";
 import { FAQComponent } from "./faq-component";
@@ -35,10 +33,11 @@ export function ChatInterface({
   character,
 }: {
   walletAddress?: string;
-  firstAskQuestionPromise: Promise<AIResponse>;
+  firstAskQuestionPromise: Promise<InitiatePredictionResponse>;
   character: string;
 }) {
-  const askQuestionResponse = use(firstAskQuestionPromise);
+  const firstAskQuestionResponse = use(firstAskQuestionPromise);
+  console.log(firstAskQuestionResponse);
 
   const { characterId, characters, setCharacterId } = useCharacter();
   const characterAvatarImage = "/placeholder.svg";
@@ -52,11 +51,11 @@ export function ChatInterface({
 
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<ChatMessageItem[]>(
-    askQuestionResponse?.text
+    firstAskQuestionResponse.text
       ? [
           {
             role: "assistant" as const,
-            content: askQuestionResponse.text,
+            content: firstAskQuestionResponse.text,
             timestamp: new Date(),
           },
         ]
@@ -94,21 +93,49 @@ export function ChatInterface({
       startTransition(async () => {
         try {
           if (!walletAddress) return;
-          const response = await askQuestion({
-            question: messageText,
-            character: characterId,
-            walletAddress,
-            chatId: askQuestionResponse.chatId,
+
+          const response = await fetch("/ask-question", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              question: messageText,
+              character: characterId,
+              walletAddress,
+              sessionId: firstAskQuestionResponse.sessionId,
+            }),
           });
 
-          setMessages((prev) => [
-            ...prev.slice(0, -1),
-            {
-              role: "assistant",
-              content: response.text,
-              timestamp: new Date(),
-            },
-          ]);
+          if (!response.ok) {
+            throw new Error("Failed to fetch response");
+          }
+
+          const reader = response.body?.getReader();
+          if (!reader) {
+            return;
+          }
+
+          const decoder = new TextDecoder();
+          let data = "";
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) {
+              break;
+            }
+            const decodedChunk = decoder.decode(value);
+            data += decodedChunk;
+
+            setMessages((prev) => [
+              ...prev.slice(0, -1),
+              {
+                role: "assistant",
+                content: data,
+                timestamp: new Date(),
+              },
+            ]);
+          }
         } catch (error) {
           console.error(error);
           setMessages((prev) => [
@@ -127,7 +154,7 @@ export function ChatInterface({
         }
       });
     },
-    [isPending, walletAddress, characterId, askQuestionResponse.chatId],
+    [isPending, walletAddress, characterId, firstAskQuestionResponse.sessionId],
   );
 
   const handleSubmit = useCallback(() => {
@@ -171,7 +198,11 @@ export function ChatInterface({
             <AnimatePresence initial={true}>
               {messages.map((message, index) => (
                 <motion.div
-                  key={`${message.role}-${message.timestamp.getTime()}`}
+                  key={`${message.role}-${index}`}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
                 >
                   <ChatMessage
                     message={message}

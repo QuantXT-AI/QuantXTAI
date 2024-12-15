@@ -85,7 +85,7 @@ export const AskQuestionRequestSchema = z.object({
     .refine(validateEVMAddress, {
       message: "Invalid Ethereum wallet address. Please check and try again.",
     }),
-  chatId: z.string().optional(),
+  sessionId: z.string().optional(),
 });
 
 export type AskQuestionRequest = z.infer<typeof AskQuestionRequestSchema>;
