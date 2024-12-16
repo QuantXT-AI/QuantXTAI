@@ -86,6 +86,13 @@ export const RektCheckerRequestSchema = z.object({
 
 export type RektCheckerRequest = z.infer<typeof RektCheckerRequestSchema>;
 
+export const ChatMessageSchema = z.object({
+  role: z.enum(["apiMessage", "userMessage"]),
+  content: z.string(),
+});
+
+export type ChatMessage = z.infer<typeof ChatMessageSchema>;
+
 export const AskQuestionRequestSchema = z.object({
   question: z
     .string()
@@ -101,7 +108,10 @@ export const AskQuestionRequestSchema = z.object({
     .refine(validateEVMAddress, {
       message: "Invalid Ethereum wallet address. Please check and try again.",
     }),
-  chatId: z.string().optional(),
+  sessionId: z.string().optional(),
+  history: z
+    .array(ChatMessageSchema.pick({ role: true, content: true }))
+    .optional(),
 });
 
 export type AskQuestionRequest = z.infer<typeof AskQuestionRequestSchema>;

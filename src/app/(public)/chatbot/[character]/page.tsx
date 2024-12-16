@@ -67,8 +67,8 @@ async function getInitialMessage({
     } as InitiatePredictionResponse);
   }
 
-  const characterTrait = CHARACTERS.find((c) => c.id === character)?.name;
-  const processedQuestion = `User Wallet Address: ${walletAddress}\nCharacter Trait: ${characterTrait}\nUser Text: Say hi and introduce yourself`;
+  const characterName = CHARACTERS.find((c) => c.id === character)?.name;
+  const question = "Say hi and introduce yourself";
 
   const client = new FlowiseClient({
     baseUrl: "https://flow.kata.ai",
@@ -77,6 +77,12 @@ async function getInitialMessage({
 
   return client.createPrediction({
     chatflowId: CHATFLOW_MAPPING.FAQ,
-    question: processedQuestion,
+    question,
+    overrideConfig: {
+      vars: {
+        wallet_address: walletAddress,
+        character: characterName,
+      },
+    },
   }) as Promise<InitiatePredictionResponse>;
 }

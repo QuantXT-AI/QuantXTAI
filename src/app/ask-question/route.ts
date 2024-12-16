@@ -7,14 +7,12 @@ import { FlowiseClient } from "flowise-sdk";
 import { NextResponse } from "next/server";
 
 export const POST = async (req: Request) => {
-  const { question, character, walletAddress, chatId } =
+  const { question, character, walletAddress, sessionId, history } =
     AskQuestionRequestSchema.parse(await req.json());
 
   await checkRateLimit(walletAddress, 10, "1 m", "chat_ask");
 
-  const characterTrait = CHARACTERS.find((c) => c.id === character)?.name;
-
-  const processedQuestion = `User Wallet Address: ${walletAddress}\nCharacter Trait: ${characterTrait}\nUser Text: ${question}`;
+  const characterName = CHARACTERS.find((c) => c.id === character)?.name;
 
   const client = new FlowiseClient({
     baseUrl: "https://flow.kata.ai",
@@ -23,9 +21,14 @@ export const POST = async (req: Request) => {
 
   const intentRecognizerPrediction = (await client.createPrediction({
     chatflowId: CHATFLOW_MAPPING.INTENT_RECOGNIZER,
-    question: processedQuestion,
+    question,
     overrideConfig: {
-      ...(chatId ? { chatId } : {}),
+      ...(sessionId ? { sessionId } : {}),
+      vars: {
+        wallet_address: walletAddress,
+        character: characterName,
+        history,
+      },
     },
   })) as IntentRecognizerResponse;
 
@@ -40,11 +43,17 @@ export const POST = async (req: Request) => {
 
   const prediction = await client.createPrediction({
     chatflowId: CHATFLOW_MAPPING[intent],
-    question: processedQuestion,
+    question,
     streaming: true,
     override: {
-      chatId: intentRecognizerPrediction.chatId,
+      sessionId: intentRecognizerPrediction.sessionId,
+      wallet_address: walletAddress,
+      character: characterName,
     },
+    history: history?.map((message) => ({
+      message: message.content,
+      type: message.role,
+    })),
   });
 
   const stream = new ReadableStream({

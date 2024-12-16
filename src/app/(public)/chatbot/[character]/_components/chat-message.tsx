@@ -10,7 +10,7 @@ import { cn, formatRelativeTime } from "@/lib/utils";
 
 interface ChatMessageProps {
   message: {
-    role: "assistant" | "user";
+    role: "apiMessage" | "userMessage";
     content: string;
     error?: boolean;
     timestamp: Date;
@@ -47,7 +47,7 @@ export function ChatMessage({
     <motion.div
       className={cn(
         "flex items-start gap-4",
-        message.role === "assistant" ? "justify-start" : "justify-end",
+        message.role === "apiMessage" ? "justify-start" : "justify-end",
       )}
       initial={{ opacity: 0, y: 10, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -56,7 +56,7 @@ export function ChatMessage({
         ease: "easeOut",
       }}
     >
-      {message.role === "assistant" && (
+      {message.role === "apiMessage" && (
         <div
           style={{ backgroundColor: characterPrimaryColor }}
           className={cn(
@@ -76,14 +76,16 @@ export function ChatMessage({
       <motion.div
         className={cn(
           "rounded-[12px] px-4 py-2",
-          message.role === "assistant"
+          message.role === "apiMessage"
             ? "bg-muted text-foreground"
             : "bg-neutral-300 text-foreground",
           message.error && "border-2 border-red-500",
-          message.role === "assistant" &&
+          message.role === "apiMessage" &&
             isPending &&
             "animate-pulse bg-muted/50",
-          message.role === "user" && isPending && "animate-pulse bg-primary/50",
+          message.role === "userMessage" &&
+            isPending &&
+            "animate-pulse bg-primary/50",
         )}
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
       >

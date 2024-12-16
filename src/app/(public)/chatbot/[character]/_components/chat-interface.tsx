@@ -14,15 +14,14 @@ import useCharacter from "@/providers/character";
 
 import type { InitiatePredictionResponse } from "@/app/types";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import type { ChatMessage as ChatMessageType } from "@/dto";
 import { ChatMessage } from "./chat-message";
 import { FAQComponent } from "./faq-component";
 import { InputSection } from "./input-section";
 import { QuickChatOptions } from "./quick-chat-options";
 import { WalletAddressSection } from "./wallet-address-section";
 
-interface ChatMessageItem {
-  role: "assistant" | "user";
-  content: string;
+interface ChatMessageItem extends ChatMessageType {
   error?: boolean;
   timestamp: Date;
 }
@@ -53,7 +52,7 @@ export function ChatInterface({
     firstAskQuestionResponse.text
       ? [
           {
-            role: "assistant" as const,
+            role: "apiMessage" as const,
             content: firstAskQuestionResponse.text,
             timestamp: new Date(),
           },
@@ -72,7 +71,7 @@ export function ChatInterface({
       if (!messageText.trim() || isPending) return;
 
       const userMessage: ChatMessageItem = {
-        role: "user",
+        role: "userMessage",
         content: messageText,
         timestamp: new Date(),
       };
@@ -83,7 +82,7 @@ export function ChatInterface({
       setMessages((prev) => [
         ...prev,
         {
-          role: "assistant",
+          role: "apiMessage",
           content: "Thinking...",
           timestamp: new Date(),
         },
@@ -102,7 +101,11 @@ export function ChatInterface({
               question: messageText,
               character: characterId,
               walletAddress,
-              chatId: firstAskQuestionResponse.chatId,
+              sessionId: firstAskQuestionResponse.sessionId,
+              history: messages.slice(-4).map((message) => ({
+                role: message.role,
+                content: message.content,
+              })), // Get only 4 last messages
             }),
           });
 
@@ -129,7 +132,7 @@ export function ChatInterface({
             setMessages((prev) => [
               ...prev.slice(0, -1),
               {
-                role: "assistant",
+                role: "apiMessage",
                 content: data,
                 timestamp: new Date(),
               },
@@ -140,7 +143,7 @@ export function ChatInterface({
           setMessages((prev) => [
             ...prev.slice(0, -1),
             {
-              role: "assistant",
+              role: "apiMessage",
               content: "Sorry, CryAIstal is busy. Please try again.",
               error: true,
               timestamp: new Date(),
@@ -153,7 +156,13 @@ export function ChatInterface({
         }
       });
     },
-    [isPending, walletAddress, characterId, firstAskQuestionResponse.chatId],
+    [
+      isPending,
+      walletAddress,
+      characterId,
+      firstAskQuestionResponse.sessionId,
+      messages,
+    ],
   );
 
   const handleSubmit = useCallback(() => {
@@ -210,7 +219,7 @@ export function ChatInterface({
                     characterPrimaryColor={characterPrimaryColor}
                     characterId={characterId}
                   />
-                  {message.role === "assistant" &&
+                  {message.role === "apiMessage" &&
                     index === 0 &&
                     walletAddress && (
                       <FAQComponent
