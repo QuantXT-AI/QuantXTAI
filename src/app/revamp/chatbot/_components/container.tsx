@@ -6,12 +6,15 @@ import { useForm } from "react-hook-form";
 
 import Link from "next/link";
 
+import { WalletAddressRequestSchema } from "@/dto";
+import { formatZodError } from "@/lib/utils";
 import {
   ArrowRightIcon,
   ChevronLeftIcon,
   WalletIcon,
   XIcon,
 } from "lucide-react";
+import Form from "next/form";
 import Image from "next/image";
 import { toast } from "sonner";
 import EvilSection from "./evil-section";
@@ -23,13 +26,35 @@ interface ContainerProps {
   type: string;
 }
 
+type FormValues = {
+  _walletAddress: string;
+  walletAddress: string;
+  message: string;
+};
+
 export default function Container({ type }: ContainerProps) {
-  const form = useForm();
+  const form = useForm<FormValues>();
 
   const [chatbotType, setchatbotType] = useState<string | null>(null);
 
   const handleValidateWalletAddress = () => {
+    const validate = WalletAddressRequestSchema.safeParse({
+      walletAddress: form.getValues("_walletAddress"),
+    });
+
+    if (!validate?.success) {
+      toast.error(formatZodError(validate?.error).details?.[0].message);
+      return;
+    }
+
     form.setValue("walletAddress", form.getValues("_walletAddress"));
+    localStorage.setItem("walletAddress", form.getValues("_walletAddress"));
+  };
+
+  const handleClearWalletAddress = () => {
+    form.setValue("_walletAddress", "");
+    form.setValue("walletAddress", "");
+    localStorage.removeItem("walletAddress");
   };
 
   useEffect(() => {
@@ -39,6 +64,15 @@ export default function Container({ type }: ContainerProps) {
       setchatbotType(chatbotTypeItems?.[0]);
     }
   }, [type]);
+
+  useEffect(() => {
+    const walletAddress = localStorage.getItem("walletAddress");
+
+    if (walletAddress) {
+      form.setValue("_walletAddress", walletAddress);
+      form.setValue("walletAddress", walletAddress);
+    }
+  }, []);
 
   if (!chatbotTypeItems?.includes(type?.toUpperCase())) {
     return <></>;
@@ -106,15 +140,12 @@ export default function Container({ type }: ContainerProps) {
                     <h4 className="text-xl font-bold text-white">GOOD</h4>
                   </div>
                 )}
-                <form
+                <Form
+                  action=""
                   onSubmit={(e) => {
                     e.preventDefault();
 
-                    if (form.getValues("_walletAddress")) {
-                      handleValidateWalletAddress();
-                    } else {
-                      toast.error("Please enter your wallet address");
-                    }
+                    handleValidateWalletAddress();
                   }}
                   className="relative w-full md:max-w-[480px]"
                 >
@@ -126,7 +157,7 @@ export default function Container({ type }: ContainerProps) {
                         ? "cursor-not-allowed bg-white/25 opacity-75"
                         : ""
                     }`}
-                    disabled={form.watch("walletAddress")}
+                    disabled={!!form.watch("walletAddress")}
                     {...form.register("_walletAddress")}
                   />
                   <div className="absolute left-4 top-1/2 -translate-y-1/2">
@@ -146,8 +177,7 @@ export default function Container({ type }: ContainerProps) {
                       type="button"
                       className="absolute right-2 top-1/2 -translate-y-1/2"
                       onClick={() => {
-                        form.setValue("_walletAddress", "");
-                        form.setValue("walletAddress", "");
+                        handleClearWalletAddress();
                       }}
                     >
                       <div className="rounded-full bg-white/10 p-2">
@@ -155,16 +185,16 @@ export default function Container({ type }: ContainerProps) {
                       </div>
                     </button>
                   )}
-                </form>
+                </Form>
               </div>
             </div>
           </div>
         </div>
       </div>
       {chatbotType === "GOOD" ? (
-        <GoodSection form={form as any} />
+        <GoodSection form={form} />
       ) : (
-        <EvilSection form={form as any} />
+        <EvilSection form={form} />
       )}
     </section>
   );

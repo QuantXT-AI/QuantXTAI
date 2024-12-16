@@ -192,13 +192,25 @@ export default function EvilSection({ form }: EvilSectionProps) {
                     <input
                       type="text"
                       placeholder="Ask me anything..."
-                      className="w-full rounded-full border border-white/25 bg-black/25 px-4 py-4 text-sm text-white"
+                      className={`w-full rounded-full border border-white/25 bg-black/25 px-4 py-4 text-sm text-white ${
+                        !form.watch("walletAddress")
+                          ? "cursor-not-allowed bg-white/25 opacity-75"
+                          : ""
+                      }`}
+                      disabled={!form.watch("walletAddress")}
                       {...form.register("message")}
                     />
                   </div>
                   <button
                     type="submit"
-                    className="min-h-[58px] min-w-[58px] rounded-full border border-white/25 bg-black/25 text-white"
+                    className={`min-h-[58px] min-w-[58px] rounded-full border border-white/25 bg-black/25 text-white ${
+                      form.watch("message") || !form.watch("walletAddress")
+                        ? "cursor-not-allowed bg-white/25 opacity-75"
+                        : ""
+                    }`}
+                    disabled={
+                      !!form.watch("message") || !form.watch("walletAddress")
+                    }
                   >
                     <div className="flex h-full w-full items-center justify-center">
                       <Image
