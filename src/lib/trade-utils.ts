@@ -5,7 +5,7 @@ const STABLECOIN_ADDRESSES = {
 
 // Helper function to check if token is a stablecoin
 export function isStablecoin(address: string): boolean {
-  return Object.values(STABLECOIN_ADDRESSES).includes(address.toUpperCase());
+  return Object.values(STABLECOIN_ADDRESSES).includes(address);
 }
 
 // Helper function to get the checker link
