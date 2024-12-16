@@ -22,14 +22,14 @@ export const POST = async (req: Request) => {
   const historyString = history
     ?.map(
       (message) =>
-        `${message.role}: ${message.content
+        `[${message.role}] ${message.content
           .replace(/[\n\r]/g, " ") // Replace newlines with spaces
           .replace(/[^\x20-\x7E]/g, "") // Remove non-printable characters
           .replace(/"/g, '\\"') // Escape double quotes
           .replace(/[{}]/g, "") // Remove curly braces to avoid variable interpolation
           .trim()}`,
     )
-    .join("\n---\n");
+    .join(", ");
 
   const intentRecognizerPrediction = (await client.createPrediction({
     chatflowId: CHATFLOW_MAPPING.INTENT_RECOGNIZER,
