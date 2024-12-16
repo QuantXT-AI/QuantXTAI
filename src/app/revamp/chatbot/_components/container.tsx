@@ -3,7 +3,6 @@
 
 import { cn } from "@/utils/classname";
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 
 import Link from "next/link";
 
@@ -19,7 +18,6 @@ import {
 import Form from "next/form";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { toast } from "sonner";
 import EvilSection from "./evil-section";
 import GoodSection from "./good-section";
 
@@ -31,44 +29,38 @@ interface ContainerProps {
   firstAskQuestionPromise: Promise<InitiatePredictionResponse>;
 }
 
-type FormValues = {
-  walletAddress: string;
-  message: string;
-};
-
 export default function Container({
   type,
   walletAddress,
   firstAskQuestionPromise,
 }: ContainerProps) {
   const router = useRouter();
-  const form = useForm<FormValues>({
-    defaultValues: {
-      walletAddress: walletAddress || "",
-      message: "",
-    },
-  });
 
+  const [inputWalletAddress, setInputWalletAddress] = useState<string>(
+    walletAddress ?? "",
+  );
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [chatbotType, setchatbotType] = useState<string | null>(null);
 
   const handleValidateWalletAddress = () => {
     const validate = WalletAddressRequestSchema.safeParse({
-      walletAddress: form.watch("walletAddress"),
+      walletAddress: inputWalletAddress,
     });
 
     if (!validate?.success) {
-      toast.error(formatZodError(validate?.error).details?.[0].message);
+      setErrorMessage(formatZodError(validate?.error).details?.[0].message);
       return;
     }
 
+    setErrorMessage(null);
     router.push(
-      `/revamp/chatbot?type=${chatbotType}&walletAddress=${form.watch(
-        "walletAddress",
-      )}`,
+      `/revamp/chatbot?type=${chatbotType}&walletAddress=${inputWalletAddress}`,
     );
   };
 
   const handleClearWalletAddress = () => {
+    setInputWalletAddress("");
+    setErrorMessage(null);
     router.push(`/revamp/chatbot?type=${chatbotType}`);
   };
 
@@ -158,13 +150,14 @@ export default function Container({
                   <input
                     type="text"
                     placeholder="ENTER YOUR WALLET ADDRESS"
-                    className={`w-full rounded-full bg-white/10 px-12 py-4 text-sm text-white ${
+                    className={`w-full rounded-full px-12 py-4 text-sm text-white ${
                       walletAddress
-                        ? "cursor-not-allowed bg-white/25 opacity-75"
-                        : ""
+                        ? "cursor-not-allowed opacity-50"
+                        : "bg-white/10"
                     }`}
                     disabled={!!walletAddress}
-                    {...form.register("walletAddress")}
+                    value={inputWalletAddress}
+                    onChange={(e) => setInputWalletAddress(e.target.value)}
                   />
                   <div className="absolute left-4 top-1/2 -translate-y-1/2">
                     <WalletIcon className="h-5 w-5 text-white" />
@@ -204,6 +197,7 @@ export default function Container({
         <EvilSection
           walletAddress={walletAddress}
           firstAskQuestionPromise={firstAskQuestionPromise}
+          errorMessage={errorMessage}
         />
       )}
     </section>

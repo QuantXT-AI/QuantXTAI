@@ -1,0 +1,110 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+"use client";
+
+import Image from "next/image";
+import React from "react";
+import ReactMarkdown from "react-markdown";
+import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
+
+export interface IMessage {
+  id?: string;
+  role?: string;
+  content?: string;
+  error?: boolean;
+  timestamp?: Date;
+}
+
+interface IProps {
+  item: IMessage;
+  isPending: boolean;
+  key: number;
+  index: number;
+}
+
+export default function ChatItem({ item, isPending, index }: IProps) {
+  if (item?.role !== "assistant") {
+    return (
+      <motion.div
+        className={cn(
+          "flex items-center justify-end gap-4",
+          isPending && "animate-pulse",
+        )}
+        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{
+          duration: 0.25,
+          ease: "easeOut",
+        }}
+        key={index}
+      >
+        <div className="w-[80%]">
+          <motion.div
+            className={cn("rounded-[16px] bg-white/10 p-4")}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+          >
+            <ReactMarkdown
+              className={cn(
+                "prose max-w-none text-sm text-white",
+                isPending && "animate-pulse",
+                item?.error && "text-red-500",
+              )}
+              components={{
+                a: ({ node, ...props }) => (
+                  <a target="_blank" rel="noopener noreferrer" {...props} />
+                ),
+              }}
+            >
+              {item?.content}
+            </ReactMarkdown>
+          </motion.div>
+        </div>
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.div
+      className={cn(
+        "flex w-full items-start justify-start gap-2",
+        isPending && "animate-pulse",
+      )}
+      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{
+        duration: 0.25,
+        ease: "easeOut",
+      }}
+      key={index}
+    >
+      <Image
+        src="/assets/chatbot/evil-icon.png"
+        alt="avatar"
+        width={480}
+        height={480}
+        className="h-12 w-auto"
+      />
+      <div className="flex w-full items-center justify-start gap-4">
+        <div className="w-[80%] p-4 pt-0">
+          <motion.div
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+          >
+            <ReactMarkdown
+              className={cn(
+                "prose max-w-none text-sm text-white",
+                item?.error && "text-red-500",
+              )}
+              components={{
+                a: ({ node, ...props }) => (
+                  <a target="_blank" rel="noopener noreferrer" {...props} />
+                ),
+              }}
+            >
+              {item?.content}
+            </ReactMarkdown>
+          </motion.div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
