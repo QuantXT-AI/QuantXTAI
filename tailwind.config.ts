@@ -73,6 +73,24 @@ export default {
           "50%": { transform: "translate(4px, -4px)" },
         },
       },
+      typography: () => ({
+        DEFAULT: {
+          css: {
+            color: "white",
+            h1: { color: "white" },
+            h2: { color: "white" },
+            h3: { color: "white" },
+            a: { color: "white" },
+            "a:hover": { color: "white" },
+            strong: { color: "white" },
+            code: { color: "white" },
+            blockquote: {
+              color: "white",
+              borderLeftColor: "white",
+            },
+          },
+        },
+      }),
     },
   },
   // eslint-disable-next-line @typescript-eslint/no-require-imports
