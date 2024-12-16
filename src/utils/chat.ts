@@ -13,12 +13,12 @@ export async function getInitialMessage({
 }) {
   if (!walletAddress) {
     return Promise.resolve({
-      text: "Hello! Please insert your Ethereum wallet address first.",
+      text: "Hello! Please insert your Ethereum address or ENS name first.",
     } as InitiatePredictionResponse);
   }
 
-  const characterTrait = CHARACTERS.find((c) => c.id === character)?.name;
-  const processedQuestion = `User Wallet Address: ${walletAddress}\nCharacter Trait: ${characterTrait}\nUser Text: Say hi and introduce yourself`;
+  const characterName = CHARACTERS.find((c) => c.id === character)?.name;
+  const question = "Say hi and introduce yourself";
 
   const client = new FlowiseClient({
     baseUrl: "https://flow.kata.ai",
@@ -27,6 +27,12 @@ export async function getInitialMessage({
 
   return client.createPrediction({
     chatflowId: CHATFLOW_MAPPING.FAQ,
-    question: processedQuestion,
+    question,
+    overrideConfig: {
+      vars: {
+        wallet_address: walletAddress,
+        character: characterName,
+      },
+    },
   }) as Promise<InitiatePredictionResponse>;
 }

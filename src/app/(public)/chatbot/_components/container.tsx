@@ -53,14 +53,14 @@ export default function Container({
 
     setErrorMessage(null);
     router.push(
-      `/chatbot-new?type=${chatbotType}&walletAddress=${inputWalletAddress}`,
+      `/chatbot?type=${chatbotType}&walletAddress=${inputWalletAddress}`,
     );
   };
 
   const handleClearWalletAddress = () => {
     setInputWalletAddress("");
     setErrorMessage(null);
-    router.push(`/chatbot-new?type=${chatbotType}`);
+    router.push(`/chatbot?type=${chatbotType}`);
   };
 
   useEffect(() => {
@@ -94,7 +94,7 @@ export default function Container({
 
                     return (
                       <a
-                        href={`/chatbot-new?type=${type}&walletAddress=${walletAddress ? walletAddress : ""}`}
+                        href={`/chatbot?type=${type}&walletAddress=${walletAddress ? walletAddress : ""}`}
                         className={cn(
                           "flex w-24 items-center justify-center rounded-md px-4 py-2 font-medium text-sm text-white",
                           isActive
@@ -148,7 +148,7 @@ export default function Container({
                 >
                   <input
                     type="text"
-                    placeholder="ENTER YOUR WALLET ADDRESS"
+                    placeholder="ENTER YOUR ETHEREUM ADDRESS OR ENS NAME"
                     className={`w-full rounded-full px-12 py-4 text-sm text-white ${
                       walletAddress
                         ? "cursor-not-allowed opacity-50"

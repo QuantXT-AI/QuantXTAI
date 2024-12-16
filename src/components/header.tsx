@@ -18,7 +18,7 @@ const navItems = [
   },
   {
     title: "CHATBOT",
-    href: "/chatbot-new?type=EVIL",
+    href: "/chatbot?type=EVIL",
   },
   {
     title: "ABOUT",

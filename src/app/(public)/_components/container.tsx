@@ -16,13 +16,13 @@ const Section6 = dynamic(() => import("./section-6"), {
 
 export default function Container() {
   return (
-    <>
+    <div className="relative min-h-screen overflow-x-hidden">
       <Section1 />
       <Section4 />
       <Section5 />
       <Section6 />
       <Section7 />
       <Section8 />
-    </>
+    </div>
   );
 }
