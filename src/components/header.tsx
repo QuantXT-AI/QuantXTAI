@@ -14,11 +14,11 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/sheet";
 const navItems = [
   {
     title: "HOME",
-    href: "/revamp/chatbot",
+    href: "/revamp",
   },
   {
     title: "CHATBOT",
-    href: "/revamp/chatbot",
+    href: "/revamp/chatbot?type=EVIL",
   },
   {
     title: "ABOUT",
@@ -107,7 +107,7 @@ export default function Header() {
                                 return (
                                   <Link
                                     href={link?.href}
-                                    className="flex items-center gap-2 rounded-lg py-2 px-2 hover:bg-white/10"
+                                    className="flex items-center gap-2 rounded py-2 px-2 hover:bg-white/10"
                                     key={index}
                                   >
                                     <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 bg-white/10">

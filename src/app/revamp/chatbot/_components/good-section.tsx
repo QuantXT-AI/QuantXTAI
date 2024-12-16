@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, UseFormReturn } from "react-hook-form";
 
 import Image from "next/image";
 
@@ -25,9 +25,11 @@ type FormValues = {
   message: string;
 };
 
-export default function GoodSection() {
-  const form = useForm<FormValues>();
+interface GoodSectionProps {
+  form: UseFormReturn<FormValues>;
+}
 
+export default function GoodSection({ form }: GoodSectionProps) {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   const handleSubmit = (values: FormValues) => {
