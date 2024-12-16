@@ -1,73 +1,67 @@
+import { env } from "@/env";
 import { unstable_cache } from "next/cache";
 
-// Updated interface to match DexScreener response
+// Updated interface to match Birdeye response
 export interface SearchTickerData {
-  chainId: string;
-  dexId: string;
-  pairAddress: string;
-  baseToken: {
-    address: string;
-    name: string;
-    symbol: string;
-  };
-  quoteToken: {
-    address: string;
-    name: string;
-    symbol: string;
-  };
-  priceUsd: string;
-  liquidity: {
-    usd: number;
-  };
+  name: string;
+  symbol: string;
+  address: string;
+  fdv: number;
+  liquidity: number;
+  price: number;
+  network: string;
+  logo_uri: string;
 }
 
 interface SearchTickerResponse {
-  schemaVersion: string;
-  pairs: SearchTickerData[];
+  data: {
+    items: {
+      type: string;
+      result: SearchTickerData[];
+    }[];
+  };
 }
 
 export const searchTicker = async (ticker: string): Promise<string | null> => {
   const normalizedTicker = normalizeSymbol(ticker);
 
-  // Try ticker/WETH first
-  let searchResponse = await fetch(
-    `https://api.dexscreener.com/latest/dex/search?q=${encodeURIComponent(`${normalizedTicker}/WETH`)}`,
+  const searchParams = new URLSearchParams({
+    chain: "ethereum",
+    keyword: normalizedTicker,
+    target: "token",
+    sort_by: "liquidity",
+    sort_type: "desc",
+    offset: "0",
+    limit: "20",
+  });
+
+  const response = await fetch(
+    `https://public-api.birdeye.so/defi/v3/search?${searchParams}`,
     {
       headers: {
         accept: "application/json",
+        "X-API-KEY": env.BIRDEYE_API_KEY,
       },
     },
   );
 
-  let searchData = (await searchResponse.json()) as SearchTickerResponse;
-
-  if (!searchResponse.ok) {
+  if (!response.ok) {
     throw new Error("Failed to fetch search ticker data");
   }
 
-  // If no results, try ticker/USDC
-  if (!searchData.pairs || searchData.pairs.length === 0) {
-    searchResponse = await fetch(
-      `https://api.dexscreener.com/latest/dex/search?q=${encodeURIComponent(`${normalizedTicker}/USDC`)}`,
-      {
-        headers: {
-          accept: "application/json",
-        },
-      },
-    );
-    searchData = (await searchResponse.json()) as SearchTickerResponse;
-  }
+  const searchData = (await response.json()) as SearchTickerResponse;
 
-  // Filter for Ethereum pairs and matching symbols
-  const matchingPairs = searchData.pairs?.filter(
-    (pair) =>
-      pair.chainId === "ethereum" &&
-      isSymbolMatch(normalizedTicker, pair.baseToken.symbol),
+  // Find the first token item in the response
+  const tokenItem = searchData.data.items.find((item) => item.type === "token");
+
+  // Filter for matching symbols
+  const matchingTokens = tokenItem?.result.filter((token) =>
+    isSymbolMatch(normalizedTicker, token.symbol),
   );
 
-  // Return the first matching pair's base token address
-  if (matchingPairs && matchingPairs.length > 0) {
-    return matchingPairs[0].baseToken.address;
+  // Return the first matching token's address
+  if (matchingTokens && matchingTokens.length > 0) {
+    return matchingTokens[0].address;
   }
 
   return null;
@@ -79,9 +73,9 @@ export const getCachedSearchTicker = (ticker: string) => {
     async () => {
       return searchTicker(ticker);
     },
-    ["dexscreener", "search-ticker", normalizedTicker],
+    ["birdeye", "search-ticker", normalizedTicker],
     {
-      tags: ["dexscreener", `dexscreener_search-ticker_${normalizedTicker}`],
+      tags: ["birdeye", `birdeye_search-ticker_${normalizedTicker}`],
       revalidate: 30 * 24 * 60 * 60, // Cache for 30 days
     },
   )();
