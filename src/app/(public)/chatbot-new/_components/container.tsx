@@ -53,14 +53,14 @@ export default function Container({
 
     setErrorMessage(null);
     router.push(
-      `/chatbot?type=${chatbotType}&walletAddress=${inputWalletAddress}`,
+      `/chatbot-new?type=${chatbotType}&walletAddress=${inputWalletAddress}`,
     );
   };
 
   const handleClearWalletAddress = () => {
     setInputWalletAddress("");
     setErrorMessage(null);
-    router.push(`/chatbot?type=${chatbotType}`);
+    router.push(`/chatbot-new?type=${chatbotType}`);
   };
 
   useEffect(() => {
@@ -94,7 +94,7 @@ export default function Container({
 
                     return (
                       <a
-                        href={`/chatbot?type=${type}&walletAddress=${walletAddress ? walletAddress : ""}`}
+                        href={`/chatbot-new?type=${type}&walletAddress=${walletAddress ? walletAddress : ""}`}
                         className={cn(
                           "flex w-24 items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white",
                           isActive
