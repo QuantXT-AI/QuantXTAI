@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import Image from "next/image";
-import React from "react";
-import ReactMarkdown from "react-markdown";
-import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
+import Image from "next/image";
+import ReactMarkdown from "react-markdown";
 
 export interface IMessage {
   id?: string;

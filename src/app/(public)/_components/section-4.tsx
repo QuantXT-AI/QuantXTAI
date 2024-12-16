@@ -1,13 +1,10 @@
 export default function Section4() {
   return (
-    <section
-      id="features"
-      className="w-full"
-    >
+    <section id="features" className="w-full">
       <div className="container mx-auto w-full max-w-6xl overflow-x-hidden px-4 py-16">
         <div className="flex flex-col">
           <h2
-            className="mb-8 text-center text-4xl font-medium text-white/75 [text-shadow:0px_0px_4px_#FFFFFF]"
+            className="mb-8 text-center font-medium text-4xl text-white/75 [text-shadow:0px_0px_4px_#FFFFFF]"
             data-aos="fade-up"
             data-aos-delay="400"
           >
@@ -35,10 +32,10 @@ export default function Section4() {
                   </div>
                   <div className="col-span-12 md:col-span-6">
                     <div className="px-8 py-4">
-                      <h4 className="mb-2 text-xl font-semibold text-[#EBBED6]">
+                      <h4 className="mb-2 font-semibold text-[#EBBED6] text-xl">
                         ADVANCED MARKET INTELLIGENCE CURATED BY ELITE TRADERS
                       </h4>
-                      <p className="text-xs font-normal text-white/50">
+                      <p className="font-normal text-white/50 text-xs">
                         CryAIstal leverages insights and datasets derived from
                         the top 100 most consistently high-performing traders in
                         the crypto ecosystem, synthesizing their strategiies
@@ -54,10 +51,10 @@ export default function Section4() {
                 >
                   <div className="col-span-12 md:col-span-8">
                     <div className="px-8 py-4">
-                      <h4 className="mb-2 text-xl font-semibold text-[#EBBED6]">
+                      <h4 className="mb-2 font-semibold text-[#EBBED6] text-xl">
                         FUMBLE AND REKT QUANTIFICATION ENGINE
                       </h4>
-                      <p className="text-xs font-normal text-white/50">
+                      <p className="font-normal text-white/50 text-xs">
                         By interfacing with the expansive blockchain and smart
                         contract ecosystems, CryAIstal employs advanced on chain
                         analytics to quantify the extent of trading missteps,
@@ -98,10 +95,10 @@ export default function Section4() {
                   </div>
                   <div className="col-span-12 md:col-span-6">
                     <div className="px-8 py-4">
-                      <h4 className="mb-2 text-xl font-semibold text-[#EBBED6]">
+                      <h4 className="mb-2 font-semibold text-[#EBBED6] text-xl">
                         DYNAMIC TICKER DATA AGGREGATION
                       </h4>
-                      <p className="text-xs font-normal text-white/50">
+                      <p className="font-normal text-white/50 text-xs">
                         CryAIstal&apos;s advanced partnerships with X (via
                         a16z), leading Discord Aloha communities, and the top 10
                         most-utiized Telegram trading bots enable robus data
@@ -121,10 +118,10 @@ export default function Section4() {
                 >
                   <div className="mb-4">
                     <div className="px-8 py-4">
-                      <h4 className="mb-2 text-xl font-semibold text-[#EBBED6]">
+                      <h4 className="mb-2 font-semibold text-[#EBBED6] text-xl">
                         ADAPTIVE NEURAL PERSONALITY (ANP)
                       </h4>
-                      <p className="text-xs font-normal text-white/50">
+                      <p className="font-normal text-white/50 text-xs">
                         CryAistal&apos;s adaptive framework adjusts its tone and
                         context based on user bahvior, shifting fluidly between
                         incisive analysis, thought-provoking challenges, and
@@ -152,10 +149,10 @@ export default function Section4() {
                 >
                   <div className="mb-4">
                     <div className="px-8 py-4">
-                      <h4 className="mb-2 text-xl font-semibold text-[#EBBED6]">
+                      <h4 className="mb-2 font-semibold text-[#EBBED6] text-xl">
                         COMPREHENSIVE RETROSPECTIVE TRADE ANALYSIS
                       </h4>
-                      <p className="text-xs font-normal text-white/50">
+                      <p className="font-normal text-white/50 text-xs">
                         Through seamless integration with Dexscreener, CryAIstal
                         conducts a deep audit of historical trading activities,
                         offering tailored insights that evaluate user

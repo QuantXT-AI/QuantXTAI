@@ -2,7 +2,8 @@
 
 import { cn } from "@/utils/classname";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import type React from "react";
+import { useEffect, useState } from "react";
 
 const Loading = ({ children }: { children: React.ReactNode }) => {
   const [progress, setProgress] = useState(0);
@@ -27,7 +28,7 @@ const Loading = ({ children }: { children: React.ReactNode }) => {
     <>
       {isLoading && (
         <div
-          className={`fixed z-50 h-screen w-screen bg-[#2D0B1B] bg-[url('/assets/components/loading/bg.png')] bg-cover bg-center ${progress >= 80 ? "opacity-0" : "opacity-100"}`}
+          className={`fixed z-50 h-screen w-screen bg-[#2D0B1B] bg-[url('/assets/components/loading/bg.png')] bg-center bg-cover ${progress >= 80 ? "opacity-0" : "opacity-100"}`}
         >
           <div className="flex h-full w-full items-center justify-center">
             <div className="w-full px-8">
@@ -41,9 +42,9 @@ const Loading = ({ children }: { children: React.ReactNode }) => {
                 />
               </div>
               <div className="w-full">
-                <div className="h-1 w-full rounded-full bg-[#FFB68C] opacity-50 shadow-[0_0_4px_#FFB68C]"></div>
+                <div className="h-1 w-full rounded-full bg-[#FFB68C] opacity-50 shadow-[0_0_4px_#FFB68C]" />
                 <div
-                  className={cn(`-mt-[26px] flex justify-end transition-none`)}
+                  className={cn("-mt-[26px] flex justify-end transition-none")}
                   style={{ width: `${progress + 20}%` }}
                 >
                   <Image
@@ -56,7 +57,7 @@ const Loading = ({ children }: { children: React.ReactNode }) => {
                 </div>
               </div>
               <div className="flex items-center justify-center py-4">
-                <p className="text-lg font-bold text-white opacity-75 [text-shadow:0px_0px_4px_#FFFFFF]">
+                <p className="font-bold text-lg text-white opacity-75 [text-shadow:0px_0px_4px_#FFFFFF]">
                   LOADING... {progress}%
                 </p>
               </div>

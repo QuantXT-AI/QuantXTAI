@@ -83,13 +83,13 @@ export default function Section1() {
               </div>
             </div>
           </div>
-          <div className="absolute left-0 top-0 h-full w-full bg-[url('/assets/home/section-1/bg-gradient.png')] bg-cover bg-bottom bg-no-repeat">
+          <div className="absolute top-0 left-0 h-full w-full bg-[url('/assets/home/section-1/bg-gradient.png')] bg-bottom bg-cover bg-no-repeat">
             <div className="container mx-auto max-w-6xl px-4">
               <Header />
               <div className="h-full w-full pt-16">
                 <div className="flex flex-col items-start">
                   <h2
-                    className="mb-8 text-start text-6xl font-medium leading-[1.2] text-white/75 [text-shadow:0px_0px_4px_#FFFFFF]"
+                    className="mb-8 text-start font-medium text-6xl text-white/75 leading-[1.2] [text-shadow:0px_0px_4px_#FFFFFF]"
                     data-aos="fade-up"
                     data-aos-delay="1000"
                   >
@@ -102,7 +102,7 @@ export default function Section1() {
                     data-aos="fade-up"
                     data-aos-delay="1400"
                   >
-                    <span className="font-clash-display text-sm font-normal text-white">
+                    <span className="font-clash-display font-normal text-sm text-white">
                       TRY CONSOLE
                     </span>
                     <ArrowUpRightIcon className="h-4 w-4 text-white" />
@@ -114,12 +114,12 @@ export default function Section1() {
                       scene={
                         "https://prod.spline.design/TqM8pKC6mDykToT9/scene.splinecode"
                       }
-                      className="!h-[720px] min-h-[720px] !w-full"
+                      className="!h-[720px] !w-full min-h-[720px]"
                       onLoad={() => setIsLoading(false)}
-                    ></Spline>
+                    />
                   </div>
                   {isLoading && (
-                    <div className="absolute left-0 top-0 h-full w-full">
+                    <div className="absolute top-0 left-0 h-full w-full">
                       <div className="flex h-[800px] w-full items-center justify-center">
                         <LoaderIcon className="h-12 w-12 animate-spin text-white/50" />
                       </div>
@@ -128,7 +128,7 @@ export default function Section1() {
                 </div>
               </div>
             </div>
-            <div className="container mx-auto -mt-24 max-w-6xl px-4">
+            <div className="-mt-24 container mx-auto max-w-6xl px-4">
               <div className="mb-20">
                 <div className="sticky top-0 h-full">
                   <div className="mb-8 flex items-center justify-center gap-4 p-8">
@@ -155,7 +155,7 @@ export default function Section1() {
                             )}
                             <p
                               className={cn(
-                                "px-8 py-2 text-sm font-normal text-white",
+                                "px-8 py-2 font-normal text-sm text-white",
                                 index === 0 ? "-ml-4" : "",
                               )}
                             >
@@ -167,12 +167,12 @@ export default function Section1() {
                     })}
                   </div>
                 </div>
-                <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen py-16">
+                <div className="-mx-[50vw] relative right-1/2 left-1/2 w-screen py-16">
                   <Marquee className="">
                     <div className="flex items-center justify-center gap-4">
                       {[...partnerItems, ...partnerItems].map((item, index) => {
                         return (
-                          <div className="px-8" key={index}>
+                          <div className="px-8" key={`${item}-${index}`}>
                             <Image
                               src={item}
                               alt="logo"
@@ -193,7 +193,7 @@ export default function Section1() {
                   <div
                     data-aos="fade-up"
                     data-aos-delay="400"
-                    className="mb-8 text-center text-2xl font-normal text-white/50 [text-shadow:0px_0px_4px_#FFFFFF]"
+                    className="mb-8 text-center font-normal text-2xl text-white/50 [text-shadow:0px_0px_4px_#FFFFFF]"
                   >
                     INCEPTION PARTNER OF
                   </div>
@@ -210,7 +210,7 @@ export default function Section1() {
               </div>
               <div>
                 <h2
-                  className="my-24 text-center text-5xl font-medium text-white/75 [text-shadow:0px_0px_4px_#FFFFFF]"
+                  className="my-24 text-center font-medium text-5xl text-white/75 [text-shadow:0px_0px_4px_#FFFFFF]"
                   data-aos="fade-up"
                   data-aos-delay="400"
                 >
@@ -237,7 +237,7 @@ export default function Section1() {
             <div className="px-4">
               <Header />
               <h2
-                className="mb-8 text-start text-2xl font-medium leading-[1.2] text-white/75 [text-shadow:0px_0px_4px_#FFFFFF] md:text-6xl"
+                className="mb-8 text-start font-medium text-2xl text-white/75 leading-[1.2] [text-shadow:0px_0px_4px_#FFFFFF] md:text-6xl"
                 data-aos="fade-up"
                 data-aos-delay="1000"
               >
@@ -251,7 +251,7 @@ export default function Section1() {
                 data-aos="fade-up"
                 data-aos-delay="1400"
               >
-                <span className="font-clash-display text-sm font-normal text-white">
+                <span className="font-clash-display font-normal text-sm text-white">
                   TRY CONSOLE
                 </span>
                 <ArrowUpRightIcon className="h-4 w-4 text-white" />
@@ -262,9 +262,9 @@ export default function Section1() {
               scene={
                 "https://prod.spline.design/TqM8pKC6mDykToT9/scene.splinecode"
               }
-              className="!h-[550px] min-h-[550px] !w-full"
+              className="!h-[550px] !w-full min-h-[550px]"
               onLoad={() => setIsLoading(false)}
-            ></Spline>
+            />
             <div
               id="partners"
               className="flex flex-col items-center justify-center"
@@ -272,7 +272,7 @@ export default function Section1() {
               <div
                 data-aos="fade-up"
                 data-aos-delay="400"
-                className="mb-8 text-center text-2xl font-normal text-white/50 [text-shadow:0px_0px_4px_#FFFFFF]"
+                className="mb-8 text-center font-normal text-2xl text-white/50 [text-shadow:0px_0px_4px_#FFFFFF]"
               >
                 INCEPTION PARTNER OF
               </div>
@@ -291,7 +291,7 @@ export default function Section1() {
                 <div className="flex items-center justify-center gap-4">
                   {[...partnerItems, ...partnerItems].map((item, index) => {
                     return (
-                      <div className="px-8" key={index}>
+                      <div className="px-8" key={`${item}-${index}`}>
                         <Image
                           src={item}
                           alt="logo"
@@ -306,7 +306,7 @@ export default function Section1() {
               </Marquee>
             </div>
             <h2
-              className="flex h-screen items-center justify-center px-4 py-10 text-center text-2xl font-medium text-white/75 [text-shadow:0px_0px_4px_#FFFFFF] md:text-4xl"
+              className="flex h-screen items-center justify-center px-4 py-10 text-center font-medium text-2xl text-white/75 [text-shadow:0px_0px_4px_#FFFFFF] md:text-4xl"
               data-aos="fade-up"
               data-aos-delay="400"
             >

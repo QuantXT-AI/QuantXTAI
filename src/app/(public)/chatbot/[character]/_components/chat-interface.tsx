@@ -16,9 +16,7 @@ import type { InitiatePredictionResponse } from "@/app/types";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import type { ChatMessage as ChatMessageType } from "@/dto";
 import { ChatMessage } from "./chat-message";
-import { FAQComponent } from "./faq-component";
 import { InputSection } from "./input-section";
-import { QuickChatOptions } from "./quick-chat-options";
 import { WalletAddressSection } from "./wallet-address-section";
 
 interface ChatMessageItem extends ChatMessageType {
@@ -169,10 +167,6 @@ export function ChatInterface({
     submitMessage(input);
   }, [input, submitMessage]);
 
-  const handleQuickChatSelect = (message: string) => {
-    submitMessage(message);
-  };
-
   return (
     <motion.div
       className="w-full rounded-lg bg-stone-200 shadow-lg"
@@ -219,15 +213,6 @@ export function ChatInterface({
                     characterPrimaryColor={characterPrimaryColor}
                     characterId={characterId}
                   />
-                  {message.role === "apiMessage" &&
-                    index === 0 &&
-                    walletAddress && (
-                      <FAQComponent
-                        key="first-message-component"
-                        characterId={characterId}
-                        onSelect={handleQuickChatSelect}
-                      />
-                    )}
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -235,12 +220,6 @@ export function ChatInterface({
         </div>
         <ScrollBar orientation="vertical" />
       </ScrollArea>
-
-      {/* Quick Chat Options */}
-      <QuickChatOptions
-        onSelect={handleQuickChatSelect}
-        disabled={isPending || !walletAddress}
-      />
 
       {/* Input Form */}
       <InputSection

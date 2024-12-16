@@ -5,11 +5,11 @@ import Image from "next/image";
 export default function Section6() {
   return (
     <section id="roadmap" className="w-full">
-      <div className="h-full w-full bg-[url('/assets/home/section-6/bg-gradient.png')] bg-contain bg-bottom bg-no-repeat">
+      <div className="h-full w-full bg-[url('/assets/home/section-6/bg-gradient.png')] bg-bottom bg-contain bg-no-repeat">
         <div className="container mx-auto w-full max-w-6xl px-4 py-16">
           <div className="flex flex-col gap-4">
             <div>
-              <h2 className="mb-4 block text-start text-5xl font-medium leading-[1.2] text-[#EFCEE3] [text-shadow:0px_0px_4px_#FFFFFF] md:hidden md:text-6xl">
+              <h2 className="mb-4 block text-start font-medium text-5xl text-[#EFCEE3] leading-[1.2] [text-shadow:0px_0px_4px_#FFFFFF] md:hidden md:text-6xl">
                 ROADMAP
               </h2>
             </div>
@@ -27,11 +27,11 @@ export default function Section6() {
                     height={480}
                     className="h-[400px] w-auto opacity-30"
                   />
-                  <div className="absolute left-12 top-24 w-[260px]">
-                    <h4 className="mb-4 text-2xl font-semibold text-[#EBBED6]">
+                  <div className="absolute top-24 left-12 w-[260px]">
+                    <h4 className="mb-4 font-semibold text-2xl text-[#EBBED6]">
                       Q3 2024
                     </h4>
-                    <ul className="list-disc pl-4 text-xs font-normal text-white/50">
+                    <ul className="list-disc pl-4 font-normal text-white/50 text-xs">
                       <li>
                         <p className="mb-2 text-sm md:text-base">
                           Platform beta testing done in Q2 2024
@@ -56,7 +56,7 @@ export default function Section6() {
                 data-aos="fade-left"
                 data-aos-delay="800"
               >
-                <div className="relative -mb-24">
+                <div className="-mb-24 relative">
                   <Image
                     src="/assets/home/section-6/card.png"
                     alt="roadmap"
@@ -64,11 +64,11 @@ export default function Section6() {
                     height={480}
                     className="h-[560px] w-auto opacity-30"
                   />
-                  <div className="absolute left-8 top-28 w-[320px] sm:left-16">
-                    <h4 className="mb-4 text-2xl font-semibold text-[#EBBED6]">
+                  <div className="absolute top-28 left-8 w-[320px] sm:left-16">
+                    <h4 className="mb-4 font-semibold text-2xl text-[#EBBED6]">
                       Q4 2024
                     </h4>
-                    <ul className="list-disc pl-4 text-xs font-normal text-white/50">
+                    <ul className="list-disc pl-4 font-normal text-white/50 text-xs">
                       <li>
                         <p className="mb-2 text-sm md:text-base">
                           Advanced market intelligence curated by elite traders
@@ -96,7 +96,7 @@ export default function Section6() {
               </div>
             </div>
             <div>
-              <h2 className="mb-4 hidden text-start text-5xl font-medium leading-[1.2] text-[#EFCEE3] [text-shadow:0px_0px_4px_#FFFFFF] md:block md:text-6xl">
+              <h2 className="mb-4 hidden text-start font-medium text-5xl text-[#EFCEE3] leading-[1.2] [text-shadow:0px_0px_4px_#FFFFFF] md:block md:text-6xl">
                 ROADMAP
               </h2>
             </div>
@@ -114,11 +114,11 @@ export default function Section6() {
                     height={480}
                     className="h-[480px] w-auto opacity-30"
                   />
-                  <div className="absolute left-8 top-24 w-[300px] sm:left-12">
-                    <h4 className="mb-4 text-2xl font-semibold text-[#EBBED6]">
+                  <div className="absolute top-24 left-8 w-[300px] sm:left-12">
+                    <h4 className="mb-4 font-semibold text-2xl text-[#EBBED6]">
                       Q2 2024
                     </h4>
-                    <ul className="list-disc pl-4 text-xs font-normal text-white/50">
+                    <ul className="list-disc pl-4 font-normal text-white/50 text-xs">
                       <li>
                         <p className="mb-2 text-sm md:text-base">
                           Offline events for brand recognition
@@ -145,7 +145,7 @@ export default function Section6() {
                 data-aos="fade-left"
                 data-aos-delay="800"
               >
-                <div className="relative -mt-16 md:-ml-16">
+                <div className="-mt-16 md:-ml-16 relative">
                   <Image
                     src="/assets/home/section-6/card.png"
                     alt="roadmap"
@@ -153,11 +153,11 @@ export default function Section6() {
                     height={480}
                     className="h-[480px] w-auto opacity-30"
                   />
-                  <div className="absolute left-8 top-24 w-[280px] sm:left-16">
-                    <h4 className="mb-4 text-2xl font-semibold text-[#EBBED6]">
+                  <div className="absolute top-24 left-8 w-[280px] sm:left-16">
+                    <h4 className="mb-4 font-semibold text-2xl text-[#EBBED6]">
                       Q1 2024
                     </h4>
-                    <ul className="list-disc pl-4 text-xs font-normal text-white/50">
+                    <ul className="list-disc pl-4 font-normal text-white/50 text-xs">
                       <li>
                         <p className="mb-2 text-sm md:text-base">
                           Expanding scope of memecoins to BASE Chain

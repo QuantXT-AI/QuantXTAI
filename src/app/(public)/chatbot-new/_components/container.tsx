@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 import Link from "next/link";
 
-import { InitiatePredictionResponse } from "@/app/types";
+import type { InitiatePredictionResponse } from "@/app/types";
 import { WalletAddressRequestSchema } from "@/dto";
 import { formatZodError } from "@/lib/utils";
 import {
@@ -80,7 +80,7 @@ export default function Container({
       <div className="fixed top-0 z-20 w-full">
         <div className="grid grid-cols-12">
           <div className="col-span-12 md:col-span-6">
-            <div className="bg-black/50 px-4 pb-2 pt-8 md:bg-transparent md:p-8">
+            <div className="bg-black/50 px-4 pt-8 pb-2 md:bg-transparent md:p-8">
               <div className="flex items-center gap-4">
                 <Link
                   href="/"
@@ -96,7 +96,7 @@ export default function Container({
                       <a
                         href={`/chatbot-new?type=${type}&walletAddress=${walletAddress ? walletAddress : ""}`}
                         className={cn(
-                          "flex w-24 items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white",
+                          "flex w-24 items-center justify-center rounded-md px-4 py-2 font-medium text-sm text-white",
                           isActive
                             ? "bg-gradient-to-b from-white/5 to-white/10"
                             : "bg-transparent",
@@ -112,7 +112,7 @@ export default function Container({
             </div>
           </div>
           <div className="col-span-12 md:col-span-6">
-            <div className="border-b border-white/25 bg-black/50 px-4 pb-4 pt-2 md:bg-transparent md:p-8">
+            <div className="border-white/25 border-b bg-black/50 px-4 pt-2 pb-4 md:bg-transparent md:p-8">
               <div className="">
                 {chatbotType === "GOOD" ? (
                   <div className="mb-4 flex items-center gap-4">
@@ -123,7 +123,7 @@ export default function Container({
                       height={480}
                       className="h-12 w-auto"
                     />
-                    <h4 className="text-xl font-bold text-white">GOOD</h4>
+                    <h4 className="font-bold text-white text-xl">GOOD</h4>
                   </div>
                 ) : (
                   <div className="mb-4 flex items-center gap-4">
@@ -134,7 +134,7 @@ export default function Container({
                       height={480}
                       className="h-12 w-auto"
                     />
-                    <h4 className="text-xl font-bold text-white">EVIL</h4>
+                    <h4 className="font-bold text-white text-xl">EVIL</h4>
                   </div>
                 )}
                 <Form
@@ -158,13 +158,13 @@ export default function Container({
                     value={inputWalletAddress}
                     onChange={(e) => setInputWalletAddress(e.target.value)}
                   />
-                  <div className="absolute left-4 top-1/2 -translate-y-1/2">
+                  <div className="-translate-y-1/2 absolute top-1/2 left-4">
                     <WalletIcon className="h-5 w-5 text-white" />
                   </div>
                   {!walletAddress ? (
                     <button
                       type="submit"
-                      className="absolute right-2 top-1/2 -translate-y-1/2"
+                      className="-translate-y-1/2 absolute top-1/2 right-2"
                     >
                       <div className="rounded-full bg-white/10 p-2">
                         <ArrowRightIcon className="h-5 w-5 text-white" />
@@ -173,7 +173,7 @@ export default function Container({
                   ) : (
                     <button
                       type="button"
-                      className="absolute right-2 top-1/2 -translate-y-1/2"
+                      className="-translate-y-1/2 absolute top-1/2 right-2"
                       onClick={() => {
                         handleClearWalletAddress();
                       }}

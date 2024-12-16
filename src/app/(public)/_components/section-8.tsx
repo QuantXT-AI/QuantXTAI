@@ -78,11 +78,11 @@ const items = [
 export default function Section8() {
   return (
     <footer className="w-full">
-      <div className="w-full bg-[url('/assets/home/section-8/bg.png')] bg-cover bg-bottom bg-no-repeat">
-        <div className="container mx-auto h-full w-full max-w-6xl px-4 pb-48 pt-16">
+      <div className="w-full bg-[url('/assets/home/section-8/bg.png')] bg-bottom bg-cover bg-no-repeat">
+        <div className="container mx-auto h-full w-full max-w-6xl px-4 pt-16 pb-48">
           <div className="flex flex-col justify-between gap-8 md:flex-row">
             <div>
-              <h4 className="text-2xl font-bold text-white">
+              <h4 className="font-bold text-2xl text-white">
                 <Image
                   src="/assets/home/section-8/logo.png"
                   alt=""
@@ -96,7 +96,7 @@ export default function Section8() {
               {items?.map((item, index) => {
                 return (
                   <div key={index}>
-                    <p className="mb-4 text-xl font-medium text-white">
+                    <p className="mb-4 font-medium text-white text-xl">
                       {item?.title}
                     </p>
                     <div className="flex flex-col gap-2">
@@ -104,7 +104,7 @@ export default function Section8() {
                         return (
                           <Link
                             href={link?.href}
-                            className="text-sm font-normal text-white/50 md:text-base"
+                            className="font-normal text-sm text-white/50 md:text-base"
                             key={index}
                           >
                             {link?.title}

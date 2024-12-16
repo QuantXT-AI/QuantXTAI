@@ -2,11 +2,11 @@
 
 import { useEffect, useRef, useState, useTransition } from "react";
 
-import { InitiatePredictionResponse } from "@/app/types";
+import type { InitiatePredictionResponse } from "@/app/types";
 import { cn } from "@/lib/utils";
 import Form from "next/form";
 import Image from "next/image";
-import ChatItem, { IMessage } from "./chat-item";
+import ChatItem, { type IMessage } from "./chat-item";
 
 interface ChatSectionProps {
   chatbotType: string | null;
@@ -118,6 +118,7 @@ export default function ChatSection({
     });
   };
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (errorMessage) {
       setMessages([
@@ -154,6 +155,7 @@ export default function ChatSection({
     });
   }, [firstAskQuestionPromise]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     finishRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [walletAddress, messages]);
@@ -200,9 +202,9 @@ export default function ChatSection({
               : "bg-gradient-to-b from-[#06011C] to-[#1B013C]",
           )}
         >
-          <div className="h-full w-full bg-[url('/assets/chatbot/bg-line.png')] bg-cover bg-center bg-no-repeat">
+          <div className="h-full w-full bg-[url('/assets/chatbot/bg-line.png')] bg-center bg-cover bg-no-repeat">
             <div className="relative h-full w-full overflow-hidden pt-[226px] md:pt-[180px]">
-              <div className="h-full overflow-y-auto px-4 pb-32 pt-48 md:px-8 md:pt-8">
+              <div className="h-full overflow-y-auto px-4 pt-48 pb-32 md:px-8 md:pt-8">
                 <div className="flex flex-col gap-4">
                   {messages?.map((item, index) => {
                     return (

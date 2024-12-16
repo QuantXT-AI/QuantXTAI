@@ -78,10 +78,11 @@ export default function Header() {
                   return (
                     <div className="relative" key={index}>
                       <button
+                        type="button"
                         className="flex flex-row items-center gap-2"
                         onClick={() => setIsOpen(!isOpen)}
                       >
-                        <span className="text-xl font-medium text-white">
+                        <span className="font-medium text-white text-xl">
                           {item?.title}
                         </span>
                         <ChevronDownIcon
@@ -101,7 +102,7 @@ export default function Header() {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.5, ease: "easeInOut" }}
                         >
-                          <div className={cn("absolute left-0 top-12 z-20")}>
+                          <div className={cn("absolute top-12 left-0 z-20")}>
                             <div className="ml-3 flex flex-col">
                               {item?.links?.map((link, index) => {
                                 return (
@@ -119,7 +120,7 @@ export default function Header() {
                                         className="h-4 w-auto"
                                       />
                                     </div>
-                                    <span className="text-base font-medium text-white">
+                                    <span className="font-medium text-base text-white">
                                       {link?.title}
                                     </span>
                                   </Link>
@@ -136,7 +137,7 @@ export default function Header() {
                 return (
                   <Link
                     href={item?.href}
-                    className="text-xl font-medium text-white"
+                    className="font-medium text-white text-xl"
                     key={index}
                   >
                     {item?.title}
@@ -154,17 +155,18 @@ export default function Header() {
             return (
               <div className="relative" key={index}>
                 <button
+                  type="button"
                   className="flex items-center gap-2"
                   onClick={() => setIsOpen(!isOpen)}
                 >
-                  <span className="text-sm font-medium text-white">
+                  <span className="font-medium text-sm text-white">
                     {item?.title}
                   </span>
                   <ChevronDownIcon className="h-4 w-4 text-white" />
                 </button>
                 <div
                   className={cn(
-                    "absolute left-0 top-12 z-20",
+                    "absolute top-12 left-0 z-20",
                     isOpen ? "block" : "hidden",
                   )}
                 >
@@ -186,7 +188,7 @@ export default function Header() {
                                 className="h-4 w-auto"
                               />
                             </div>
-                            <span className="text-base font-medium text-white">
+                            <span className="font-medium text-base text-white">
                               {link?.title}
                             </span>
                           </Link>
@@ -202,7 +204,7 @@ export default function Header() {
           return (
             <Link
               href={item?.href}
-              className="text-sm font-medium text-white"
+              className="font-medium text-sm text-white"
               key={index}
             >
               {item?.title}
@@ -211,7 +213,7 @@ export default function Header() {
         })}
       </div>
       <div>
-        <Link href="/" className="text-2xl font-bold text-white">
+        <Link href="/" className="font-bold text-2xl text-white">
           <Image
             src="/assets/components/header/logo.png"
             alt=""
@@ -224,7 +226,7 @@ export default function Header() {
       <div className="hidden items-center gap-4 pl-16 md:flex">
         <Link
           href="/"
-          className="rounded-full border border-white/25 bg-white/10 px-8 py-4 font-clash-display text-sm font-normal tracking-widest text-white hover:animate-shake"
+          className="rounded-full border border-white/25 bg-white/10 px-8 py-4 font-clash-display font-normal text-sm text-white tracking-widest hover:animate-shake"
         >
           BUY $CRYAISTAL
         </Link>

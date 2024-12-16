@@ -1,13 +1,11 @@
 import { Suspense } from "react";
 
-import { ChatInterfaceSkeleton } from "@/app/(public)/chatbot/[character]/_components/chat-interface-skeleton";
 import type { InitiatePredictionResponse } from "@/app/types";
 import { CHATFLOW_MAPPING } from "@/config";
 import { CHARACTERS } from "@/config";
 import { env } from "@/env";
 import { FlowiseClient } from "flowise-sdk";
 import { ChatInterface } from "./_components/chat-interface";
-import { SidebarCharacterSelector } from "./_components/sidebar-character-selector";
 
 export const maxDuration = 300; // 5 minutes
 
@@ -31,16 +29,11 @@ export default async function CharacterPage({
       <div className="container relative mx-auto px-4 pt-[116px] pb-12">
         <div className="flex flex-col lg:flex-row">
           <div className="w-full lg:w-1/3">
-            <div className="w-full lg:max-w-[235px]">
-              <SidebarCharacterSelector
-                currentCharacter={character}
-                walletAddress={walletAddress}
-              />
-            </div>
+            <div className="w-full lg:max-w-[235px]">&nbsp;</div>
           </div>
 
           <div className="flex w-full flex-col gap-4 pb-10 lg:w-2/3">
-            <Suspense key={walletAddress} fallback={<ChatInterfaceSkeleton />}>
+            <Suspense key={walletAddress} fallback={<div>Loading...</div>}>
               <ChatInterface
                 walletAddress={walletAddress}
                 firstAskQuestionPromise={firstAskQuestionPromise}

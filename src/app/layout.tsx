@@ -81,7 +81,7 @@ export default function RootLayout({
             fontRobotoMono.variable,
             fontClashDisplay.variable,
             fontEpilogue.variable,
-            "antialiased bg-black font-roboto-mono ",
+            "bg-black font-roboto-mono antialiased ",
           )}
         >
           <ThemeProvider

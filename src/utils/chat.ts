@@ -1,7 +1,7 @@
-import { InitiatePredictionResponse } from "@/app/types";
+import type { InitiatePredictionResponse } from "@/app/types";
 import { CHARACTERS } from "@/config";
-import { env } from "@/env";
 import { CHATFLOW_MAPPING } from "@/config";
+import { env } from "@/env";
 import { FlowiseClient } from "flowise-sdk";
 
 export async function getInitialMessage({
