@@ -2,7 +2,6 @@
 
 import Header from "@/components/header";
 import Image from "next/image";
-import Section2 from "./section-2";
 
 const firstItems = [
   {
@@ -74,7 +73,7 @@ export default function Section1() {
                 </div>
               </div>
               <h2
-                className="mb-8 text-center text-3xl sm:text-3xl md:text-3xl lg:text-6xl font-medium leading-[1.2] text-white/75 [text-shadow:0px_0px_4px_#FFFFFF]"
+                className="mb-8 text-center text-3xl font-medium leading-[1.2] text-white/75 [text-shadow:0px_0px_4px_#FFFFFF] sm:text-3xl md:text-3xl lg:text-6xl"
                 data-aos="fade-up"
                 data-aos-delay="1400"
               >
@@ -116,7 +115,10 @@ export default function Section1() {
             </div>
             <div className="grid grid-cols-12 gap-4">
               {firstItems?.map((item, index) => (
-                <div className="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-3" key={index}>
+                <div
+                  className="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-3"
+                  key={index}
+                >
                   <div className="rounded-2xl border border-white/25 bg-white/5 p-8">
                     <div className="flex items-center justify-center gap-2">
                       <div className="flex flex-col items-center gap-2">
@@ -146,7 +148,10 @@ export default function Section1() {
             </div>
             <div className="grid grid-cols-12 gap-4">
               {secondItems?.map((item, index) => (
-                <div className="col-span-12 sm:col-span-12 md:col-span-4 lg:col-span-4" key={index}>
+                <div
+                  className="col-span-12 sm:col-span-12 md:col-span-4 lg:col-span-4"
+                  key={index}
+                >
                   <div className="rounded-2xl border border-white/25 bg-white/5 p-8">
                     <div className="flex items-center justify-center gap-2">
                       <div className="flex flex-col items-center gap-2">

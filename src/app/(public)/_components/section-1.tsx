@@ -2,12 +2,12 @@
 
 import Header from "@/components/header";
 import { cn } from "@/utils/classname";
-import { ArrowUpRightIcon, Loader2Icon, LoaderIcon } from "lucide-react";
+import Spline from "@splinetool/react-spline";
+import { ArrowUpRightIcon, LoaderIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import Spline from "@splinetool/react-spline";
-import Marquee from "react-fast-marquee";
 import { useState } from "react";
+import Marquee from "react-fast-marquee";
 import { useMediaQuery } from "usehooks-ts";
 
 const navItems = [
@@ -46,7 +46,7 @@ export default function Section1() {
   const isDesktop = useMediaQuery("(min-width: 769px)");
 
   return (
-    <section className="relative w-full ">
+    <section className="relative w-full">
       {isDesktop ? (
         <>
           <div className="container mx-auto max-w-6xl px-4">

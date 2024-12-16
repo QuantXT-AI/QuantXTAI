@@ -2,14 +2,14 @@ import { getInitialMessage } from "@/utils/chat";
 import Container from "./_components/container";
 
 interface IPageProps {
-  searchParams: {
+  searchParams: Promise<{
     type: string;
     walletAddress: string;
-  };
+  }>;
 }
 
-export default function Page({ searchParams }: IPageProps) {
-  const { type, walletAddress } = searchParams;
+export default async function Page({ searchParams }: IPageProps) {
+  const { type, walletAddress } = await searchParams;
 
   const firstAskQuestionPromise = getInitialMessage({
     character: type?.toLowerCase(),
