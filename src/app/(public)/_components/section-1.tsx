@@ -102,8 +102,8 @@ export default function Section1() {
                     data-aos="fade-up"
                     data-aos-delay="1400"
                   >
-                    <span className="font-clash-display font-normal text-sm text-white">
-                      TRY CONSOLE
+                    <span className="font-clash-display font-normal text-sm text-white uppercase">
+                      Try CryAIstal
                     </span>
                     <ArrowUpRightIcon className="h-4 w-4 text-white" />
                   </Link>
@@ -251,8 +251,8 @@ export default function Section1() {
                 data-aos="fade-up"
                 data-aos-delay="1400"
               >
-                <span className="font-clash-display font-normal text-sm text-white">
-                  TRY CONSOLE
+                <span className="font-clash-display font-normal text-sm text-white uppercase">
+                  Try CryAIstal
                 </span>
                 <ArrowUpRightIcon className="h-4 w-4 text-white" />
               </Link>
