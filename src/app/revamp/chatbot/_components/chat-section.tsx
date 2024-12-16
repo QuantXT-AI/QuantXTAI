@@ -3,21 +3,24 @@
 import { useEffect, useRef, useState, useTransition } from "react";
 
 import { InitiatePredictionResponse } from "@/app/types";
+import { cn } from "@/lib/utils";
 import Form from "next/form";
 import Image from "next/image";
 import ChatItem, { IMessage } from "./chat-item";
 
-interface EvilSectionProps {
+interface ChatSectionProps {
+  chatbotType: string | null;
   walletAddress: string;
   firstAskQuestionPromise: Promise<InitiatePredictionResponse>;
   errorMessage: string | null;
 }
 
-export default function EvilSection({
+export default function ChatSection({
+  chatbotType,
   walletAddress,
   firstAskQuestionPromise,
   errorMessage,
-}: EvilSectionProps) {
+}: ChatSectionProps) {
   const finishRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -60,7 +63,7 @@ export default function EvilSection({
           },
           body: JSON.stringify({
             question: inputMessage,
-            character: "evil",
+            character: chatbotType?.toLowerCase(),
             walletAddress: walletAddress || "",
             chatId: messages?.[0]?.id,
           }),
@@ -117,8 +120,7 @@ export default function EvilSection({
 
   useEffect(() => {
     if (errorMessage) {
-      setMessages((prev) => [
-        ...prev.slice(0, -1),
+      setMessages([
         {
           role: "assistant",
           content: errorMessage,
@@ -127,8 +129,7 @@ export default function EvilSection({
         },
       ]);
     } else {
-      setMessages((prev) => [
-        ...prev.slice(0, -1),
+      setMessages([
         {
           role: "assistant",
           content: "Thinking...",
@@ -149,7 +150,7 @@ export default function EvilSection({
         timestamp: new Date(),
       };
 
-      setMessages((prev) => [message]);
+      setMessages([message]);
     });
   }, [firstAskQuestionPromise]);
 
@@ -166,13 +167,23 @@ export default function EvilSection({
         }`}
       >
         <div className="z-0 overflow-hidden">
-          <video
-            src="/assets/chatbot/evil-video.mp4"
-            autoPlay
-            loop
-            muted
-            className="h-screen w-full object-cover"
-          />
+          {chatbotType === "GOOD" ? (
+            <video
+              src="/assets/chatbot/good-video.mp4"
+              autoPlay
+              loop
+              muted
+              className="h-screen w-full object-cover"
+            />
+          ) : (
+            <video
+              src="/assets/chatbot/evil-video.mp4"
+              autoPlay
+              loop
+              muted
+              className="h-screen w-full object-cover"
+            />
+          )}
         </div>
       </div>
       <div
@@ -181,7 +192,14 @@ export default function EvilSection({
           !walletAddress ? "hidden md:block" : ""
         }`}
       >
-        <div className="h-screen w-full bg-gradient-to-b from-[#06011C] to-[#1B013C]">
+        <div
+          className={cn(
+            "h-screen w-full",
+            chatbotType === "GOOD"
+              ? "bg-gradient-to-b from-[#1F0B01] to-[#351110]"
+              : "bg-gradient-to-b from-[#06011C] to-[#1B013C]",
+          )}
+        >
           <div className="h-full w-full bg-[url('/assets/chatbot/bg-line.png')] bg-cover bg-center bg-no-repeat">
             <div className="relative h-full w-full overflow-hidden pt-[226px] md:pt-[180px]">
               <div className="h-full overflow-y-auto px-4 pb-32 pt-48 md:px-8 md:pt-8">
@@ -190,6 +208,7 @@ export default function EvilSection({
                     return (
                       <ChatItem
                         item={item}
+                        chatbotType={chatbotType}
                         isPending={isPending}
                         index={index}
                         key={index}

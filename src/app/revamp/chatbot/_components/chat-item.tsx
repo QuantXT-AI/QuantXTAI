@@ -18,11 +18,17 @@ export interface IMessage {
 interface IProps {
   item: IMessage;
   isPending: boolean;
+  chatbotType: string | null;
   key: number;
   index: number;
 }
 
-export default function ChatItem({ item, isPending, index }: IProps) {
+export default function ChatItem({
+  item,
+  isPending,
+  chatbotType,
+  index,
+}: IProps) {
   if (item?.role !== "assistant") {
     return (
       <motion.div
@@ -77,13 +83,23 @@ export default function ChatItem({ item, isPending, index }: IProps) {
       }}
       key={index}
     >
-      <Image
-        src="/assets/chatbot/evil-icon.png"
-        alt="avatar"
-        width={480}
-        height={480}
-        className="h-12 w-auto"
-      />
+      {chatbotType === "GOOD" ? (
+        <Image
+          src="/assets/chatbot/good-icon.png"
+          alt="avatar"
+          width={480}
+          height={480}
+          className="h-12 w-auto"
+        />
+      ) : (
+        <Image
+          src="/assets/chatbot/evil-icon.png"
+          alt="avatar"
+          width={480}
+          height={480}
+          className="h-12 w-auto"
+        />
+      )}
       <div className="flex w-full items-center justify-start gap-4">
         <div className="w-[80%] p-4 pt-0">
           <motion.div

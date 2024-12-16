@@ -18,8 +18,7 @@ import {
 import Form from "next/form";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import EvilSection from "./evil-section";
-import GoodSection from "./good-section";
+import ChatSection from "./chat-section";
 
 const chatbotTypeItems = ["EVIL", "GOOD"];
 
@@ -90,22 +89,22 @@ export default function Container({
                   <ChevronLeftIcon className="h-6 w-6 text-white" />
                 </Link>
                 <div className="flex items-center rounded-lg border border-white/25 bg-white/5 p-1">
-                  {chatbotTypeItems?.map((type) => {
+                  {chatbotTypeItems?.map((type, index) => {
                     const isActive = type === chatbotType;
 
                     return (
-                      <Link
-                        key={type}
-                        href={`/revamp/chatbot?type=${type}`}
+                      <a
+                        href={`/revamp/chatbot?type=${type}&walletAddress=${walletAddress ? walletAddress : ""}`}
                         className={cn(
                           "flex w-24 items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white",
                           isActive
                             ? "bg-gradient-to-b from-white/5 to-white/10"
                             : "bg-transparent",
                         )}
+                        key={index}
                       >
                         {type}
-                      </Link>
+                      </a>
                     );
                   })}
                 </div>
@@ -190,16 +189,12 @@ export default function Container({
           </div>
         </div>
       </div>
-      {chatbotType === "GOOD" ? (
-        // @ts-expect-error
-        <GoodSection form={form} walletAddress={walletAddress} />
-      ) : (
-        <EvilSection
-          walletAddress={walletAddress}
-          firstAskQuestionPromise={firstAskQuestionPromise}
-          errorMessage={errorMessage}
-        />
-      )}
+      <ChatSection
+        chatbotType={chatbotType}
+        walletAddress={walletAddress}
+        firstAskQuestionPromise={firstAskQuestionPromise}
+        errorMessage={errorMessage}
+      />
     </section>
   );
 }
