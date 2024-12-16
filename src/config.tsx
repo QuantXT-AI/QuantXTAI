@@ -101,7 +101,7 @@ export const QUICK_CHAT_OPTIONS = [
   "Show me my top 5 fumbled bags (sold too early) 📉",
   "Show me my top 5 rekt positions (biggest losses) 💸",
   "Analyze my last 5 trades",
-  "Get info on $ZEREBRO",
+  "Get info on $PEPE",
 ] as const;
 
 export const FOUNDERS = [
