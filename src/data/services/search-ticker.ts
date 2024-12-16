@@ -54,10 +54,10 @@ export const searchTicker = async (ticker: string): Promise<string | null> => {
   // Find the first token item in the response
   const tokenItem = searchData.data.items.find((item) => item.type === "token");
 
-  // Filter for matching symbols
-  const matchingTokens = tokenItem?.result.filter((token) =>
-    isSymbolMatch(normalizedTicker, token.symbol),
-  );
+  // Filter for matching symbols and sort by FDV
+  const matchingTokens = tokenItem?.result
+    .filter((token) => isSymbolMatch(normalizedTicker, token.symbol))
+    .sort((a, b) => b.fdv - a.fdv); // Sort by FDV in descending order
 
   // Return the first matching token's address
   if (matchingTokens && matchingTokens.length > 0) {
