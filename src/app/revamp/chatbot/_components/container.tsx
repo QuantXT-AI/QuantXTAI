@@ -202,7 +202,6 @@ export default function Container({
         <GoodSection form={form} walletAddress={walletAddress} />
       ) : (
         <EvilSection
-          form={form}
           walletAddress={walletAddress}
           firstAskQuestionPromise={firstAskQuestionPromise}
         />
