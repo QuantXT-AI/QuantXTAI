@@ -1,4 +1,5 @@
 import { getInitialMessage } from "@/utils/chat";
+import { Suspense } from "react";
 import Container from "./_components/container";
 
 interface IPageProps {
@@ -17,10 +18,19 @@ export default async function Page({ searchParams }: IPageProps) {
   });
 
   return (
-    <Container
-      type={type}
-      walletAddress={walletAddress}
-      firstAskQuestionPromise={firstAskQuestionPromise}
-    />
+    <Suspense
+      key={walletAddress}
+      fallback={
+        <div className="flex min-h-screen items-center justify-center">
+          Loading...
+        </div>
+      }
+    >
+      <Container
+        type={type}
+        walletAddress={walletAddress}
+        firstAskQuestionPromise={firstAskQuestionPromise}
+      />
+    </Suspense>
   );
 }

@@ -2,16 +2,18 @@
 "use client";
 
 import { cn } from "@/utils/classname";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import Link from "next/link";
 
 import type { InitiatePredictionResponse } from "@/app/types";
-import { WalletAddressRequestSchema } from "@/dto";
+import { WalletAddressOrENSRequestSchema } from "@/dto";
+import { resolveENS } from "@/lib/ens";
 import { formatZodError } from "@/lib/utils";
 import {
   ArrowRightIcon,
   ChevronLeftIcon,
+  Loader2Icon,
   WalletIcon,
   XIcon,
 } from "lucide-react";
@@ -40,22 +42,40 @@ export default function Container({
   );
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [chatbotType, setchatbotType] = useState<string | null>(null);
+  const [isResolvingENS, setIsResolvingENS] = useState(false);
 
-  const handleValidateWalletAddress = () => {
-    const validate = WalletAddressRequestSchema.safeParse({
-      walletAddress: inputWalletAddress,
+  const handleValidateWalletAddress = useCallback(async () => {
+    const validate = WalletAddressOrENSRequestSchema.safeParse({
+      walletAddressOrENS: inputWalletAddress,
     });
 
     if (!validate?.success) {
+      console.log("validate", validate);
       setErrorMessage(formatZodError(validate?.error).details?.[0].message);
       return;
     }
 
+    setIsResolvingENS(true);
     setErrorMessage(null);
-    router.push(
-      `/chatbot?type=${chatbotType}&walletAddress=${inputWalletAddress}`,
-    );
-  };
+
+    try {
+      const resolvedAddress = await resolveENS(inputWalletAddress);
+
+      if (!resolvedAddress) {
+        setErrorMessage("Invalid ENS name or Ethereum address");
+        return;
+      }
+
+      router.push(
+        `/chatbot?type=${chatbotType}&walletAddress=${resolvedAddress}`,
+      );
+    } catch (error) {
+      console.error("Error resolving ENS:", error);
+      setErrorMessage("Failed to resolve ENS name");
+    } finally {
+      setIsResolvingENS(false);
+    }
+  }, [inputWalletAddress, chatbotType, router]);
 
   const handleClearWalletAddress = () => {
     setInputWalletAddress("");
@@ -154,7 +174,7 @@ export default function Container({
                         ? "cursor-not-allowed opacity-50"
                         : "bg-white/10"
                     }`}
-                    disabled={!!walletAddress}
+                    disabled={!!walletAddress || isResolvingENS}
                     value={inputWalletAddress}
                     onChange={(e) => setInputWalletAddress(e.target.value)}
                   />
@@ -165,9 +185,14 @@ export default function Container({
                     <button
                       type="submit"
                       className="-translate-y-1/2 absolute top-1/2 right-2"
+                      disabled={isResolvingENS}
                     >
                       <div className="rounded-full bg-white/10 p-2">
-                        <ArrowRightIcon className="h-5 w-5 text-white" />
+                        {isResolvingENS ? (
+                          <Loader2Icon className="h-5 w-5 animate-spin text-white" />
+                        ) : (
+                          <ArrowRightIcon className="h-5 w-5 text-white" />
+                        )}
                       </div>
                     </button>
                   ) : (

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useTransition } from "react";
+import { use, useEffect, useRef, useState, useTransition } from "react";
 
 import type { InitiatePredictionResponse } from "@/app/types";
 import { cn } from "@/lib/utils";
@@ -21,13 +21,27 @@ export default function ChatSection({
   firstAskQuestionPromise,
   errorMessage,
 }: ChatSectionProps) {
+  const firstAskQuestionResponse = use(firstAskQuestionPromise);
+
   const finishRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const [isPending, startTransition] = useTransition();
 
   const [inputMessage, setInputMessage] = useState<string>("");
-  const [messages, setMessages] = useState<IMessage[]>([]);
+  const [messages, setMessages] = useState<IMessage[]>([
+    ...(firstAskQuestionResponse
+      ? [
+          {
+            id: "1",
+            role: "assistant",
+            content: firstAskQuestionResponse?.text,
+            error: false,
+            timestamp: new Date(),
+          },
+        ]
+      : []),
+  ]);
 
   const handleSubmit = async () => {
     setInputMessage("");
@@ -129,31 +143,8 @@ export default function ChatSection({
           timestamp: new Date(),
         },
       ]);
-    } else {
-      setMessages([
-        {
-          role: "assistant",
-          content: "Thinking...",
-          error: false,
-          timestamp: new Date(),
-        },
-      ]);
     }
   }, [errorMessage, walletAddress]);
-
-  useEffect(() => {
-    firstAskQuestionPromise.then((res) => {
-      const message: IMessage = {
-        id: res?.chatId,
-        role: "assistant",
-        content: res?.text,
-        error: false,
-        timestamp: new Date(),
-      };
-
-      setMessages([message]);
-    });
-  }, [firstAskQuestionPromise]);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
