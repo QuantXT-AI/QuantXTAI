@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 "use client";
 
 import { cn } from "@/utils/classname";
@@ -6,6 +7,7 @@ import { useForm } from "react-hook-form";
 
 import Link from "next/link";
 
+import { InitiatePredictionResponse } from "@/app/types";
 import { WalletAddressRequestSchema } from "@/dto";
 import { formatZodError } from "@/lib/utils";
 import {
@@ -16,6 +18,7 @@ import {
 } from "lucide-react";
 import Form from "next/form";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import EvilSection from "./evil-section";
 import GoodSection from "./good-section";
@@ -24,22 +27,33 @@ const chatbotTypeItems = ["EVIL", "GOOD"];
 
 interface ContainerProps {
   type: string;
+  walletAddress: string;
+  firstAskQuestionPromise: Promise<InitiatePredictionResponse>;
 }
 
 type FormValues = {
-  _walletAddress: string;
   walletAddress: string;
   message: string;
 };
 
-export default function Container({ type }: ContainerProps) {
-  const form = useForm<FormValues>();
+export default function Container({
+  type,
+  walletAddress,
+  firstAskQuestionPromise,
+}: ContainerProps) {
+  const router = useRouter();
+  const form = useForm<FormValues>({
+    defaultValues: {
+      walletAddress: walletAddress || "",
+      message: "",
+    },
+  });
 
   const [chatbotType, setchatbotType] = useState<string | null>(null);
 
   const handleValidateWalletAddress = () => {
     const validate = WalletAddressRequestSchema.safeParse({
-      walletAddress: form.getValues("_walletAddress"),
+      walletAddress: form.watch("walletAddress"),
     });
 
     if (!validate?.success) {
@@ -47,14 +61,15 @@ export default function Container({ type }: ContainerProps) {
       return;
     }
 
-    form.setValue("walletAddress", form.getValues("_walletAddress"));
-    localStorage.setItem("walletAddress", form.getValues("_walletAddress"));
+    router.push(
+      `/revamp/chatbot?type=${chatbotType}&walletAddress=${form.watch(
+        "walletAddress",
+      )}`,
+    );
   };
 
   const handleClearWalletAddress = () => {
-    form.setValue("_walletAddress", "");
-    form.setValue("walletAddress", "");
-    localStorage.removeItem("walletAddress");
+    router.push(`/revamp/chatbot?type=${chatbotType}`);
   };
 
   useEffect(() => {
@@ -64,15 +79,6 @@ export default function Container({ type }: ContainerProps) {
       setchatbotType(chatbotTypeItems?.[0]);
     }
   }, [type]);
-
-  useEffect(() => {
-    const walletAddress = localStorage.getItem("walletAddress");
-
-    if (walletAddress) {
-      form.setValue("_walletAddress", walletAddress);
-      form.setValue("walletAddress", walletAddress);
-    }
-  }, []);
 
   if (!chatbotTypeItems?.includes(type?.toUpperCase())) {
     return <></>;
@@ -117,18 +123,7 @@ export default function Container({ type }: ContainerProps) {
           <div className="col-span-12 md:col-span-6">
             <div className="border-b border-white/25 bg-black/50 px-4 pb-4 pt-2 md:bg-transparent md:p-8">
               <div className="">
-                {chatbotType === "EVIL" ? (
-                  <div className="mb-4 flex items-center gap-4">
-                    <Image
-                      src="/assets/chatbot/evil-icon.png"
-                      alt="close"
-                      width={480}
-                      height={480}
-                      className="h-12 w-auto"
-                    />
-                    <h4 className="text-xl font-bold text-white">EVIL</h4>
-                  </div>
-                ) : (
+                {chatbotType === "GOOD" ? (
                   <div className="mb-4 flex items-center gap-4">
                     <Image
                       src="/assets/chatbot/good-icon.png"
@@ -138,6 +133,17 @@ export default function Container({ type }: ContainerProps) {
                       className="h-12 w-auto"
                     />
                     <h4 className="text-xl font-bold text-white">GOOD</h4>
+                  </div>
+                ) : (
+                  <div className="mb-4 flex items-center gap-4">
+                    <Image
+                      src="/assets/chatbot/evil-icon.png"
+                      alt="close"
+                      width={480}
+                      height={480}
+                      className="h-12 w-auto"
+                    />
+                    <h4 className="text-xl font-bold text-white">EVIL</h4>
                   </div>
                 )}
                 <Form
@@ -153,17 +159,17 @@ export default function Container({ type }: ContainerProps) {
                     type="text"
                     placeholder="ENTER YOUR WALLET ADDRESS"
                     className={`w-full rounded-full bg-white/10 px-12 py-4 text-sm text-white ${
-                      form.watch("walletAddress")
+                      walletAddress
                         ? "cursor-not-allowed bg-white/25 opacity-75"
                         : ""
                     }`}
-                    disabled={!!form.watch("walletAddress")}
-                    {...form.register("_walletAddress")}
+                    disabled={!!walletAddress}
+                    {...form.register("walletAddress")}
                   />
                   <div className="absolute left-4 top-1/2 -translate-y-1/2">
                     <WalletIcon className="h-5 w-5 text-white" />
                   </div>
-                  {!form.watch("walletAddress") ? (
+                  {!walletAddress ? (
                     <button
                       type="submit"
                       className="absolute right-2 top-1/2 -translate-y-1/2"
@@ -192,9 +198,14 @@ export default function Container({ type }: ContainerProps) {
         </div>
       </div>
       {chatbotType === "GOOD" ? (
-        <GoodSection form={form} />
+        // @ts-expect-error
+        <GoodSection form={form} walletAddress={walletAddress} />
       ) : (
-        <EvilSection form={form} />
+        <EvilSection
+          form={form}
+          walletAddress={walletAddress}
+          firstAskQuestionPromise={firstAskQuestionPromise}
+        />
       )}
     </section>
   );

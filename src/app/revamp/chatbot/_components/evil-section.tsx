@@ -1,113 +1,51 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { UseFormReturn } from "react-hook-form";
 
+import { InitiatePredictionResponse } from "@/app/types";
 import Image from "next/image";
 
-const chatItems = [
-  {
-    id: 1,
-    message: "Hello, how are you?",
-    type: "user",
-  },
-  {
-    id: 2,
-    message: "I'm fine, thank you!",
-    type: "bot",
-  },
-  {
-    id: 3,
-    message: "What's your name?",
-    type: "user",
-  },
-  {
-    id: 4,
-    message: "I'm fine, thank you!",
-    type: "bot",
-  },
-  {
-    id: 5,
-    message: "Hello, how are you?",
-    type: "user",
-  },
-  {
-    id: 6,
-    message: "I'm fine, thank you!",
-    type: "bot",
-  },
-  {
-    id: 7,
-    message: "What's your name?",
-    type: "user",
-  },
-  {
-    id: 8,
-    message: "I'm fine, thank you!",
-    type: "bot",
-  },
-  {
-    id: 1,
-    message: "Hello, how are you?",
-    type: "user",
-  },
-  {
-    id: 2,
-    message: "I'm fine, thank you!",
-    type: "bot",
-  },
-  {
-    id: 3,
-    message: "What's your name?",
-    type: "user",
-  },
-  {
-    id: 4,
-    message: "I'm fine, thank you!",
-    type: "bot",
-  },
-  {
-    id: 5,
-    message: "Hello, how are you?",
-    type: "user",
-  },
-  {
-    id: 6,
-    message: "I'm fine, thank you!",
-    type: "bot",
-  },
-  {
-    id: 7,
-    message: "What's your name?",
-    type: "user",
-  },
-  {
-    id: 8,
-    message: "I'm fine, thank you!",
-    type: "bot",
-  },
-];
-
 type FormValues = {
-  _walletAddress: string;
   walletAddress: string;
   message: string;
 };
 
 interface EvilSectionProps {
   form: UseFormReturn<FormValues>;
+  walletAddress: string;
+  firstAskQuestionPromise: Promise<InitiatePredictionResponse>;
 }
 
-export default function EvilSection({ form }: EvilSectionProps) {
+export default function EvilSection({
+  form,
+  walletAddress,
+  firstAskQuestionPromise,
+}: EvilSectionProps) {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
+  const [chatItems, setChatItems] = useState<any[]>([]);
 
   const handleSubmit = () => {
     console.log(form.getValues("message"));
   };
 
   useEffect(() => {
+    firstAskQuestionPromise.then((res) => {
+      const chatItem = {
+        type: "assistant",
+        message: res?.text,
+      };
+
+      console.log(res);
+
+      setChatItems([chatItem]);
+    });
+  }, [firstAskQuestionPromise]);
+
+  useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [form.watch("walletAddress")]);
+  }, [walletAddress, chatItems]);
 
   return (
     <div className="grid grid-cols-12">
@@ -136,7 +74,7 @@ export default function EvilSection({ form }: EvilSectionProps) {
         <div className="h-screen w-full bg-gradient-to-b from-[#06011C] to-[#1B013C]">
           <div className="h-full w-full bg-[url('/assets/chatbot/bg-line.png')] bg-cover bg-center bg-no-repeat">
             <div className="relative h-full w-full overflow-hidden pt-[226px] md:pt-[180px]">
-              <div className="h-full overflow-y-auto px-4 pb-32 pt-48 md:px-8 md:pt-16">
+              <div className="h-full overflow-y-auto px-4 pb-32 pt-48 md:px-8 md:pt-8">
                 <div className="flex flex-col gap-4">
                   {chatItems?.map((item, index) => {
                     if (item?.type === "user") {
@@ -147,7 +85,7 @@ export default function EvilSection({ form }: EvilSectionProps) {
                         >
                           <div className="w-[80%] rounded-[16px] bg-white/10 p-4">
                             <div className="text-sm text-white">
-                              {item?.message}
+                              {item?.messa}
                             </div>
                           </div>
                         </div>
@@ -167,7 +105,7 @@ export default function EvilSection({ form }: EvilSectionProps) {
                           className="h-12 w-auto"
                         />
                         <div className="flex w-full items-center justify-start gap-4">
-                          <div className="w-[80%] p-4">
+                          <div className="w-[80%] p-4 pt-0">
                             <div className="text-sm text-white">
                               {item?.message}
                             </div>
