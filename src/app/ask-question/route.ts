@@ -47,8 +47,10 @@ export const POST = async (req: Request) => {
     streaming: true,
     override: {
       sessionId: intentRecognizerPrediction.sessionId,
-      wallet_address: walletAddress,
-      character: characterName,
+      vars: {
+        wallet_address: walletAddress,
+        character: characterName,
+      },
     },
     history: history?.map((message) => ({
       message: message.content,
