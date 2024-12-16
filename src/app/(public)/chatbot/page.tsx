@@ -21,7 +21,7 @@ export default async function Page({ searchParams }: IPageProps) {
     <Suspense
       key={walletAddress}
       fallback={
-        <div className="flex min-h-screen items-center justify-center">
+        <div className="flex min-h-screen items-center justify-center text-white">
           Loading...
         </div>
       }

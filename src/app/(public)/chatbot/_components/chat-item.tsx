@@ -1,17 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
+import type { ChatMessage as ChatMessageType } from "@/dto";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 
-export interface IMessage {
-  id?: string;
-  role?: string;
-  content?: string;
+export interface IMessage extends ChatMessageType {
   error?: boolean;
-  timestamp?: Date;
+  timestamp: Date;
 }
 
 interface IProps {
@@ -28,7 +26,7 @@ export default function ChatItem({
   chatbotType,
   index,
 }: IProps) {
-  if (item?.role !== "assistant") {
+  if (item?.role !== "apiMessage") {
     return (
       <motion.div
         className={cn(
@@ -106,7 +104,7 @@ export default function ChatItem({
           >
             <ReactMarkdown
               className={cn(
-                "prose max-w-none text-sm text-white",
+                "prose max-w-none text-sm text-white [&_strong]:text-white",
                 item?.error && "text-red-500",
               )}
               components={{

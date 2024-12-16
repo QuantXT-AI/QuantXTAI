@@ -33,12 +33,11 @@ export default function ChatSection({
     ...(firstAskQuestionResponse
       ? [
           {
-            id: "1",
-            role: "assistant",
+            role: "apiMessage",
             content: firstAskQuestionResponse?.text,
             error: false,
             timestamp: new Date(),
-          },
+          } as IMessage,
         ]
       : []),
   ]);
@@ -48,8 +47,7 @@ export default function ChatSection({
     setMessages((prev) => [
       ...prev,
       {
-        id: "",
-        role: "user",
+        role: "userMessage",
         content: inputMessage,
         error: false,
         timestamp: new Date(),
@@ -59,8 +57,7 @@ export default function ChatSection({
       setMessages((prev) => [
         ...prev,
         {
-          id: "",
-          role: "assistant",
+          role: "apiMessage",
           content: "Thinking...",
           error: false,
           timestamp: new Date(),
@@ -70,6 +67,8 @@ export default function ChatSection({
 
     startTransition(async () => {
       try {
+        if (!walletAddress) return;
+
         const response = await fetch("/ask-question", {
           method: "POST",
           headers: {
@@ -78,8 +77,12 @@ export default function ChatSection({
           body: JSON.stringify({
             question: inputMessage,
             character: chatbotType?.toLowerCase(),
-            walletAddress: walletAddress || "",
-            chatId: messages?.[0]?.id,
+            walletAddress,
+            sessionId: firstAskQuestionResponse.sessionId,
+            history: messages.slice(-4).map((message) => ({
+              role: message.role,
+              content: message.content,
+            })), // Get only 4 last messages
           }),
         });
 
@@ -106,7 +109,7 @@ export default function ChatSection({
           setMessages((prev) => [
             ...prev.slice(0, -1),
             {
-              role: "assistant",
+              role: "apiMessage",
               content: data,
               error: false,
               timestamp: new Date(),
@@ -118,7 +121,7 @@ export default function ChatSection({
         setMessages((prev) => [
           ...prev.slice(0, -1),
           {
-            role: "assistant",
+            role: "apiMessage",
             content: "Sorry, CryAIstal is busy. Please try again.",
             error: true,
             timestamp: new Date(),
@@ -137,7 +140,7 @@ export default function ChatSection({
     if (errorMessage) {
       setMessages([
         {
-          role: "assistant",
+          role: "apiMessage",
           content: errorMessage,
           error: true,
           timestamp: new Date(),
