@@ -19,6 +19,18 @@ export const POST = async (req: Request) => {
     apiKey: env.AI_API_KEY,
   });
 
+  const historyString = history
+    ?.map(
+      (message) =>
+        `${message.role}: ${message.content
+          .replace(/[\n\r]/g, " ") // Replace newlines with spaces
+          .replace(/[^\x20-\x7E]/g, "") // Remove non-printable characters
+          .replace(/"/g, '\\"') // Escape double quotes
+          .replace(/[{}]/g, "") // Remove curly braces to avoid variable interpolation
+          .trim()}`,
+    )
+    .join("\n---\n");
+
   const intentRecognizerPrediction = (await client.createPrediction({
     chatflowId: CHATFLOW_MAPPING.INTENT_RECOGNIZER,
     question,
@@ -27,7 +39,7 @@ export const POST = async (req: Request) => {
       vars: {
         wallet_address: walletAddress,
         character: characterName,
-        history,
+        history: historyString,
       },
     },
   })) as IntentRecognizerResponse;
@@ -50,12 +62,9 @@ export const POST = async (req: Request) => {
       vars: {
         wallet_address: walletAddress,
         character: characterName,
+        chat_history: historyString,
       },
     },
-    history: history?.map((message) => ({
-      message: message.content,
-      type: message.role,
-    })),
   });
 
   const stream = new ReadableStream({
