@@ -45,7 +45,7 @@ export const POST = async (req: Request) => {
     chatflowId: CHATFLOW_MAPPING[intent],
     question,
     streaming: true,
-    override: {
+    overrideConfig: {
       sessionId: intentRecognizerPrediction.sessionId,
       vars: {
         wallet_address: walletAddress,
