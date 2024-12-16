@@ -14,34 +14,34 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/sheet";
 const navItems = [
   {
     title: "HOME",
-    href: "/revamp",
+    href: "",
   },
   {
     title: "CHATBOT",
-    href: "/revamp/chatbot?type=EVIL",
+    href: "/chatbot?type=EVIL",
   },
   {
     title: "ABOUT",
-    href: "/revamp/about",
+    href: "/about",
     links: [
       {
         title: "Protocol",
-        href: "/revamp/protocol",
+        href: "/protocol",
         icon: "/assets/components/header/item-1.png",
       },
       {
         title: "Trading Bootcamp",
-        href: "/revamp/trading-bootcamp",
+        href: "/trading-bootcamp",
         icon: "/assets/components/header/item-2.png",
       },
       {
         title: "Ecosystem",
-        href: "/revamp/ecosystem",
+        href: "/ecosystem",
         icon: "/assets/components/header/item-3.png",
       },
       {
         title: "Partners",
-        href: "/revamp/partners",
+        href: "/partners",
         icon: "/assets/components/header/item-4.png",
       },
     ],
@@ -107,7 +107,7 @@ export default function Header() {
                                 return (
                                   <Link
                                     href={link?.href}
-                                    className="flex items-center gap-2 rounded py-2 px-2 hover:bg-white/10"
+                                    className="flex items-center gap-2 rounded px-2 py-2 hover:bg-white/10"
                                     key={index}
                                   >
                                     <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 bg-white/10">
@@ -174,7 +174,7 @@ export default function Header() {
                         return (
                           <Link
                             href={link?.href}
-                            className="flex items-center gap-2 rounded-lg py-2 hover:bg-white/10 px-2"
+                            className="flex items-center gap-2 rounded-lg px-2 py-2 hover:bg-white/10"
                             key={index}
                           >
                             <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 bg-white/10">

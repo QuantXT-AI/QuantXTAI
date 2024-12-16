@@ -53,14 +53,14 @@ export default function Container({
 
     setErrorMessage(null);
     router.push(
-      `/revamp/chatbot?type=${chatbotType}&walletAddress=${inputWalletAddress}`,
+      `/chatbot?type=${chatbotType}&walletAddress=${inputWalletAddress}`,
     );
   };
 
   const handleClearWalletAddress = () => {
     setInputWalletAddress("");
     setErrorMessage(null);
-    router.push(`/revamp/chatbot?type=${chatbotType}`);
+    router.push(`/chatbot?type=${chatbotType}`);
   };
 
   useEffect(() => {
@@ -83,7 +83,7 @@ export default function Container({
             <div className="bg-black/50 px-4 pb-2 pt-8 md:bg-transparent md:p-8">
               <div className="flex items-center gap-4">
                 <Link
-                  href="/revamp"
+                  href="/"
                   className="rounded-lg border border-white/25 bg-white/5 p-2.5"
                 >
                   <ChevronLeftIcon className="h-6 w-6 text-white" />
@@ -94,7 +94,7 @@ export default function Container({
 
                     return (
                       <a
-                        href={`/revamp/chatbot?type=${type}&walletAddress=${walletAddress ? walletAddress : ""}`}
+                        href={`/chatbot?type=${type}&walletAddress=${walletAddress ? walletAddress : ""}`}
                         className={cn(
                           "flex w-24 items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white",
                           isActive

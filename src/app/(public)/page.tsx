@@ -1,16 +1,5 @@
-import Link from "next/link";
+import Container from "./_components/container";
 
 export default async function Page() {
-  return (
-    <div className="container mx-auto flex min-h-screen flex-col items-center justify-center">
-      Homepage
-      <br />
-      <Link href="/chatbot/good" className="text-blue-500 hover:underline">
-        Chatbot Good
-      </Link>
-      <Link href="/chatbot/bad" className="text-blue-500 hover:underline">
-        Chatbot Bad
-      </Link>
-    </div>
-  );
+  return <Container />;
 }
