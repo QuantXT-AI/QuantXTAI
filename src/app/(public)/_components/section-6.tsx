@@ -1,12 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import { useMediaQuery } from "usehooks-ts";
 
 export default function Section6() {
+  const isDesktop = useMediaQuery("(min-width: 769px)");
   return (
     <section
       id="roadmap"
-      className="w-full bg-gradient-to-b from-[#330A2E] to-[#1D0A09]"
+      className="w-full"
     >
       <div className="h-full w-full bg-[url('/assets/home/section-6/bg-gradient.png')] bg-contain bg-bottom bg-no-repeat">
         <div className="container mx-auto w-full max-w-6xl px-4 py-16">

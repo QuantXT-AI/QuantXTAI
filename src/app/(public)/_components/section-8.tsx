@@ -77,7 +77,7 @@ const items = [
 
 export default function Section8() {
   return (
-    <footer className="w-full bg-gradient-to-b from-[#160510] to-[#1F052D]">
+    <footer className="w-full">
       <div className="w-full bg-[url('/assets/home/section-8/bg.png')] bg-cover bg-bottom bg-no-repeat">
         <div className="container mx-auto h-full w-full max-w-6xl px-4 pb-48 pt-16">
           <div className="flex flex-col justify-between gap-8 md:flex-row">

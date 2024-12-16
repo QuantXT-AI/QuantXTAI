@@ -2,7 +2,7 @@ export default function Section5() {
   return (
     <section
       id="tokenomics"
-      className="w-full bg-gradient-to-b from-[#2A0A20] to-[#330A2E]"
+      className="w-full"
     >
       <div className="container mx-auto w-full max-w-6xl px-4 py-16">
         <div className="grid h-full w-full grid-cols-12 gap-8 md:gap-4">

@@ -2,9 +2,9 @@ export default function Section4() {
   return (
     <section
       id="features"
-      className="w-full bg-gradient-to-b from-[#200333] to-[#2A0A20]"
+      className="w-full"
     >
-      <div className="container mx-auto w-full max-w-6xl px-4 py-16">
+      <div className="container mx-auto w-full max-w-6xl overflow-x-hidden px-4 py-16">
         <div className="flex flex-col">
           <h2
             className="mb-8 text-center text-4xl font-medium text-white/75 [text-shadow:0px_0px_4px_#FFFFFF]"
@@ -17,7 +17,7 @@ export default function Section4() {
             <div className="col-span-12 md:col-span-7">
               <div className="flex flex-col gap-4">
                 <div
-                  className="grid grid-cols-12 rounded-lg border border-white/25 bg-white/5"
+                  className="grid grid-cols-12 rounded-lg border border-white/25 bg-white/5 hover:bg-[url('/assets/components/overlay/overlay-landing.png')] hover:bg-cover"
                   data-aos="fade-right"
                   data-aos-delay="400"
                 >
@@ -28,7 +28,8 @@ export default function Section4() {
                         autoPlay
                         muted
                         loop
-                        className="-mb-24 h-[320px] w-auto"
+                        className="-mb-24 h-[350px] w-auto"
+                        playsInline
                       />
                     </div>
                   </div>
@@ -47,11 +48,11 @@ export default function Section4() {
                   </div>
                 </div>
                 <div
-                  className="grid grid-cols-12 rounded-lg border border-white/25 bg-white/5"
+                  className="grid grid-cols-12 rounded-lg border border-white/25 bg-white/5 hover:bg-[url('/assets/components/overlay/overlay-landing.png')] hover:bg-cover"
                   data-aos="fade-right"
                   data-aos-delay="800"
                 >
-                  <div className="col-span-12 md:col-span-6">
+                  <div className="col-span-12 md:col-span-8">
                     <div className="px-8 py-4">
                       <h4 className="mb-2 text-xl font-semibold text-[#EBBED6]">
                         FUMBLE AND REKT QUANTIFICATION ENGINE
@@ -65,20 +66,21 @@ export default function Section4() {
                       </p>
                     </div>
                   </div>
-                  <div className="col-span-12 md:col-span-6">
+                  <div className="col-span-12 md:col-span-4">
                     <div className="h-auto w-auto overflow-hidden">
                       <video
                         src="/assets/home/section-4/video-2.webm"
                         autoPlay
                         muted
                         loop
-                        className="-mb-24 ml-24 h-[320px] w-auto"
+                        className="-mb-24 ml-8 h-[350px] w-auto"
+                        playsInline
                       />
                     </div>
                   </div>
                 </div>
                 <div
-                  className="grid grid-cols-12 rounded-lg border border-white/25 bg-white/5"
+                  className="grid grid-cols-12 rounded-lg border border-white/25 bg-white/5 hover:bg-[url('/assets/components/overlay/overlay-landing.png')] hover:bg-cover"
                   data-aos="fade-right"
                   data-aos-delay="1200"
                 >
@@ -89,7 +91,8 @@ export default function Section4() {
                         autoPlay
                         muted
                         loop
-                        className="-mb-24 h-[280px] w-auto"
+                        className="-mb-24 h-[310px] w-auto"
+                        playsInline
                       />
                     </div>
                   </div>
@@ -112,7 +115,7 @@ export default function Section4() {
             <div className="col-span-12 md:col-span-5">
               <div className="flex flex-col gap-4">
                 <div
-                  className="grid rounded-lg border border-white/25 bg-white/5"
+                  className="grid rounded-lg border border-white/25 bg-white/5 hover:bg-[url('/assets/components/overlay/overlay-landing.png')] hover:bg-cover"
                   data-aos="fade-left"
                   data-aos-delay="800"
                 >
@@ -129,20 +132,21 @@ export default function Section4() {
                       </p>
                     </div>
                   </div>
-                  <div className="-mt-16">
+                  <div className="-mt-8">
                     <div className="h-auto w-auto overflow-hidden">
                       <video
                         src="/assets/home/section-4/video-4.webm"
                         autoPlay
                         muted
                         loop
-                        className="-mb-28 h-[320px] w-auto"
+                        className="-mb-28 h-[350px] w-auto"
+                        playsInline
                       />
                     </div>
                   </div>
                 </div>
                 <div
-                  className="grid rounded-lg border border-white/25 bg-white/5"
+                  className="grid rounded-lg border border-white/25 bg-white/5 hover:bg-[url('/assets/components/overlay/overlay-landing.png')] hover:bg-cover"
                   data-aos="fade-left"
                   data-aos-delay="1200"
                 >
@@ -166,7 +170,8 @@ export default function Section4() {
                         autoPlay
                         muted
                         loop
-                        className="-mb-28 h-[320px] w-auto"
+                        className="-mb-28 h-[350px] w-auto"
+                        playsInline
                       />
                     </div>
                   </div>

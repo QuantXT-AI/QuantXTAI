@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
-
 import Header from "@/components/header";
+import Image from "next/image";
+import Section2 from "./section-2";
 
 const firstItems = [
   {
@@ -116,10 +116,7 @@ export default function Section1() {
             </div>
             <div className="grid grid-cols-12 gap-4">
               {firstItems?.map((item, index) => (
-                <div
-                  className="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-3"
-                  key={index}
-                >
+                <div className="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-3" key={index}>
                   <div className="rounded-2xl border border-white/25 bg-white/5 p-8">
                     <div className="flex items-center justify-center gap-2">
                       <div className="flex flex-col items-center gap-2">
@@ -149,10 +146,7 @@ export default function Section1() {
             </div>
             <div className="grid grid-cols-12 gap-4">
               {secondItems?.map((item, index) => (
-                <div
-                  className="col-span-12 sm:col-span-12 md:col-span-4 lg:col-span-4"
-                  key={index}
-                >
+                <div className="col-span-12 sm:col-span-12 md:col-span-4 lg:col-span-4" key={index}>
                   <div className="rounded-2xl border border-white/25 bg-white/5 p-8">
                     <div className="flex items-center justify-center gap-2">
                       <div className="flex flex-col items-center gap-2">

@@ -1,16 +1,14 @@
 "use client";
 
+import Header from "@/components/header";
 import { cn } from "@/utils/classname";
-import Spline from "@splinetool/react-spline";
-import { ArrowUpRightIcon, LoaderIcon } from "lucide-react";
-import { useState } from "react";
-import Marquee from "react-fast-marquee";
-import { useMediaQuery } from "usehooks-ts";
-
+import { ArrowUpRightIcon, Loader2Icon, LoaderIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
-import Header from "@/components/header";
+import Spline from "@splinetool/react-spline";
+import Marquee from "react-fast-marquee";
+import { useState } from "react";
+import { useMediaQuery } from "usehooks-ts";
 
 const navItems = [
   {
@@ -48,7 +46,7 @@ export default function Section1() {
   const isDesktop = useMediaQuery("(min-width: 769px)");
 
   return (
-    <section className="relative w-full bg-gradient-to-b from-[rgb(71,22,22)] to-[#200333]">
+    <section className="relative w-full ">
       {isDesktop ? (
         <>
           <div className="container mx-auto max-w-6xl px-4">
@@ -60,6 +58,7 @@ export default function Section1() {
                   loop
                   muted
                   className="-mt-8 h-auto w-full object-cover object-bottom opacity-50"
+                  playsInline
                 />
               </div>
               <div>
@@ -69,6 +68,7 @@ export default function Section1() {
                   loop
                   muted
                   className="-mt-8 h-auto w-full object-cover object-bottom opacity-50"
+                  playsInline
                 />
               </div>
               <div>
@@ -78,6 +78,7 @@ export default function Section1() {
                   loop
                   muted
                   className="-mt-8 h-auto w-full object-cover object-bottom opacity-25"
+                  playsInline
                 />
               </div>
             </div>
@@ -129,61 +130,44 @@ export default function Section1() {
             </div>
             <div className="container mx-auto -mt-24 max-w-6xl px-4">
               <div className="mb-20">
-                <div className="mb-8 flex items-center justify-center gap-4 p-8">
-                  {navItems?.map((item, index) => {
-                    return (
-                      <Link
-                        href={item?.href}
-                        className="rounded-full border border-white/25 bg-[#46181F]/50 hover:animate-shake"
-                        data-aos="fade-up"
-                        data-aos-delay={`${index * 400}`}
-                        key={index}
-                      >
-                        <div className="flex items-center">
-                          {index === 0 && (
-                            <div className="m-1 flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                              <Image
-                                src="/assets/home/section-2/nav-icon.png"
-                                alt="icon"
-                                width={480}
-                                height={480}
-                                className="h-4 w-4"
-                              />
-                            </div>
-                          )}
-                          <p
-                            className={cn(
-                              "px-8 py-2 text-sm font-normal text-white",
-                              index === 0 ? "-ml-4" : "",
+                <div className="sticky top-0 h-full">
+                  <div className="mb-8 flex items-center justify-center gap-4 p-8">
+                    {navItems?.map((item, index) => {
+                      return (
+                        <Link
+                          href={item?.href}
+                          className="rounded-full border border-white/25 bg-[#46181F]/50 hover:animate-shake"
+                          data-aos="fade-up"
+                          data-aos-delay={`${index * 400}`}
+                          key={index}
+                        >
+                          <div className="flex items-center">
+                            {index === 0 && (
+                              <div className="m-1 flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
+                                <Image
+                                  src="/assets/home/section-2/nav-icon.png"
+                                  alt="icon"
+                                  width={480}
+                                  height={480}
+                                  className="h-4 w-4"
+                                />
+                              </div>
                             )}
-                          >
-                            {item?.title}
-                          </p>
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
-                <div
-                  id="partners"
-                  className="flex flex-col items-center justify-center"
-                >
-                  <h4 className="mb-8 text-center text-2xl font-normal text-white/50 [text-shadow:0px_0px_4px_#FFFFFF]">
-                    INCEPTION PARTNER OF
-                  </h4>
-                  <div data-aos="fade-up" data-aos-delay="400">
-                    <Image
-                      src="/assets/home/section-3/partner-main.png"
-                      alt="logo"
-                      width={480}
-                      height={480}
-                      className="h-24 w-auto opacity-75"
-                    />
+                            <p
+                              className={cn(
+                                "px-8 py-2 text-sm font-normal text-white",
+                                index === 0 ? "-ml-4" : "",
+                              )}
+                            >
+                              {item?.title}
+                            </p>
+                          </div>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
-              </div>
-              <div>
-                <div className="py-8">
+                <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen py-16">
                   <Marquee className="">
                     <div className="flex items-center justify-center gap-4">
                       {[...partnerItems, ...partnerItems].map((item, index) => {
@@ -202,6 +186,29 @@ export default function Section1() {
                     </div>
                   </Marquee>
                 </div>
+                <div
+                  id="partners"
+                  className="flex flex-col items-center justify-center"
+                >
+                  <div
+                    data-aos="fade-up"
+                    data-aos-delay="400"
+                    className="mb-8 text-center text-2xl font-normal text-white/50 [text-shadow:0px_0px_4px_#FFFFFF]"
+                  >
+                    INCEPTION PARTNER OF
+                  </div>
+                  <div data-aos="fade-up" data-aos-delay="400">
+                    <Image
+                      src="/assets/home/section-3/partner-main.png"
+                      alt="logo"
+                      width={480}
+                      height={480}
+                      className="h-24 w-auto opacity-75"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div>
                 <h2
                   className="my-24 text-center text-5xl font-medium text-white/75 [text-shadow:0px_0px_4px_#FFFFFF]"
                   data-aos="fade-up"
@@ -212,25 +219,6 @@ export default function Section1() {
                   <br /> THE WHOLE ESSENSE THE
                   <br /> CRYPTO ECONOMY
                 </h2>
-                <div className="py-8">
-                  <Marquee direction="right">
-                    <div className="flex items-center justify-center gap-4">
-                      {[...partnerItems, ...partnerItems].map((item, index) => {
-                        return (
-                          <div className="px-8" key={index}>
-                            <Image
-                              src={item}
-                              alt="logo"
-                              width={480}
-                              height={480}
-                              className="h-8 w-auto opacity-50"
-                            />
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </Marquee>
-                </div>
               </div>
             </div>
           </div>
@@ -243,6 +231,7 @@ export default function Section1() {
             loop
             muted
             className="absolute h-[100vh] w-full bg-no-repeat object-cover opacity-50"
+            playsInline
           />
           <div className="relative">
             <div className="px-4">
@@ -280,9 +269,13 @@ export default function Section1() {
               id="partners"
               className="flex flex-col items-center justify-center"
             >
-              <h4 className="mb-8 text-center text-xl font-normal text-white/50 [text-shadow:0px_0px_4px_#FFFFFF] md:text-2xl">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="400"
+                className="mb-8 text-center text-2xl font-normal text-white/50 [text-shadow:0px_0px_4px_#FFFFFF]"
+              >
                 INCEPTION PARTNER OF
-              </h4>
+              </div>
               <div data-aos="zoom-in" data-aos-delay="400">
                 <Image
                   src="/assets/home/section-3/partner-main.png"
@@ -313,7 +306,7 @@ export default function Section1() {
               </Marquee>
             </div>
             <h2
-              className="px-4 py-10 text-center text-2xl font-medium text-white/75 [text-shadow:0px_0px_4px_#FFFFFF] md:text-4xl"
+              className="flex h-screen items-center justify-center px-4 py-10 text-center text-2xl font-medium text-white/75 [text-shadow:0px_0px_4px_#FFFFFF] md:text-4xl"
               data-aos="fade-up"
               data-aos-delay="400"
             >
