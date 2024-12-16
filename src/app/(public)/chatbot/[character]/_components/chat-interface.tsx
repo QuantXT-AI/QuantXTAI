@@ -37,7 +37,6 @@ export function ChatInterface({
   character: string;
 }) {
   const firstAskQuestionResponse = use(firstAskQuestionPromise);
-  console.log(firstAskQuestionResponse);
 
   const { characterId, characters, setCharacterId } = useCharacter();
   const characterAvatarImage = "/placeholder.svg";
