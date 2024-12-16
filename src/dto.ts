@@ -44,6 +44,22 @@ export const TwitterSearchRequestSchema = z.object({
 
 export type TwitterSearchRequest = z.infer<typeof TwitterSearchRequestSchema>;
 
+export const WalletAddressOrENSRequestSchema = z.object({
+  walletAddressOrENS: z
+    .string()
+    .min(1, "Wallet address or ENS name cannot be empty")
+    .max(100, "Wallet address or ENS name is too long")
+    .trim()
+    .refine((value) => {
+      const valueString = value as string;
+      return validateEVMAddress(valueString) || valueString.endsWith(".eth");
+    }, "Invalid Ethereum address or ENS name"),
+});
+
+export type WalletAddressOrENSRequest = z.infer<
+  typeof WalletAddressOrENSRequestSchema
+>;
+
 export const WalletAddressRequestSchema = z.object({
   walletAddress: z
     .string()

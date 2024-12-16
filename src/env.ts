@@ -77,9 +77,9 @@ export const env = createEnv({
    *
    * 💡 You'll get type errors if these are not prefixed with NEXT_PUBLIC_.
    */
-  // client: {
-  //   NEXT_PUBLIC_SOMETHING: z.string().min(1),
-  // },
+  client: {
+    NEXT_PUBLIC_ETHEREUM_RPC_URL: z.string().url(),
+  },
   /*
    * Due to how Next.js bundles environment variables on Edge and Client,
    * we need to manually destructure them to make sure all are included in bundle.
@@ -150,5 +150,7 @@ export const env = createEnv({
     TWITTER_PASSWORD_11: process.env.TWITTER_PASSWORD_11,
     TWITTER_EMAIL_11: process.env.TWITTER_EMAIL_11,
     TWITTER_TWO_FACTOR_SECRET_11: process.env.TWITTER_TWO_FACTOR_SECRET_11,
+
+    NEXT_PUBLIC_ETHEREUM_RPC_URL: process.env.NEXT_PUBLIC_ETHEREUM_RPC_URL,
   },
 });

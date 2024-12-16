@@ -63,7 +63,7 @@ async function getInitialMessage({
 }) {
   if (!walletAddress) {
     return Promise.resolve({
-      text: "Hello! Please insert your Ethereum wallet address first.",
+      text: "Hello! Please insert your Ethereum address or ENS name first.",
     } as InitiatePredictionResponse);
   }
 

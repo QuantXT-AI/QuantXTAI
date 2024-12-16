@@ -1,6 +1,7 @@
 import {
   AlertCircle,
   ArrowRight,
+  Loader2,
   Pencil,
   RotateCcw,
   Wallet,
@@ -17,7 +18,8 @@ import { cn, formatZodError } from "@/lib/utils";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { WalletAddressRequestSchema } from "@/dto";
+import { WalletAddressOrENSRequestSchema } from "@/dto";
+import { resolveENS } from "@/lib/ens";
 
 interface WalletAddressSectionProps {
   walletAddress?: string;
@@ -42,18 +44,37 @@ export function WalletAddressSection({
   );
   const [error, setError] = useState("");
   const [isPendingRefresh, startTransition] = useTransition();
+  const [isResolvingENS, setIsResolvingENS] = useState(false);
 
   const handleWalletSubmit = useCallback(
-    (newWalletAddress: string) => {
-      const targetUrl = `/chatbot/${characterId}?walletAddress=${newWalletAddress}`;
+    async (input: string) => {
+      setIsResolvingENS(true);
+      setError("");
 
-      if (walletAddress !== newWalletAddress) {
-        setIsExiting(true);
-        setTimeout(() => {
+      try {
+        const resolvedAddress = await resolveENS(input);
+
+        if (!resolvedAddress) {
+          setError("Invalid ENS name or Ethereum address");
+          setIsResolvingENS(false);
+          return;
+        }
+
+        const targetUrl = `/chatbot/${characterId}?walletAddress=${resolvedAddress}`;
+
+        if (walletAddress !== resolvedAddress) {
+          setIsExiting(true);
+          setTimeout(() => {
+            router.push(targetUrl);
+          }, 500);
+        } else {
           router.push(targetUrl);
-        }, 500);
-      } else {
-        router.push(targetUrl);
+        }
+      } catch (error) {
+        console.error("Error resolving ENS:", error);
+        setError("Failed to resolve ENS name");
+      } finally {
+        setIsResolvingENS(false);
       }
     },
     [characterId, router, walletAddress, setIsExiting],
@@ -101,12 +122,12 @@ export function WalletAddressSection({
         <Form
           action=""
           className="mx-auto flex max-w-md gap-4 px-4"
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault();
             setError("");
 
-            const result = WalletAddressRequestSchema.safeParse({
-              walletAddress: walletAddressInput,
+            const result = WalletAddressOrENSRequestSchema.safeParse({
+              walletAddressOrENS: walletAddressInput,
             });
 
             if (!result.success) {
@@ -120,7 +141,7 @@ export function WalletAddressSection({
                 router.push(`/chatbot/${characterId}`);
               }, 500);
             } else {
-              handleWalletSubmit(walletAddressInput);
+              await handleWalletSubmit(walletAddressInput);
             }
           }}
         >
@@ -128,17 +149,23 @@ export function WalletAddressSection({
             <Input
               type="text"
               id="wallet-address"
-              placeholder="Enter your Ethereum wallet address"
+              placeholder="Enter your Ethereum address or ENS name"
               value={walletAddressInput}
               onChange={(e) => setWalletAddressInput(e.target.value)}
-              disabled={isPending}
+              disabled={isPending || isResolvingENS}
               className="w-full bg-white pl-10"
               readOnly={!!walletAddress}
             />
             <Wallet className="-translate-y-1/2 absolute top-1/2 left-3 h-4 w-4" />
           </div>
-          <Button type="submit" size="icon" disabled={isPending}>
-            {walletAddress ? (
+          <Button
+            type="submit"
+            size="icon"
+            disabled={isPending || isResolvingENS}
+          >
+            {isResolvingENS ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : walletAddress ? (
               <Pencil className="h-4 w-4" />
             ) : (
               <ArrowRight className="h-4 w-4" />
