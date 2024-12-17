@@ -102,7 +102,7 @@ export const QUICK_CHAT_OPTIONS = [
   "My Top 5 Biggest REKT (Loss)",
   "Analyze my Past 5 Trades",
   "Give me info on $PEPE",
-  "What do you think of $PEPE?",
+  "What do you think of $MOG?",
 ] as const;
 
 export const FOUNDERS = [
