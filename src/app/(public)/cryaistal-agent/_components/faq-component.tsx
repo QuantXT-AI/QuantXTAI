@@ -16,18 +16,17 @@ export function FAQComponent({
 }: FAQComponentProps) {
   return (
     <div className="w-full rounded-md">
-      <div className="flex flex-col gap-2 p-4">
-        {FAQ_OPTIONS.map((option) => (
-          <Button
-            key={`faq-${option}`}
-            variant="outline"
-            className="h-auto w-full justify-start whitespace-normal break-words rounded-full border-white/25 bg-black/75 text-left font-normal text-white disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent"
+      <div className="flex flex-col gap-2">
+        {FAQ_OPTIONS.map((option, index) => (
+          <button
+            key={`faq-${option}-${index}`}
+            className="h-auto rounded-xl border border-white/25 bg-black/75 p-2 px-4 py-2 text-start text-sm text-white hover:opacity-50"
             onClick={() => onSelect(option)}
             type="button"
             disabled={disabled}
           >
             {option}
-          </Button>
+          </button>
         ))}
       </div>
     </div>

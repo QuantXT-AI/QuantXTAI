@@ -19,11 +19,11 @@ export default function Section1() {
           </div>
         </div>
       </div>
-      <div className="absolute top-0 left-0 h-full w-full">
+      <div className="absolute left-0 top-0 h-full w-full">
         <div className="container relative mx-auto max-w-6xl px-4">
           <Header />
           <div className="w-full py-16">
-            <div className="flex flex-col items-start">
+            <div className="mb-8 flex flex-col items-start">
               <div className="mb-8 rounded-full border border-white/25 bg-white/5 px-4 py-2">
                 <div className="flex items-center gap-2">
                   <Image
@@ -33,13 +33,13 @@ export default function Section1() {
                     height={480}
                     className="h-8 w-auto"
                   />
-                  <span className="font-medium text-sm text-white/50">
+                  <span className="text-sm font-medium text-white/50">
                     PROTOCOL
                   </span>
                 </div>
               </div>
               <h2
-                className="mb-8 font-medium text-4xl text-white/75 leading-[1.2] [text-shadow:0px_0px_4px_#FFFFFF] sm:text-4xl md:text-6xl lg:text-6xl"
+                className="mb-8 text-4xl font-medium leading-[1.2] text-white/75 [text-shadow:0px_0px_4px_#FFFFFF] sm:text-4xl md:text-6xl lg:text-6xl"
                 data-aos="fade-up"
                 data-aos-delay="1400"
               >
@@ -48,7 +48,7 @@ export default function Section1() {
                 BLOCKCHAIN, AND TRADING
               </h2>
               <p
-                className="max-w-[820px] font-normal text-sm text-white/50 text-whitse/50 sm:text-sm md:text-md lg:text-lg"
+                className="text-whitse/50 md:text-md max-w-[820px] text-sm font-normal text-white/50 sm:text-sm lg:text-lg"
                 data-aos="fade-up"
                 data-aos-delay="1800"
               >
