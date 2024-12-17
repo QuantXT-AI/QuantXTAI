@@ -19,7 +19,7 @@ import {
 const navItems = [
   {
     title: "HOME",
-    href: "",
+    href: "/",
   },
   {
     title: "CRYAISTAL AGENT",
