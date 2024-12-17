@@ -9,7 +9,12 @@ import { useMediaQuery } from "usehooks-ts";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Sheet, SheetContent, SheetTrigger } from "@/components/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/sheet";
 
 const navItems = [
   {
@@ -53,9 +58,10 @@ export default function Header() {
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   return (
-    <div className="z-20 flex items-center justify-between gap-4 py-8">
+    <div className="relative z-20 flex items-center justify-between gap-4 py-8">
       {!isDesktop && (
         <Sheet>
+          <SheetTitle className="sr-only">Navigation</SheetTitle>
           <SheetTrigger>
             <svg
               className="cursor-pointer md:hidden"
