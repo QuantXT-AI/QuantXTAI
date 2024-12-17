@@ -45,7 +45,7 @@ export const SOCIAL_LINKS = [
 export const CHARACTERS = [
   {
     theme: "dark",
-    id: "good",
+    id: "GOOD",
     name: "Good",
     primary: "#000",
     primaryForeground: "white",
@@ -66,7 +66,7 @@ export const CHARACTERS = [
   },
   {
     theme: "dark",
-    id: "evil",
+    id: "EVIL",
     name: "Evil",
     primary: "#000",
     primaryForeground: "white",
@@ -98,10 +98,11 @@ export const FAQ_OPTIONS = [
 ] as const;
 
 export const QUICK_CHAT_OPTIONS = [
-  "Show me my top 5 fumbled bags (sold too early) 📉",
-  "Show me my top 5 rekt positions (biggest losses) 💸",
-  "Analyze my last 5 trades",
-  "Get info on $PEPE",
+  "My Top 5 Fumbles",
+  "My Top 5 Biggest REKT (Loss)",
+  "Analyze my Past 5 Trades",
+  "Give me info on $PEPE",
+  "What do you think of $PEPE?",
 ] as const;
 
 export const FOUNDERS = [

@@ -7,6 +7,7 @@ import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 
 import type { InitiatePredictionResponse } from "@/app/types";
+import { CHARACTERS } from "@/config";
 import { WalletAddressOrENSRequestSchema } from "@/dto";
 import { resolveENS } from "@/lib/ens";
 import { formatZodError } from "@/lib/utils";
@@ -22,10 +23,10 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import ChatSection from "./chat-section";
 
-const chatbotTypeItems = ["EVIL", "GOOD"];
+const chatbotTypeItems = CHARACTERS.map((character) => character.id);
 
 interface ContainerProps {
-  type: string;
+  type: (typeof CHARACTERS)[number]["id"];
   walletAddress: string;
   firstAskQuestionPromise: Promise<InitiatePredictionResponse>;
 }
@@ -41,7 +42,7 @@ export default function Container({
     walletAddress ?? "",
   );
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [chatbotType, setchatbotType] = useState<string | null>(null);
+  const [chatbotType, setchatbotType] = useState<string>(type);
   const [isResolvingENS, setIsResolvingENS] = useState(false);
 
   const handleValidateWalletAddress = useCallback(async () => {
@@ -84,14 +85,14 @@ export default function Container({
   };
 
   useEffect(() => {
-    if (type?.toUpperCase() && chatbotTypeItems.includes(type?.toUpperCase())) {
-      setchatbotType(type?.toUpperCase());
+    if (type && chatbotTypeItems.includes(type)) {
+      setchatbotType(type);
     } else {
       setchatbotType(chatbotTypeItems?.[0]);
     }
   }, [type]);
 
-  if (!chatbotTypeItems?.includes(type?.toUpperCase())) {
+  if (!chatbotTypeItems?.includes(type)) {
     return <></>;
   }
 
@@ -114,7 +115,7 @@ export default function Container({
 
                     return (
                       <a
-                        href={`/chatbot?type=${type}&walletAddress=${walletAddress ? walletAddress : ""}`}
+                        href={`/chatbot?type=${type}${walletAddress ? `&walletAddress=${walletAddress}` : ""}`}
                         className={cn(
                           "flex w-24 items-center justify-center rounded-md px-4 py-2 font-medium text-sm text-white",
                           isActive

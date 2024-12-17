@@ -97,7 +97,7 @@ export default function Section1() {
                     <br /> REDEFINED BY AI
                   </h2>
                   <Link
-                    href="/"
+                    href="/chatbot"
                     className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-8 py-4 hover:animate-shake"
                     data-aos="fade-up"
                     data-aos-delay="1400"
@@ -246,7 +246,7 @@ export default function Section1() {
               </h2>
 
               <Link
-                href="/"
+                href="/chatbot"
                 className="flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-8 py-4 hover:animate-shake md:justify-start"
                 data-aos="fade-up"
                 data-aos-delay="1400"

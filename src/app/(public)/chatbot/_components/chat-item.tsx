@@ -16,16 +16,9 @@ interface IProps {
   item: IMessage;
   isPending: boolean;
   chatbotType: string | null;
-  key: number;
-  index: number;
 }
 
-export default function ChatItem({
-  item,
-  isPending,
-  chatbotType,
-  index,
-}: IProps) {
+export default function ChatItem({ item, isPending, chatbotType }: IProps) {
   if (item?.role !== "apiMessage") {
     return (
       <motion.div
@@ -39,7 +32,6 @@ export default function ChatItem({
           duration: 0.25,
           ease: "easeOut",
         }}
-        key={index}
       >
         <div className="w-[80%]">
           <motion.div
@@ -78,7 +70,6 @@ export default function ChatItem({
         duration: 0.25,
         ease: "easeOut",
       }}
-      key={index}
     >
       {chatbotType === "GOOD" ? (
         <Image

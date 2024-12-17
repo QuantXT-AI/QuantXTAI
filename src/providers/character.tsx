@@ -5,7 +5,7 @@ import { createContext, use, useCallback, useMemo, useState } from "react";
 
 import { CHARACTERS } from "@/config";
 
-const DEFAULT_CHARACTER_ID = "good";
+const DEFAULT_CHARACTER_ID = "GOOD";
 
 type Ctx = {
   loading: boolean | string;

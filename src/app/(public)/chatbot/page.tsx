@@ -1,4 +1,6 @@
+import type { CHARACTERS } from "@/config";
 import { getInitialMessage } from "@/utils/chat";
+import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import Container from "./_components/container";
 
@@ -11,6 +13,13 @@ interface IPageProps {
 
 export default async function Page({ searchParams }: IPageProps) {
   const { type, walletAddress } = await searchParams;
+
+  if (!type) {
+    const defaultType = "GOOD";
+    return redirect(
+      `/chatbot?type=${defaultType}${walletAddress ? `&walletAddress=${walletAddress}` : ""}`,
+    );
+  }
 
   const firstAskQuestionPromise = getInitialMessage({
     character: type?.toLowerCase(),
@@ -27,7 +36,7 @@ export default async function Page({ searchParams }: IPageProps) {
       }
     >
       <Container
-        type={type}
+        type={type as (typeof CHARACTERS)[number]["id"]}
         walletAddress={walletAddress}
         firstAskQuestionPromise={firstAskQuestionPromise}
       />

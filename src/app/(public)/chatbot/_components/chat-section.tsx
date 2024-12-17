@@ -1,15 +1,24 @@
 "use client";
 
-import { use, useEffect, useRef, useState, useTransition } from "react";
+import {
+  Fragment,
+  use,
+  useEffect,
+  useRef,
+  useState,
+  useTransition,
+} from "react";
 
+import { QuickChatOptions } from "@/app/(public)/chatbot/_components/quick-chat-options";
 import type { InitiatePredictionResponse } from "@/app/types";
 import { cn } from "@/lib/utils";
 import Form from "next/form";
 import Image from "next/image";
 import ChatItem, { type IMessage } from "./chat-item";
+import { FAQComponent } from "./faq-component";
 
 interface ChatSectionProps {
-  chatbotType: string | null;
+  chatbotType: string;
   walletAddress: string;
   firstAskQuestionPromise: Promise<InitiatePredictionResponse>;
   errorMessage: string | null;
@@ -42,13 +51,15 @@ export default function ChatSection({
       : []),
   ]);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (messageOverride?: string) => {
+    const messageToSubmit = messageOverride || inputMessage;
+
     setInputMessage("");
     setMessages((prev) => [
       ...prev,
       {
         role: "userMessage",
-        content: inputMessage,
+        content: messageToSubmit,
         error: false,
         timestamp: new Date(),
       },
@@ -75,14 +86,14 @@ export default function ChatSection({
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            question: inputMessage,
+            question: messageToSubmit,
             character: chatbotType?.toLowerCase(),
             walletAddress,
             sessionId: firstAskQuestionResponse.sessionId,
             history: messages.slice(-4).map((message) => ({
               role: message.role,
               content: message.content,
-            })), // Get only 4 last messages
+            })),
           }),
         });
 
@@ -133,6 +144,10 @@ export default function ChatSection({
         }, 100);
       }
     });
+  };
+
+  const handleQuickChatSelect = (message: string) => {
+    handleSubmit(message);
   };
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
@@ -198,23 +213,37 @@ export default function ChatSection({
         >
           <div className="h-full w-full bg-[url('/assets/chatbot/bg-line.png')] bg-center bg-cover bg-no-repeat">
             <div className="relative h-full w-full overflow-hidden pt-[226px] md:pt-[180px]">
-              <div className="h-full overflow-y-auto px-4 pt-48 pb-32 md:px-8 md:pt-8">
+              <div className="h-full overflow-y-auto px-4 py-48 md:px-8 md:pt-8">
                 <div className="flex flex-col gap-4">
                   {messages?.map((item, index) => {
                     return (
-                      <ChatItem
-                        item={item}
-                        chatbotType={chatbotType}
-                        isPending={isPending}
-                        index={index}
-                        key={index}
-                      />
+                      <Fragment key={`chat-item-${index}`}>
+                        <ChatItem
+                          item={item}
+                          chatbotType={chatbotType}
+                          isPending={isPending}
+                        />
+                        {item.role === "apiMessage" &&
+                          index === 0 &&
+                          walletAddress && (
+                            <FAQComponent
+                              key="first-message-component"
+                              characterId={chatbotType}
+                              onSelect={handleQuickChatSelect}
+                              disabled={isPending}
+                            />
+                          )}
+                      </Fragment>
                     );
                   })}
                 </div>
                 <div ref={finishRef} />
               </div>
               <div className="absolute bottom-8 left-0 w-full">
+                <QuickChatOptions
+                  onSelect={handleQuickChatSelect}
+                  disabled={isPending}
+                />
                 <Form
                   action=""
                   className="flex w-full items-center gap-4 px-4 md:px-8"
