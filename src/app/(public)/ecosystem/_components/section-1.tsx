@@ -3,11 +3,19 @@
 import Header from "@/components/header";
 import Image from "next/image";
 import { useMediaQuery } from "usehooks-ts";
+import React from "react";
 
 export default function Section1() {
   const isDesktop = useMediaQuery("(min-width: 769px)");
 
-  const overlayRobot = (children: any) => isDesktop ? (<div className="bg-gradient-to-t from-[#190616] to-[rgba(0,0,0,0)]">{children}</div>) : children
+  const overlayRobot = (children: React.ReactNode) => 
+    isDesktop ? (
+      <div className="bg-gradient-to-t from-[#190616] to-[rgba(0,0,0,0)]">
+        {children}
+      </div>
+    ) : (
+      children
+    );
 
   return (
     <section className="relative w-full">
@@ -15,19 +23,17 @@ export default function Section1() {
         <div className="bg-[url('/assets/about-1/section-1/bg.png')] bg-[length:100%_auto] bg-bottom bg-no-repeat">
           <div className="bg-[url('/assets/about-1/section-1/robot-1.png')] bg-[length:250px_auto] bg-left-bottom bg-no-repeat">
             <div className="bg-[url('/assets/about-1/section-1/robot-2.png')] bg-[length:250px_auto] bg-right-bottom bg-no-repeat">
-              {
-                overlayRobot(
-                  <div className="h-screen w-full overflow-hidden">
-                    <video
-                      src="/assets/about-1/section-1/bg-video.webm"
-                      autoPlay
-                      loop
-                      muted
-                      className="h-auto w-full object-cover object-bottom opacity-20"
-                    />
-                  </div>
-                )
-              }
+              {overlayRobot(
+                <div className="h-screen w-full overflow-hidden">
+                  <video
+                    src="/assets/about-1/section-1/bg-video.webm"
+                    autoPlay
+                    loop
+                    muted
+                    className="h-auto w-full object-cover object-bottom opacity-20"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
