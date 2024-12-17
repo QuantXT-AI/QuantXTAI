@@ -33,7 +33,7 @@ export default function ChatItem({ item, isPending, chatbotType }: IProps) {
           ease: "easeOut",
         }}
       >
-        <div className="w-[80%]">
+        <div className="w-full md:w-[80%]">
           <motion.div
             className={cn("rounded-[16px] bg-white/10 p-4")}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
@@ -77,7 +77,7 @@ export default function ChatItem({ item, isPending, chatbotType }: IProps) {
           alt="avatar"
           width={480}
           height={480}
-          className="h-12 w-auto"
+          className="h-8 w-auto md:h-12"
         />
       ) : (
         <Image
@@ -85,11 +85,11 @@ export default function ChatItem({ item, isPending, chatbotType }: IProps) {
           alt="avatar"
           width={480}
           height={480}
-          className="h-12 w-auto"
+          className="h-8 w-auto md:h-12"
         />
       )}
       <div className="flex w-full items-center justify-start gap-4">
-        <div className="w-[80%] p-4 pt-0">
+        <div className="w-full p-0 pt-0 md:w-[80%] md:px-4">
           <motion.div
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
           >

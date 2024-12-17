@@ -212,8 +212,8 @@ export default function ChatSection({
           )}
         >
           <div className="h-full w-full bg-[url('/assets/chatbot/bg-line.png')] bg-center bg-cover bg-no-repeat">
-            <div className="relative h-full w-full overflow-hidden pt-[226px] md:pt-[180px]">
-              <div className="h-full overflow-y-auto px-4 py-48 md:px-8 md:pt-8">
+            <div className="relative h-full w-full overflow-hidden pt-0 md:pt-[180px]">
+              <div className="h-full overflow-y-auto px-4 pt-48 pb-32 md:px-8 md:pt-8">
                 <div className="flex flex-col gap-4">
                   {messages?.map((item, index) => {
                     return (
@@ -239,17 +239,18 @@ export default function ChatSection({
                 </div>
                 <div ref={finishRef} />
               </div>
-              <div className="absolute bottom-8 left-0 w-full">
-                <QuickChatOptions
-                  onSelect={handleQuickChatSelect}
-                  disabled={isPending}
-                />
+              <div className="absolute bottom-4 left-0 w-full md:bottom-8">
+                {walletAddress && (
+                  <QuickChatOptions
+                    onSelect={handleQuickChatSelect}
+                    disabled={isPending}
+                  />
+                )}
                 <Form
                   action=""
-                  className="flex w-full items-center gap-4 px-4 md:px-8"
+                  className="flex w-full items-center gap-2 px-4 md:gap-4 md:px-8"
                   onSubmit={(e) => {
                     e.preventDefault();
-
                     handleSubmit();
                   }}
                 >
@@ -258,11 +259,12 @@ export default function ChatSection({
                       ref={inputRef}
                       type="text"
                       placeholder="Ask me anything..."
-                      className={`w-full rounded-full border border-white/25 bg-black/75 px-4 py-4 text-sm text-white ${
+                      className={cn(
+                        "w-full rounded-full border border-white/25 bg-black px-4 py-2 text-sm text-white md:px-4 md:py-4",
                         !walletAddress || !messages?.[0] || isPending
                           ? "cursor-not-allowed opacity-50"
-                          : ""
-                      }`}
+                          : "",
+                      )}
                       value={inputMessage}
                       onChange={(e) => setInputMessage(e.target.value)}
                       disabled={!walletAddress || !messages?.[0] || isPending}
@@ -270,11 +272,12 @@ export default function ChatSection({
                   </div>
                   <button
                     type="submit"
-                    className={`min-h-[58px] min-w-[58px] rounded-full border border-white/25 bg-black/75 text-white ${
+                    className={cn(
+                      "min-h-[38px] min-w-[38px] rounded-full border border-white/25 bg-black text-white md:min-h-[58px] md:min-w-[58px]",
                       !inputMessage || !walletAddress
                         ? "cursor-not-allowed opacity-50"
-                        : ""
-                    }`}
+                        : "",
+                    )}
                     disabled={!inputMessage || !walletAddress || isPending}
                   >
                     <div className="flex h-full w-full items-center justify-center">

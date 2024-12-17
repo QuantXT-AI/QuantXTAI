@@ -101,13 +101,13 @@ export default function Container({
       <div className="fixed top-0 z-20 w-full">
         <div className="grid grid-cols-12">
           <div className="col-span-12 md:col-span-6">
-            <div className="bg-black/50 px-4 pt-8 pb-2 md:bg-transparent md:p-8">
+            <div className="bg-black/75 px-4 pt-8 pb-2 md:bg-transparent md:p-8">
               <div className="flex items-center gap-4">
                 <Link
                   href="/"
-                  className="rounded-lg border border-white/25 bg-white/5 p-2.5"
+                  className="rounded-lg border border-white/25 bg-white/5 p-2.5 md:p-2.5"
                 >
-                  <ChevronLeftIcon className="h-6 w-6 text-white" />
+                  <ChevronLeftIcon className="h-4 w-4 text-white md:h-6 md:w-6" />
                 </Link>
                 <div className="flex items-center rounded-lg border border-white/25 bg-white/5 p-1">
                   {chatbotTypeItems?.map((type, index) => {
@@ -133,10 +133,10 @@ export default function Container({
             </div>
           </div>
           <div className="col-span-12 md:col-span-6">
-            <div className="border-white/25 border-b bg-black/50 px-4 pt-2 pb-4 md:bg-transparent md:p-8">
+            <div className="border-white/25 border-b bg-black px-4 pt-2 pb-4 md:bg-black/25 md:p-8">
               <div className="">
                 {chatbotType === "GOOD" ? (
-                  <div className="mb-4 flex items-center gap-4">
+                  <div className="mb-4 hidden items-center gap-4 md:flex">
                     <Image
                       src="/assets/chatbot/good-icon.png"
                       alt="close"
@@ -147,7 +147,7 @@ export default function Container({
                     <h4 className="font-bold text-white text-xl">GOOD</h4>
                   </div>
                 ) : (
-                  <div className="mb-4 flex items-center gap-4">
+                  <div className="mb-4 hidden items-center gap-4 md:flex">
                     <Image
                       src="/assets/chatbot/evil-icon.png"
                       alt="close"
@@ -170,7 +170,7 @@ export default function Container({
                   <input
                     type="text"
                     placeholder="ENTER YOUR ETHEREUM ADDRESS OR ENS NAME"
-                    className={`w-full rounded-full px-12 py-4 text-sm text-white ${
+                    className={`w-full rounded-full px-12 py-2 text-sm text-white md:py-4 ${
                       walletAddress
                         ? "cursor-not-allowed opacity-50"
                         : "bg-white/10"
@@ -179,30 +179,28 @@ export default function Container({
                     value={inputWalletAddress}
                     onChange={(e) => setInputWalletAddress(e.target.value)}
                   />
-                  <div className="-translate-y-1/2 absolute top-1/2 left-4">
-                    <WalletIcon className="h-5 w-5 text-white" />
+                  <div className="-translate-y-1/2 absolute top-1/2 left-2 md:left-4">
+                    <WalletIcon className="h-4 w-4 text-white md:h-5 md:w-5" />
                   </div>
                   {!walletAddress ? (
                     <button
                       type="submit"
-                      className="-translate-y-1/2 absolute top-1/2 right-2"
+                      className="-translate-y-1/2 absolute top-1/2 right-0 md:right-2"
                       disabled={isResolvingENS}
                     >
                       <div className="rounded-full bg-white/10 p-2">
                         {isResolvingENS ? (
-                          <Loader2Icon className="h-5 w-5 animate-spin text-white" />
+                          <Loader2Icon className="h-4 w-4 animate-spin text-white md:h-5 md:w-5" />
                         ) : (
-                          <ArrowRightIcon className="h-5 w-5 text-white" />
+                          <ArrowRightIcon className="h-4 w-4 text-white md:h-5 md:w-5" />
                         )}
                       </div>
                     </button>
                   ) : (
                     <button
                       type="button"
-                      className="-translate-y-1/2 absolute top-1/2 right-2"
-                      onClick={() => {
-                        handleClearWalletAddress();
-                      }}
+                      className="-translate-y-1/2 absolute top-1/2 right-0 md:right-2"
+                      onClick={handleClearWalletAddress}
                     >
                       <div className="rounded-full bg-white/10 p-2">
                         <XIcon className="h-5 w-5 text-white" />
