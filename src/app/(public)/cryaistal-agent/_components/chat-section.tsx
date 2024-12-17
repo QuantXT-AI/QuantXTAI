@@ -87,7 +87,7 @@ export default function ChatSection({
           },
           body: JSON.stringify({
             question: messageToSubmit,
-            character: chatbotType?.toLowerCase(),
+            character: chatbotType,
             walletAddress,
             sessionId: firstAskQuestionResponse.sessionId,
             history: messages.slice(-4).map((message) => ({
@@ -213,7 +213,7 @@ export default function ChatSection({
         >
           <div className="h-full w-full bg-[url('/assets/chatbot/bg-line.png')] bg-center bg-cover bg-no-repeat">
             <div className="relative h-full w-full overflow-hidden pt-0 md:pt-[180px]">
-              <div className="h-full overflow-y-auto px-4 pt-48 pb-32 md:px-8 md:pt-8">
+              <div className="h-full overflow-y-auto px-4 py-48 md:px-8 md:pt-8">
                 <div className="flex flex-col gap-4">
                   {messages?.map((item, index) => {
                     return (

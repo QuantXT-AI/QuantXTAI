@@ -22,7 +22,7 @@ export default async function Page({ searchParams }: IPageProps) {
   }
 
   const firstAskQuestionPromise = getInitialMessage({
-    character: type?.toLowerCase(),
+    character: type,
     walletAddress,
   });
 
