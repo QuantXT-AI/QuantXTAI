@@ -17,7 +17,7 @@ export default function Section1() {
     );
 
   return (
-    <section className="relative w-full bg-gradient-to-b from-[#1F0B01] to-[#1F0B01]">
+    <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#1F0B01] to-[#1F0B01]">
       {isDesktop ? (
         <div className="bg-[length:100%_auto] bg-[url('/assets/about-1/section-1/bg.png')] bg-bottom bg-no-repeat">
           <div className="bg-[length:250px_auto] bg-[url('/assets/about-1/section-1/robot-1.png')] bg-left-bottom bg-no-repeat">

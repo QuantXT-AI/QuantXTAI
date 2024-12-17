@@ -39,7 +39,7 @@ const secondItems = [
 
 export default function Section1() {
   return (
-    <section className="relative w-full bg-gradient-to-b from-[#1F0B01] to-[#2E0D19]">
+    <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#1F0B01] to-[#2E0D19]">
       <div className="bg-[url('/assets/about-4/section-1/bg.png')] bg-bottom bg-cover bg-no-repeat">
         <div className="h-[1400px] w-full overflow-hidden">
           <div>
