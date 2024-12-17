@@ -17,7 +17,7 @@ export default async function Page({ searchParams }: IPageProps) {
   if (!type) {
     const defaultType = "GOOD";
     return redirect(
-      `/chatbot?type=${defaultType}${walletAddress ? `&walletAddress=${walletAddress}` : ""}`,
+      `/cryaistal-agent?type=${defaultType}${walletAddress ? `&walletAddress=${walletAddress}` : ""}`,
     );
   }
 

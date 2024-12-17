@@ -9,7 +9,7 @@ import {
   useTransition,
 } from "react";
 
-import { QuickChatOptions } from "@/app/(public)/chatbot/_components/quick-chat-options";
+import { QuickChatOptions } from "@/app/(public)/cryaistal-agent/_components/quick-chat-options";
 import type { InitiatePredictionResponse } from "@/app/types";
 import { cn } from "@/lib/utils";
 import Form from "next/form";

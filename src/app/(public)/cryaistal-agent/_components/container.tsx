@@ -68,7 +68,7 @@ export default function Container({
       }
 
       router.push(
-        `/chatbot?type=${chatbotType}&walletAddress=${resolvedAddress}`,
+        `/cryaistal-agent?type=${chatbotType}&walletAddress=${resolvedAddress}`,
       );
     } catch (error) {
       console.error("Error resolving ENS:", error);
@@ -81,7 +81,7 @@ export default function Container({
   const handleClearWalletAddress = () => {
     setInputWalletAddress("");
     setErrorMessage(null);
-    router.push(`/chatbot?type=${chatbotType}`);
+    router.push(`/cryaistal-agent?type=${chatbotType}`);
   };
 
   useEffect(() => {
@@ -115,7 +115,7 @@ export default function Container({
 
                     return (
                       <a
-                        href={`/chatbot?type=${type}${walletAddress ? `&walletAddress=${walletAddress}` : ""}`}
+                        href={`/cryaistal-agent?type=${type}${walletAddress ? `&walletAddress=${walletAddress}` : ""}`}
                         className={cn(
                           "flex w-24 items-center justify-center rounded-md px-4 py-2 font-medium text-sm text-white",
                           isActive

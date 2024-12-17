@@ -22,8 +22,8 @@ const navItems = [
     href: "",
   },
   {
-    title: "CHATBOT",
-    href: "/chatbot",
+    title: "CRYAISTAL AGENT",
+    href: "/cryaistal-agent",
   },
   {
     title: "ABOUT",

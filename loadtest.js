@@ -38,7 +38,7 @@ export default function () {
     "content-type": "application/json",
     cookie: "characterId=good",
     origin: "https://cryaistal.ai",
-    referer: `https://cryaistal.ai/chatbot?type=EVIL&walletAddress=${payload.walletAddress}`,
+    referer: `https://cryaistal.ai/cryaistal-agent?type=EVIL&walletAddress=${payload.walletAddress}`,
   };
 
   const response = http.post(
