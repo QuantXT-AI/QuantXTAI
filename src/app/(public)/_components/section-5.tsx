@@ -11,6 +11,8 @@ export default function Section5() {
                 loop
                 muted
                 className="h-full w-[260px] sm:w-auto"
+                preload="auto"
+
               />
             </div>
           </div>

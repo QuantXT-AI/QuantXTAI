@@ -9,7 +9,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import { useMediaQuery } from "usehooks-ts";
-import styles from "./style.module.css";
+import { motion, useScroll, useTransform } from "framer-motion";
+
 
 const navItems = [
   {
@@ -49,8 +50,15 @@ interface Section1Props {
 
 export default function Section1({ isLoading, setIsLoading }: Section1Props) {
   const isDesktop = useMediaQuery("(min-width: 769px)");
+  const { scrollY } = useScroll();
 
   const [isSticky, setIsSticky] = useState(false);
+
+  const headerY = useTransform(
+    scrollY,
+    [100, 100],
+    ["0%", isSticky ? "0%" : "-100%"],
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -116,7 +124,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                     <br /> REDEFINED BY AI
                   </h2>
                   <Link
-                    href="/"
+                    href="/chatbot"
                     className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-8 py-4 hover:animate-shake"
                     data-aos="fade-up"
                     data-aos-delay="1400"
@@ -149,14 +157,29 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
             </div>
             <div className="container mx-auto -mt-24 max-w-6xl px-4">
               <div className="mb-20">
-                <div
-                  className={cn(
-                    styles.headerSection,
-                    isSticky && styles.isSticky,
-                  )}
+              <motion.div
+                  style={{
+                    position: isSticky ? "fixed" : "relative",
+                    top: isSticky ? 0 : 130,
+                    left: 0,
+                    right: 0,
+                    y: headerY,
+                    zIndex: 1000,
+                  }}
+                  transition={{
+                    duration: 1000,
+                    ease: [0.32, 0.72, 0, 1],
+                  }}
+                  className="transition-all duration-1000"
                 >
-                  <div className="mb-8 flex items-center justify-center gap-4 p-8">
-                    {navItems?.map((item, index) => {
+    <div
+                    className={cn(
+                      "duration-8000 mb-8 flex items-center justify-center gap-4 p-8 transition-all",
+                      {
+                        "py-3": isSticky,
+                      },
+                    )}
+                  >                    {navItems?.map((item, index) => {
                       return (
                         <Link
                           href={item?.href}
@@ -166,7 +189,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                           key={index}
                         >
                           <div className="flex items-center">
-                            {index === 0 && (
+                            {/* {index === 0 && (
                               <div className="m-1 flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
                                 <Image
                                   src="/assets/home/section-2/nav-icon.png"
@@ -176,11 +199,10 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                                   className="h-4 w-4"
                                 />
                               </div>
-                            )}
+                            )} */}
                             <p
                               className={cn(
                                 "px-8 py-2 text-sm font-normal text-white",
-                                index === 0 ? "-ml-4" : "",
                               )}
                             >
                               {item?.title}
@@ -190,7 +212,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                       );
                     })}
                   </div>
-                </div>
+                </motion.div>
                 <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen py-16">
                   <Marquee className="">
                     <div className="flex items-center justify-center gap-4">
@@ -203,6 +225,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                               width={480}
                               height={480}
                               className="h-8 w-auto opacity-50"
+                              priority
                             />
                           </div>
                         );
@@ -228,6 +251,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                       width={480}
                       height={480}
                       className="h-24 w-auto opacity-75"
+                      priority
                     />
                   </div>
                 </div>
@@ -307,6 +331,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                   width={480}
                   height={480}
                   className="h-16 w-auto opacity-75 md:h-24"
+                  priority
                 />
               </div>
             </div>
@@ -322,6 +347,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                           width={480}
                           height={480}
                           className="h-8 w-auto opacity-50"
+                          priority
                         />
                       </div>
                     );
