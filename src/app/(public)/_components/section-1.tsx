@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import { useMediaQuery } from "usehooks-ts";
 import { motion } from "framer-motion";
+import { isSafari } from "@/utils/boolean";
 
 const navItems = [
   {
@@ -72,7 +73,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
             <div className="h-full w-full overflow-hidden">
               <div>
                 <video
-                  src="/assets/home/section-1/bg-video.webm"
+                  src={`/assets/home/section-1/bg-video.${isSafari ? "mov" : "webm"}`}
                   autoPlay
                   loop
                   muted
@@ -82,7 +83,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
               </div>
               <div>
                 <video
-                  src="/assets/home/section-1/bg-video.webm"
+                  src={`/assets/home/section-1/bg-video.${isSafari ? "mov" : "webm"}`}
                   autoPlay
                   loop
                   muted
@@ -258,8 +259,8 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
       ) : (
         <>
           <video
-            src="/assets/home/section-1/bg-video.webm"
-            autoPlay
+                  src={`/assets/home/section-1/bg-video.${isSafari ? "mov" : "webm"}`}
+                  autoPlay
             loop
             muted
             className="absolute h-[100vh] w-full bg-no-repeat object-cover opacity-50"
