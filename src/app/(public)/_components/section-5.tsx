@@ -1,3 +1,5 @@
+import { isSafari } from "@/utils/boolean";
+
 export default function Section5() {
   return (
     <section id="tokenomics" className="w-full">
@@ -6,12 +8,13 @@ export default function Section5() {
           <div className="order-last col-span-12 md:order-first md:col-span-6">
             <div className="md:px-12" data-aos="fade-up" data-aos-delay="800">
               <video
-                src="/assets/home/section-5/video.webm"
+                src={`/assets/home/section-5/video.${isSafari ? "mov" : "webm"}`}
                 autoPlay
                 loop
                 muted
                 className="h-full w-[260px] sm:w-auto"
-                preload="auto"
+                playsInline
+                        preload="auto"               
 
               />
             </div>

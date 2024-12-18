@@ -1,3 +1,5 @@
+import { isSafari } from "@/utils/boolean";
+
 export default function Section4() {
   return (
     <section
@@ -23,15 +25,11 @@ export default function Section4() {
                 >
                   <div className="order-last col-span-12 md:order-first md:col-span-6">
                     <div className="h-auto w-auto overflow-hidden">
-                      <video
-                        src="/assets/home/section-4/video-1.webm"
-                        autoPlay
-                        muted
-                        loop
-                        className="-mb-24 h-[350px] w-auto"
+                    <video          muted
+                                                src={`/assets/home/section-4/video-1.${isSafari ? "mov" : "webm"}`}
+
                         playsInline
-                        preload="auto"
-                      />
+                        preload="auto"               className="-mb-24 h-[350px] w-auto"  autoPlay loop />
                     </div>
                   </div>
                   <div className="col-span-12 md:col-span-6">
@@ -70,7 +68,7 @@ export default function Section4() {
                   <div className="col-span-12 md:col-span-4">
                     <div className="h-auto w-auto overflow-hidden">
                       <video
-                        src="/assets/home/section-4/video-2.webm"
+                        src={`/assets/home/section-4/video-2.${isSafari ? "mov" : "webm"}`}
                         autoPlay
                         muted
                         loop
@@ -90,7 +88,7 @@ export default function Section4() {
                   <div className="order-last col-span-12 md:order-first md:col-span-6">
                     <div className="h-auto w-auto overflow-hidden">
                       <video
-                        src="/assets/home/section-4/video-3.webm"
+                        src={`/assets/home/section-4/video-3.${isSafari ? "mov" : "webm"}`}
                         autoPlay
                         muted
                         loop
@@ -140,7 +138,7 @@ export default function Section4() {
                   <div className="-mt-8">
                     <div className="h-auto w-auto overflow-hidden">
                       <video
-                        src="/assets/home/section-4/video-4.webm"
+                        src={`/assets/home/section-4/video-4.${isSafari ? "mov" : "webm"}`}
                         autoPlay
                         muted
                         loop
@@ -172,16 +170,13 @@ export default function Section4() {
                   </div>
                   <div className="-mt-[52px]">
                     <div className="h-auto w-auto overflow-hidden">
-                      <video
-                        src="/assets/home/section-4/video-5.webm"
-                        autoPlay
-                        muted
-                        loop
-                        className="-mb-28 h-[350px] w-auto"
-                        playsInline                        preload="auto"
-
-
-                      />
+            
+<video          muted
+                         src={`/assets/home/section-4/video-5.${isSafari ? "mov" : "webm"}`}
+                        playsInline
+                        preload="auto"                                     className="-mb-28 h-[350px] w-auto"
+                        autoPlay loop >
+                      </video>
                     </div>
                   </div>
                 </div>
