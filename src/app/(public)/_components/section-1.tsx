@@ -184,17 +184,6 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                           key={index}
                         >
                           <div className="flex items-center">
-                            {index === 0 && (
-                              <div className="m-1 flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                                <Image
-                                  src="/assets/home/section-2/nav-icon.png"
-                                  alt="icon"
-                                  width={480}
-                                  height={480}
-                                  className="h-4 w-4"
-                                />
-                              </div>
-                            )}
                             <p
                               className={cn(
                                 "px-8 py-2 text-sm font-normal text-white",{
