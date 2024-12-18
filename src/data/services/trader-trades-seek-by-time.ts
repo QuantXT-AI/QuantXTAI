@@ -104,7 +104,14 @@ export const getTraderTrades = async (
 export const getCachedTraderTrades = (
   address: string,
   addressType: WalletAddressType,
-  options?: Parameters<typeof getTraderTrades>[1],
+  options?: {
+    offset?: number;
+    limit?: number;
+    txType?: string;
+    sortType?: "desc" | "asc";
+    beforeTime?: number;
+    afterTime?: number;
+  },
 ) => {
   return unstable_cache(
     async () => {

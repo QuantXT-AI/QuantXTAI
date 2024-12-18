@@ -1,6 +1,5 @@
 import { env } from "@/env";
 import { WalletAddressType } from "@/utils/address-validator";
-import { Wallet } from "ethers";
 import { unstable_cache } from "next/cache";
 
 // Updated interface to match Birdeye response
