@@ -1,4 +1,4 @@
-import { getCachedSearchTicker } from "@/data/services/search-ticker";
+import { getCachedSearchTicker, searchTicker } from "@/data/services/search-ticker";
 import { SearchTickerRequestSchema } from "@/dto";
 import { formatZodError } from "@/lib/utils";
 
@@ -12,7 +12,7 @@ export async function POST(request: Request) {
   }
 
   const { tickerQuery } = result.data;
-  const tokenAddress = await getCachedSearchTicker(tickerQuery);
+  const tokenAddress = await searchTicker(tickerQuery);
 
   return Response.json({ tokenAddress });
 }

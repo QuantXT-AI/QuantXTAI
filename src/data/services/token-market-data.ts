@@ -1,4 +1,5 @@
 import { env } from "@/env";
+import { WalletAddressType } from "@/utils/address-validator";
 import { unstable_cache } from "next/cache";
 
 export interface TokenMarketData {
@@ -18,6 +19,7 @@ interface TokenMarketDataResponse {
 
 export const getTokenMarketData = async (
   tokenAddress: string,
+  addressType: WalletAddressType,
 ): Promise<TokenMarketDataResponse> => {
   const tokenMarketDataResponse = await fetch(
     `https://public-api.birdeye.so/defi/v3/token/market-data?address=${tokenAddress}`,
@@ -25,7 +27,7 @@ export const getTokenMarketData = async (
       headers: {
         accept: "application/json",
         "X-API-KEY": env.BIRDEYE_API_KEY,
-        "x-chain": "ethereum",
+        "x-chain": addressType,
       },
     },
   );
@@ -38,10 +40,10 @@ export const getTokenMarketData = async (
   return tokenMarketDataResponse.json();
 };
 
-export const getCachedTokenMarketData = (tokenAddress: string) => {
+export const getCachedTokenMarketData = (tokenAddress: string, addressType: WalletAddressType) => {
   return unstable_cache(
     async () => {
-      return getTokenMarketData(tokenAddress);
+      return getTokenMarketData(tokenAddress, addressType);
     },
     ["birdeye", "token-market-data", tokenAddress],
     {

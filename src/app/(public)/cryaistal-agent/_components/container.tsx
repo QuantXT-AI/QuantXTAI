@@ -8,7 +8,7 @@ import Link from "next/link";
 
 import type { InitiatePredictionResponse } from "@/app/types";
 import { CHARACTERS } from "@/config";
-import { WalletAddressOrENSRequestSchema } from "@/dto";
+import { WalletAddressOrENSRequestSchema, WalletAddressRequestSchema } from "@/dto";
 import { resolveENS } from "@/lib/ens";
 import { formatZodError } from "@/lib/utils";
 import {
@@ -22,6 +22,7 @@ import Form from "next/form";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import ChatSection from "./chat-section";
+import { determineWalletAddressType, WalletAddressType } from "@/utils/address-validator";
 
 const chatbotTypeItems = CHARACTERS.map((character) => character.id);
 
@@ -46,6 +47,26 @@ export default function Container({
   const [isResolvingENS, setIsResolvingENS] = useState(false);
 
   const handleValidateWalletAddress = useCallback(async () => {
+    const addressType = determineWalletAddressType(inputWalletAddress);
+
+    if (addressType === WalletAddressType.SOL) {
+      const validate = WalletAddressRequestSchema.safeParse({
+        walletAddress: inputWalletAddress,
+      })
+
+      if (!validate?.success) {
+        console.log("validate", validate);
+        setErrorMessage(formatZodError(validate?.error).details?.[0].message);
+        return;
+      }
+
+      setErrorMessage(null);
+      router.push(
+        `/cryaistal-agent?type=${chatbotType}&walletAddress=${validate.data.walletAddress}`
+      )
+      return;
+    }
+
     const validate = WalletAddressOrENSRequestSchema.safeParse({
       walletAddressOrENS: inputWalletAddress,
     });
@@ -169,7 +190,7 @@ export default function Container({
                 >
                   <input
                     type="text"
-                    placeholder="ENTER YOUR ETHEREUM ADDRESS OR ENS NAME"
+                    placeholder="ENTER YOUR ETHEREUM OR SOLANA ADDRESS"
                     className={`w-full rounded-full px-12 py-2 text-sm text-white md:py-4 ${
                       walletAddress
                         ? "cursor-not-allowed opacity-50"

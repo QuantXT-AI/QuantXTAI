@@ -1,4 +1,5 @@
 import { env } from "@/env";
+import { WalletAddressType } from "@/utils/address-validator";
 import { unstable_cache } from "next/cache";
 
 export interface PriceData {
@@ -15,6 +16,7 @@ interface PriceResponse {
 
 export const getPrice = async (
   tokenAddress: string,
+  addressType: WalletAddressType
 ): Promise<PriceResponse> => {
   const priceResponse = await fetch(
     `https://public-api.birdeye.so/defi/price?address=${tokenAddress}`,
@@ -22,7 +24,7 @@ export const getPrice = async (
       headers: {
         accept: "application/json",
         "X-API-KEY": env.BIRDEYE_API_KEY,
-        "x-chain": "ethereum",
+        "x-chain": addressType,
       },
     },
   );
@@ -34,10 +36,10 @@ export const getPrice = async (
   return priceResponse.json();
 };
 
-export const getCachedPrice = (tokenAddress: string) => {
+export const getCachedPrice = (tokenAddress: string, addressType: WalletAddressType) => {
   return unstable_cache(
     async () => {
-      return getPrice(tokenAddress);
+      return getPrice(tokenAddress, addressType);
     },
     ["birdeye", "price", tokenAddress],
     {

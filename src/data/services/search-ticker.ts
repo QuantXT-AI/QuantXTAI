@@ -1,4 +1,6 @@
 import { env } from "@/env";
+import { WalletAddressType } from "@/utils/address-validator";
+import { Wallet } from "ethers";
 import { unstable_cache } from "next/cache";
 
 // Updated interface to match Birdeye response
@@ -25,47 +27,64 @@ interface SearchTickerResponse {
 export const searchTicker = async (ticker: string): Promise<string | null> => {
   const normalizedTicker = normalizeSymbol(ticker);
 
-  const searchParams = new URLSearchParams({
-    chain: "ethereum",
-    keyword: normalizedTicker,
-    target: "token",
-    sort_by: "liquidity",
-    sort_type: "desc",
-    offset: "0",
-    limit: "20",
-  });
+  const fetchTickerData = async (chain: string): Promise<SearchTickerData | null> => {
+    const searchParams = new URLSearchParams({
+      chain,
+      keyword: normalizedTicker,
+      target: "token",
+      sort_by: "liquidity",
+      sort_type: "desc",
+      offset: "0",
+      limit: "20",
+    });
 
-  const response = await fetch(
-    `https://public-api.birdeye.so/defi/v3/search?${searchParams}`,
-    {
-      headers: {
-        accept: "application/json",
-        "X-API-KEY": env.BIRDEYE_API_KEY,
+    const response = await fetch(
+      `https://public-api.birdeye.so/defi/v3/search?${searchParams}`,
+      {
+        headers: {
+          accept: "application/json",
+          "X-API-KEY": env.BIRDEYE_API_KEY,
+        },
       },
-    },
-  );
+    );
 
-  if (!response.ok) {
-    throw new Error("Failed to fetch search ticker data");
-  }
+    if (!response.ok) {
+      throw new Error(`Failed to fetch search ticker data for ${chain}`);
+    }
 
-  const searchData = (await response.json()) as SearchTickerResponse;
+    const searchData = (await response.json()) as SearchTickerResponse;
 
-  // Find the first token item in the response
-  const tokenItem = searchData.data.items.find((item) => item.type === "token");
+    // Find the first token item in the response
+    const tokenItem = searchData.data.items.find((item) => item.type === "token");
 
-  // Filter for matching symbols and sort by FDV
-  const matchingTokens = tokenItem?.result
-    .filter((token) => isSymbolMatch(normalizedTicker, token.symbol))
-    .sort((a, b) => b.fdv - a.fdv); // Sort by FDV in descending order
+    // Filter for matching symbols and sort by FDV
+    const matchingTokens = tokenItem?.result
+      .filter((token) => isSymbolMatch(normalizedTicker, token.symbol))
+      .sort((a, b) => b.fdv - a.fdv); // Sort by FDV in descending order
 
-  // Return the first matching token's address
-  if (matchingTokens && matchingTokens.length > 0) {
-    return matchingTokens[0].address;
-  }
+      if (matchingTokens && matchingTokens.length > 0) {
+        return matchingTokens[0]
+      }
 
-  return null;
+      return null
+  };
+
+  // Fetch data for Ethereum and Solana
+  const [ethereumToken, solanaToken] = await Promise.all([
+    fetchTickerData(WalletAddressType.ETH),
+    fetchTickerData(WalletAddressType.SOL),
+  ]);
+
+  // Determine the token with ??
+  const bestToken =
+    !ethereumToken || (solanaToken && solanaToken.liquidity > ethereumToken.liquidity)
+      ? solanaToken
+      : ethereumToken;
+
+  // Return the address of the token with the larger FDV
+  return bestToken?.address || null;
 };
+
 
 export const getCachedSearchTicker = (ticker: string) => {
   const normalizedTicker = normalizeSymbol(ticker);

@@ -1,4 +1,5 @@
 import { env } from "@/env";
+import { determineWalletAddressType } from "@/utils/address-validator";
 import { unstable_cache } from "next/cache";
 
 export interface TokenSecurityData {
@@ -41,13 +42,15 @@ export interface TokenSecurityResponse {
 export const getTokenSecurity = async (
   tokenAddress: string,
 ): Promise<TokenSecurityResponse> => {
+  const addressType = determineWalletAddressType(tokenAddress);
+
   const response = await fetch(
     `https://public-api.birdeye.so/defi/token_security?address=${tokenAddress}`,
     {
       headers: {
         accept: "application/json",
         "X-API-KEY": env.BIRDEYE_API_KEY,
-        "x-chain": "ethereum",
+        "x-chain": addressType,
       },
     },
   );

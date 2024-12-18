@@ -1,13 +1,8 @@
-import { ethers } from "ethers";
 import { z } from "zod";
-
-const validateEVMAddress = (address: string) => {
-  try {
-    return ethers.isAddress(address);
-  } catch {
-    return false;
-  }
-};
+import {
+  validateEVMAddress,
+  validateWalletAddress,
+} from "./utils/address-validator";
 
 export const SearchTickerRequestSchema = z.object({
   tickerQuery: z
@@ -44,6 +39,7 @@ export const TwitterSearchRequestSchema = z.object({
 
 export type TwitterSearchRequest = z.infer<typeof TwitterSearchRequestSchema>;
 
+// this is for ETH address or ENS only
 export const WalletAddressOrENSRequestSchema = z.object({
   walletAddressOrENS: z
     .string()
@@ -66,8 +62,8 @@ export const WalletAddressRequestSchema = z.object({
     .min(1, "Wallet address cannot be empty")
     .max(44, "Wallet address is too long")
     .trim()
-    .refine(validateEVMAddress, {
-      message: "Invalid Ethereum wallet address. Please check and try again.",
+    .refine(validateWalletAddress, {
+      message: "Invalid wallet address. Please check and try again.",
     }),
 });
 
@@ -79,8 +75,8 @@ export const RektCheckerRequestSchema = z.object({
     .min(1, "Wallet address cannot be empty")
     .max(44, "Wallet address is too long")
     .trim()
-    .refine(validateEVMAddress, {
-      message: "Invalid Ethereum wallet address. Please check and try again.",
+    .refine(validateWalletAddress, {
+      message: "Invalid wallet address. Please check and try again.",
     }),
 });
 
@@ -105,8 +101,8 @@ export const AskQuestionRequestSchema = z.object({
     .min(1, "Wallet address cannot be empty")
     .max(44, "Wallet address is too long")
     .trim()
-    .refine(validateEVMAddress, {
-      message: "Invalid Ethereum wallet address. Please check and try again.",
+    .refine(validateWalletAddress, {
+      message: "Invalid wallet address. Please check and try again.",
     }),
   sessionId: z.string().optional(),
   history: z
