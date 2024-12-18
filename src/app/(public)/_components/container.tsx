@@ -2,7 +2,6 @@
 
 import dynamic from "next/dynamic";
 
-import Section5 from "./section-5";
 import Section7 from "./section-7";
 import Section8 from "./section-8";
 import Loading from "@/components/loading";
@@ -16,6 +15,10 @@ const Section6 = dynamic(() => import("./section-6"), {
 });
 
 const Section4 = dynamic(() => import("./section-4"), {
+  ssr: false,
+});
+
+const Section5 = dynamic(() => import("./section-5"), {
   ssr: false,
 });
 
