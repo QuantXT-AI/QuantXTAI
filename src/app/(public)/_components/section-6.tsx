@@ -135,7 +135,7 @@ export default function Section6() {
                       </li>
                       <li>
                         <p className="mb-2 text-sm md:text-base">
-                          Full TRADER ecosystem, collab with exchanges and
+                          Full trader ecosystem, collab with exchanges and
                           platform to incentivize traders
                         </p>
                       </li>
