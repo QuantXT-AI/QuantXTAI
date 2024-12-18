@@ -30,6 +30,7 @@ export default function Section4() {
                         loop
                         className="-mb-24 h-[350px] w-auto"
                         playsInline
+                        preload="auto"
                       />
                     </div>
                   </div>
@@ -75,6 +76,8 @@ export default function Section4() {
                         loop
                         className="-mb-24 ml-8 h-[350px] w-auto"
                         playsInline
+                        preload="auto"
+
                       />
                     </div>
                   </div>
@@ -93,6 +96,8 @@ export default function Section4() {
                         loop
                         className="-mb-24 h-[310px] w-auto"
                         playsInline
+                        preload="auto"
+
                       />
                     </div>
                   </div>
@@ -141,6 +146,8 @@ export default function Section4() {
                         loop
                         className="-mb-28 h-[350px] w-auto"
                         playsInline
+                        preload="auto"
+
                       />
                     </div>
                   </div>
@@ -171,7 +178,9 @@ export default function Section4() {
                         muted
                         loop
                         className="-mb-28 h-[350px] w-auto"
-                        playsInline
+                        playsInline                        preload="auto"
+
+
                       />
                     </div>
                   </div>

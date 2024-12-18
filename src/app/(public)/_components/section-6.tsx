@@ -26,6 +26,7 @@ export default function Section6() {
                     width={480}
                     height={480}
                     className="h-[400px] w-auto opacity-30"
+                    priority
                   />
                   <div className="absolute left-5 top-24 w-[calc(100%-54px)] sm:w-[260px] md:left-12">
                     <h4 className="mb-4 text-2xl font-semibold text-[#EBBED6]">
@@ -63,6 +64,7 @@ export default function Section6() {
                     width={480}
                     height={480}
                     className="h-[560px] w-auto opacity-30"
+                    priority
                   />
                   <div className="absolute left-5 top-28 w-[calc(100%-54px)] sm:w-[320px] md:left-12">
                     <h4 className="mb-4 text-2xl font-semibold text-[#EBBED6]">
@@ -113,6 +115,7 @@ export default function Section6() {
                     width={480}
                     height={480}
                     className="h-[480px] w-auto opacity-30"
+                    priority
                   />
                   <div className="absolute left-5 top-28 w-[calc(100%-54px)] sm:w-[300px] md:left-12">
                     <h4 className="mb-4 text-2xl font-semibold text-[#EBBED6]">
@@ -151,6 +154,7 @@ export default function Section6() {
                     alt="roadmap"
                     width={480}
                     height={480}
+                    priority
                     className="h-[480px] w-auto opacity-30"
                   />
                   <div className="absolute left-5 top-28 w-[calc(100%-54px)] sm:w-[280px] md:left-12">
