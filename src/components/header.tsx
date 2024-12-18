@@ -24,12 +24,12 @@ const navItems = [
     links: [
       {
         title: "Foundation",
-        href: "/protocol",
+        href: "/foundation",
         icon: "/assets/components/header/item-1.png",
       },
       {
-        title: "Trading Bootcamp",
-        href: "/trading-bootcamp",
+        title: "Trading Lab",
+        href: "/trading-lab",
         icon: "/assets/components/header/item-2.png",
       },
       {

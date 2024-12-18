@@ -11,7 +11,7 @@ export default function Container() {
       <div className="bg-cryaistal bg-[length:120%_300%] bg-top">
         <Section1 />
         <Section2 />
-        <Section3 />
+        {/* <Section3 /> */}
       </div>
     </Loading>
   );

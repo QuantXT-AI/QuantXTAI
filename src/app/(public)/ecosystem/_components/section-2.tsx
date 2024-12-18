@@ -3,6 +3,7 @@
 import { ArrowUpRightIcon } from "lucide-react";
 import Link from "next/link";
 import { useMediaQuery } from "usehooks-ts";
+import Section3 from "./section-3";
 
 export default function Section2() {
   const isDesktop = useMediaQuery("(min-width: 769px)");
@@ -52,7 +53,7 @@ export default function Section2() {
                     className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 hover:animate-shake md:px-8 md:py-4"
                   >
                     <span className="font-clash-display text-sm font-normal text-white">
-                      LEARN MORE
+                      VIEW IN DOCS
                     </span>
                     <ArrowUpRightIcon className="h-4 w-4 text-white" />
                   </Link>
@@ -82,7 +83,7 @@ export default function Section2() {
                     className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 hover:animate-shake md:px-8 md:py-4"
                   >
                     <span className="font-clash-display text-sm font-normal text-white">
-                      LEARN MORE
+                      VIEW IN DOCS
                     </span>
                     <ArrowUpRightIcon className="h-4 w-4 text-white" />
                   </Link>
@@ -90,8 +91,143 @@ export default function Section2() {
               </div>
             </div>
           </div>
+          <h2
+            className="mb-8 pt-16 text-center text-2xl font-medium leading-[1.2] text-[#F8E6EE]/75 [text-shadow:0px_0px_4px_#F8E6EE] sm:mb-16 sm:text-4xl"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            COMING SOON
+            <br />
+            IN NEXT ROADMAP
+          </h2>
+          <div className="grid grid-cols-12 gap-4">
+            <div className="col-span-12 md:col-span-6">
+              <div
+                className="h-full w-full rounded-2xl border border-white/25 bg-white/5 p-8"
+                data-aos="fade-up"
+                data-aos-delay="800"
+              >
+                <div className="flex flex-col items-start h-full justify-between">
+                  <div>
+                    <h4 className="mb-2 font-epilogue text-xl font-medium text-white md:text-2xl">
+                      03
+                    </h4>
+                    <h2 className="mb-2 text-3xl font-medium text-white md:text-4xl">
+                      TRADINGVIEW INTEGRATION
+                    </h2>
+                    <p className="text-md mb-8 font-epilogue text-white/75 md:mb-16 md:text-lg">
+                      CryAIstal will integrate TradingView’s advanced charting tools to empower traders with intuitive visuals and comprehensive data.
+                      <br />
+                      <br />
+                      <b>Planned Features:</b>
+                      <ul className="list-disc ml-8">
+                        <li>Algorithm Precision: Sharpen AI strategies for volatile markets.</li>
+                        <li>Multi-Chain Integration: Seamless compatibility across ecosystems.</li>
+                        <li>Market Readiness: Tailored tools for impactful token launches.</li>
+                      </ul>
+                    </p>
+                  </div>
+                  <Link
+                    href="https://docs.cryaistal.ai/nvidia-inception"
+                    target="_blank"
+                    className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 hover:animate-shake md:px-8 md:py-4"
+                  >
+                    <span className="font-clash-display text-sm font-normal text-white">
+                      VIEW IN DOCS
+                    </span>
+                    <ArrowUpRightIcon className="h-4 w-4 text-white" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-span-12 md:col-span-6">
+              <div
+                className="h-full w-full rounded-2xl border border-white/25 bg-white/5 p-8"
+                data-aos="fade-up"
+                data-aos-delay="1200"
+              >
+                <div className="flex flex-col items-start">
+                  <h4 className="mb-2 font-epilogue text-xl font-medium text-white md:text-2xl">
+                    04
+                  </h4>
+                  <h2 className="mb-2 text-3xl font-medium text-white md:text-4xl">
+                    CENTRALIZED AND DECENTRALIZED
+                    DATA AGGREGATION
+                  </h2>
+                  <p className="text-md mb-8 font-epilogue text-white/75 md:mb-16 md:text-lg">
+                    CryAIstal’s upcoming integration with top centralized and decentralized
+                    exchanges focuses on data aggregation, providing a comprehensive view of
+                    market activities without execution.
+                    <br />
+                    <br />
+                    <b>Planned Features:</b>
+                    <ul className="list-disc ml-8">
+                      <li>Algorithm Precision: Sharpen AI strategies for volatile markets.</li>
+                      <li>Multi-Chain Integration: Seamless compatibility across ecosystems.</li>
+                      <li>Market Readiness: Tailored tools for impactful token launches.</li>
+                    </ul>
+                  </p>
+                  <Link
+                    href="https://docs.cryaistal.ai/elizas-fusion-ai16z"
+                    target="_blank"
+                    className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 hover:animate-shake md:px-8 md:py-4"
+                  >
+                    <span className="font-clash-display text-sm font-normal text-white">
+                      VIEW IN DOCS
+                    </span>
+                    <ArrowUpRightIcon className="h-4 w-4 text-white" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="hidden md:block md:col-span-2 lg:col-span-3"></div>
+            <div className="col-span-12 md:col-span-8 lg:col-span-6">
+              <div
+                className="h-full w-full rounded-2xl border border-white/25 bg-white/5 p-8"
+                data-aos="fade-up"
+                data-aos-delay="1200"
+              >
+                <div className="flex flex-col items-start">
+                  <h4 className="mb-2 font-epilogue text-xl font-medium text-white md:text-2xl">
+                    05
+                  </h4>
+                  <h2 className="mb-2 text-3xl font-medium text-white md:text-4xl">
+                    TREND INSIGHT DASHBOARD
+                  </h2>
+                  <p className="text-md mb-8 font-epilogue text-white/75 md:mb-16 md:text-lg">
+                    An upcoming trend insight dashboard will present AI-curated market data,
+                    enabling users to stay ahead of emerging patterns and opportunities.
+                    <br />
+                    <br />
+                    <b>Planned Features:</b>
+                    <ul className="list-disc ml-8">
+                      <li>Visual Market Trends: Dynamic dashboards highlighting shifts in sentiment and volume.</li>
+                      <li>Customizable Views: Tailor insights to specific tokens, sectors, or strategies.</li>
+                      <li>Market Readiness: Tailored tools for impactful token launches.</li>
+                    </ul>
+                    <br />
+                    CryAIstal’s ecosystem evolves with each update, delivering advanced tools to navigate
+                    crypto’s dynamic landscape while redefining how traders approach market intelligence.
+                    Stay tuned for the next phase of AI-powered trading solutions.
+                  </p>
+                  <Link
+                    href="https://docs.cryaistal.ai/elizas-fusion-ai16z"
+                    target="_blank"
+                    className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 hover:animate-shake md:px-8 md:py-4"
+                  >
+                    <span className="font-clash-display text-sm font-normal text-white">
+                      VIEW IN DOCS
+                    </span>
+                    <ArrowUpRightIcon className="h-4 w-4 text-white" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="hidden md:block md:col-span-2 lg:col-span-3"></div>
+          </div>
         </div>,
       )}
+      <Section3 />
     </section>
   );
 }
