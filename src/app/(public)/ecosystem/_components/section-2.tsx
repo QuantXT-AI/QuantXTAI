@@ -116,14 +116,15 @@ export default function Section2() {
                       TRADINGVIEW INTEGRATION
                     </h2>
                     <p className="text-md mb-8 font-epilogue text-white/75 md:mb-16 md:text-lg">
-                      CryAIstal will integrate TradingView’s advanced charting tools to empower traders with intuitive visuals and comprehensive data.
+                      CryAIstal will integrate TradingView's advanced charting tools,
+                      offering intuitive visuals and rich data to traders.
                       <br />
                       <br />
                       <b>Planned Features:</b>
                       <ul className="list-disc ml-8">
-                        <li>Algorithm Precision: Sharpen AI strategies for volatile markets.</li>
-                        <li>Multi-Chain Integration: Seamless compatibility across ecosystems.</li>
-                        <li>Market Readiness: Tailored tools for impactful token launches.</li>
+                        <li>AI Precision: Enhanced strategies for volatile markets.</li>
+                        <li>Multi-Chain Support: Seamless across ecosystems.</li>
+                        <li>Market Tools: Tailored for successful token launches.</li>
                       </ul>
                     </p>
                   </div>
@@ -155,16 +156,18 @@ export default function Section2() {
                     DATA AGGREGATION
                   </h2>
                   <p className="text-md mb-8 font-epilogue text-white/75 md:mb-16 md:text-lg">
-                    CryAIstal’s upcoming integration with top centralized and decentralized
-                    exchanges focuses on data aggregation, providing a comprehensive view of
-                    market activities without execution.
+                    CryAIstal will integrate with top centralized and decentralized exchanges
+                    to aggregate data, delivering a complete market overview without execution.
                     <br />
                     <br />
                     <b>Planned Features:</b>
                     <ul className="list-disc ml-8">
-                      <li>Algorithm Precision: Sharpen AI strategies for volatile markets.</li>
-                      <li>Multi-Chain Integration: Seamless compatibility across ecosystems.</li>
-                      <li>Market Readiness: Tailored tools for impactful token launches.</li>
+                      <li>
+                        Market Depth Analysis: Real-time liquidity and price spread tracking.
+                      </li>
+                      <li>
+                        Trading Behavior Insights: AI-driven metrics on market flow and volume trends.
+                      </li>
                     </ul>
                   </p>
                   <Link
@@ -195,20 +198,23 @@ export default function Section2() {
                     TREND INSIGHT DASHBOARD
                   </h2>
                   <p className="text-md mb-8 font-epilogue text-white/75 md:mb-16 md:text-lg">
-                    An upcoming trend insight dashboard will present AI-curated market data,
-                    enabling users to stay ahead of emerging patterns and opportunities.
+                    An upcoming trend insight dashboard will use AI-curated
+                    data to help users identify emerging patterns and opportunities.
                     <br />
                     <br />
                     <b>Planned Features:</b>
                     <ul className="list-disc ml-8">
-                      <li>Visual Market Trends: Dynamic dashboards highlighting shifts in sentiment and volume.</li>
-                      <li>Customizable Views: Tailor insights to specific tokens, sectors, or strategies.</li>
-                      <li>Market Readiness: Tailored tools for impactful token launches.</li>
+                      <li>
+                        Visual Trends: Dynamic dashboards showcasing sentiment and volume shifts
+                      </li>
+                      <li>
+                        Custom Views: Personalize insights by token, sector, or strategy.
+                      </li>
                     </ul>
                     <br />
-                    CryAIstal’s ecosystem evolves with each update, delivering advanced tools to navigate
-                    crypto’s dynamic landscape while redefining how traders approach market intelligence.
-                    Stay tuned for the next phase of AI-powered trading solutions.
+                    CryAIstal continues to evolve, delivering cutting-edge tools for
+                    navigating the crypto market and redefining AI-driven trading intelligence.
+                    Stay tuned!
                   </p>
                   <Link
                     href="https://docs.cryaistal.ai/elizas-fusion-ai16z"
