@@ -133,9 +133,9 @@ export async function POST(request: Request) {
   const ETHEREUM_ADDRESS = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
   const SOLANA_ADDRESS = "So11111111111111111111111111111111111111112";
 
-  const refPrice = addressType === WalletAddressType.ETH 
-    ? await getCachedPrice(ETHEREUM_ADDRESS, WalletAddressType.ETH) : 
-      await getCachedPrice(SOLANA_ADDRESS, WalletAddressType.SOL);
+  const refPrice = addressType === WalletAddressType.ETH
+    ? await getCachedPrice(ETHEREUM_ADDRESS, WalletAddressType.ETH) :
+    await getCachedPrice(SOLANA_ADDRESS, WalletAddressType.SOL);
 
   // Process trades using the cached token data
   const fumbleTrades = enhancedTrades.map((trade) => {
