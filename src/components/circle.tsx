@@ -7,7 +7,7 @@ export default function Circle() {
         <div className="h-screen w-screen overflow-hidden px-4 py-16">
           <div className="flex h-full items-center justify-center">
             <video
-              src="/assets/components/circle/video-bg.webm"
+              src={`/assets/components/circle/video-bg.${isSafari ? "mov" : "webm"}`}
               autoPlay
               loop
               muted
