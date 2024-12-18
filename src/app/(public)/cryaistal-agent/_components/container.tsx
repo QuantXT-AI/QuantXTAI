@@ -58,8 +58,10 @@ export default function Container({
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [chatbotType, setchatbotType] = useState<string>(type);
   const [isResolvingENS, setIsResolvingENS] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleValidateWalletAddress = useCallback(async () => {
+    setIsLoading(true);
     const addressType = determineWalletAddressType(inputWalletAddress);
 
     if (addressType === WalletAddressType.SOL) {
@@ -69,10 +71,12 @@ export default function Container({
 
       if (!validate?.success) {
         setErrorMessage(formatZodError(validate?.error).details?.[0].message);
+        setIsLoading(false);
         return;
       }
 
       setErrorMessage(null);
+      setIsLoading(false);
       window.location.href = `/cryaistal-agent?type=${chatbotType}&walletAddress=${validate.data.walletAddress}&wallet=${addressType}`
       return;
     }
@@ -83,6 +87,7 @@ export default function Container({
 
     if (!validate?.success) {
       setErrorMessage(formatZodError(validate?.error).details?.[0].message);
+      setIsLoading(false)
       return;
     }
 
@@ -94,6 +99,7 @@ export default function Container({
 
       if (!resolvedAddress) {
         setErrorMessage("Invalid ENS name or Ethereum address");
+        setIsLoading(false)
         return;
       }
 
@@ -101,12 +107,14 @@ export default function Container({
     } catch (error) {
       console.error("Error resolving ENS:", error);
       setErrorMessage("Failed to resolve ENS name");
+      setIsLoading(false)
     } finally {
       setIsResolvingENS(false);
     }
   }, [inputWalletAddress, chatbotType, router]);
 
   const handleClearWalletAddress = () => {
+    setIsLoading(true);
     setInputWalletAddress("");
     setErrorMessage(null);
     window.location.href = `/cryaistal-agent?type=${chatbotType}`
@@ -221,10 +229,10 @@ export default function Container({
                     <button
                       type="submit"
                       className="-translate-y-1/2 absolute top-1/2 right-0 md:right-2"
-                      disabled={isResolvingENS}
+                      disabled={isResolvingENS || isLoading}
                     >
                       <div className="rounded-full bg-white/10 p-2">
-                        {isResolvingENS ? (
+                        {isResolvingENS || isLoading ? (
                           <Loader2Icon className="h-4 w-4 animate-spin text-white md:h-5 md:w-5" />
                         ) : (
                           <ArrowRightIcon className="h-4 w-4 text-white md:h-5 md:w-5" />
@@ -235,6 +243,7 @@ export default function Container({
                     <button
                       type="button"
                       className="-translate-y-1/2 absolute top-1/2 right-0 md:right-2"
+                      disabled={isLoading}
                       onClick={handleClearWalletAddress}
                     >
                       <div className="rounded-full bg-white/10 p-2">
