@@ -30,9 +30,9 @@ const chatbotTypeItems = CHARACTERS.map((character) => character.id);
 const formatType = (address : WalletAddressType | string) => {
   switch (address) {
     case WalletAddressType.ETH:
-      return "Ethereum";
+      return "An Ethereum";
       case WalletAddressType.SOL:
-      return "Solana";
+      return "A Solana";
     default:
       return ""
   }
@@ -209,7 +209,7 @@ export default function Container({
                         : "bg-white/10"
                         }`}
                       disabled={!!walletAddress || isResolvingENS}
-                      value={wallet ? `You have Entered A ${formatType(wallet)} Address` : inputWalletAddress}
+                      value={wallet ? `You have Entered ${formatType(wallet)} Wallet` : inputWalletAddress}
                       onChange={(e) => setInputWalletAddress(e.target.value)}
                     />
                     <div className="-translate-y-1/2 absolute top-1/2 left-2 md:left-4">
