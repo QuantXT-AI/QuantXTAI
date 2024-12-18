@@ -39,8 +39,8 @@ const secondItems = [
 
 export default function Section1() {
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#1F0B01] to-[#2E0D19]">
-      <div className="bg-[url('/assets/about-4/section-1/bg.png')] bg-bottom bg-cover bg-no-repeat">
+    <section className="relative w-full bg-gradient-to-b from-[#1F0B01] to-[#2E0D19]">
+      <div className="bg-[url('/assets/about-4/section-1/bg.png')] bg-cover bg-bottom bg-no-repeat">
         <div className="h-[1400px] w-full overflow-hidden">
           <div>
             <video
@@ -53,7 +53,7 @@ export default function Section1() {
           </div>
         </div>
       </div>
-      <div className="absolute top-0 left-0 h-full w-full">
+      <div className="absolute left-0 top-0 h-full w-full">
         <div className="container relative mx-auto max-w-6xl px-4">
           <Header />
           <div className="w-full py-16">
@@ -67,13 +67,13 @@ export default function Section1() {
                     height={480}
                     className="h-8 w-auto"
                   />
-                  <span className="font-medium text-sm text-white/50">
+                  <span className="text-sm font-medium text-white/50">
                     PARTNERS
                   </span>
                 </div>
               </div>
               <h2
-                className="mb-8 text-center font-medium text-3xl text-white/75 leading-[1.2] [text-shadow:0px_0px_4px_#FFFFFF] sm:text-3xl md:text-3xl lg:text-6xl"
+                className="mb-8 text-center text-3xl font-medium leading-[1.2] text-white/75 [text-shadow:0px_0px_4px_#FFFFFF] sm:text-3xl md:text-3xl lg:text-6xl"
                 data-aos="fade-up"
                 data-aos-delay="1400"
               >
@@ -84,10 +84,10 @@ export default function Section1() {
           </div>
           <div className="mb-16" data-aos="fade-up" data-aos-delay="1800">
             <div className="mb-8 flex items-center gap-2">
-              <p className="text-nowrap font-normal text-white text-xl">
+              <p className="text-nowrap text-xl font-normal text-white">
                 INCUBATE BY
               </p>
-              <div className="h-0.5 w-full bg-white/25" />
+              <div className="h-0.5 w-full bg-white/25"></div>
             </div>
             <div className="rounded-2xl border border-white/25 bg-white/5 p-8">
               <div className="flex items-center justify-center gap-2">
@@ -99,7 +99,7 @@ export default function Section1() {
                     height={480}
                     className="h-12 w-auto"
                   />
-                  <p className="text-center font-medium text-lg text-white/75">
+                  <p className="text-center text-lg font-medium text-white/75">
                     NVIDIA
                   </p>
                 </div>
@@ -108,10 +108,10 @@ export default function Section1() {
           </div>
           <div className="mb-16" data-aos="fade-up" data-aos-delay="400">
             <div className="mb-8 flex items-center gap-2">
-              <p className="text-nowrap font-normal text-white text-xl">
+              <p className="text-nowrap text-xl font-normal text-white">
                 EXCHANGE PARTNERS
               </p>
-              <div className="h-0.5 w-full bg-white/25" />
+              <div className="h-0.5 w-full bg-white/25"></div>
             </div>
             <div className="grid grid-cols-12 gap-4">
               {firstItems?.map((item, index) => (
@@ -129,7 +129,7 @@ export default function Section1() {
                           height={480}
                           className="h-12 w-auto"
                         />
-                        <p className="text-center font-medium text-lg text-white/75">
+                        <p className="text-center text-lg font-medium text-white/75">
                           {item?.name}
                         </p>
                       </div>
@@ -141,10 +141,10 @@ export default function Section1() {
           </div>
           <div className="mb-16" data-aos="fade-up" data-aos-delay="800">
             <div className="mb-8 flex items-center gap-2">
-              <p className="text-nowrap font-normal text-white text-xl">
+              <p className="text-nowrap text-xl font-normal text-white">
                 STRATEGIC PARTNERS
               </p>
-              <div className="h-0.5 w-full bg-white/25" />
+              <div className="h-0.5 w-full bg-white/25"></div>
             </div>
             <div className="grid grid-cols-12 gap-4">
               {secondItems?.map((item, index) => (
@@ -162,7 +162,7 @@ export default function Section1() {
                           height={480}
                           className="h-12 w-auto"
                         />
-                        <p className="text-center font-medium text-lg text-white/75">
+                        <p className="text-center text-lg font-medium text-white/75">
                           {item?.name}
                         </p>
                       </div>

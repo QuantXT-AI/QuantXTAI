@@ -19,7 +19,7 @@ export default function Section1() {
           </div>
         </div>
       </div>
-      <div className="absolute top-0 left-0 h-full w-full">
+      <div className="absolute left-0 top-0 h-full w-full">
         <div className="container relative mx-auto max-w-6xl px-4">
           <Header />
           <div className="w-full py-16">
@@ -33,13 +33,13 @@ export default function Section1() {
                     height={480}
                     className="h-8 w-auto"
                   />
-                  <span className="font-medium text-white/50 text-xs md:text-sm">
+                  <span className="text-xs font-medium text-white/50 md:text-sm">
                     AI TRADING BOOTCAMP
                   </span>
                 </div>
               </div>
               <h2
-                className="mb-4 font-medium text-4xl text-white/75 leading-[1.2] [text-shadow:0px_0px_4px_#FFFFFF] sm:text-4xl md:mb-8 md:text-6xl lg:text-6xl"
+                className="mb-4 text-4xl font-medium leading-[1.2] text-white/75 [text-shadow:0px_0px_4px_#FFFFFF] sm:text-4xl md:mb-8 md:text-6xl lg:text-6xl"
                 data-aos="fade-up"
                 data-aos-delay="1400"
               >
@@ -49,7 +49,7 @@ export default function Section1() {
                 AT A TIME
               </h2>
               <p
-                className="max-w-[820px] font-normal text-sm text-white/50 text-whitse/50 sm:text-sm md:text-md lg:text-lg"
+                className="text-whitse/50 md:text-md max-w-[820px] text-sm font-normal text-white/50 sm:text-sm lg:text-lg"
                 data-aos="fade-up"
                 data-aos-delay="1800"
               >

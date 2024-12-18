@@ -1,6 +1,5 @@
 import { QUICK_CHAT_OPTIONS } from "@/config";
 
-import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 interface QuickChatOptionsProps {
@@ -16,16 +15,15 @@ export function QuickChatOptions({
     <ScrollArea className="w-full whitespace-nowrap rounded-md pb-4">
       <div className="flex w-max gap-4 px-4">
         {QUICK_CHAT_OPTIONS.map((option) => (
-          <Button
-            key={option}
-            variant="outline"
-            className="h-auto flex-shrink-0 whitespace-normal break-words rounded-full border-white/25 bg-black/75 font-normal text-white disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent"
+          <button
+            className="h-auto rounded-xl border border-white/25 bg-black/75 p-2 px-4 py-2 text-sm text-white hover:opacity-50"
             onClick={() => onSelect(option)}
             type="button"
             disabled={disabled}
+            key={option}
           >
             {option}
-          </Button>
+          </button>
         ))}
       </div>
       <ScrollBar orientation="horizontal" />

@@ -211,7 +211,7 @@ export default function ChatSection({
               : "bg-gradient-to-b from-[#06011C] to-[#1B013C]",
           )}
         >
-          <div className="h-full w-full bg-[url('/assets/chatbot/bg-line.png')] bg-center bg-cover bg-no-repeat">
+          <div className="h-full w-full bg-[url('/assets/chatbot/bg-line.png')] bg-cover bg-center bg-no-repeat">
             <div className="relative h-full w-full overflow-hidden pt-0 md:pt-[180px]">
               <div className="h-full overflow-y-auto px-4 py-48 md:px-8 md:pt-8">
                 <div className="flex flex-col gap-4">
@@ -260,7 +260,7 @@ export default function ChatSection({
                       type="text"
                       placeholder="Ask me anything..."
                       className={cn(
-                        "w-full rounded-full border border-white/25 bg-black px-4 py-2 text-sm text-white md:px-4 md:py-4",
+                        "w-full rounded-full border border-white/25 bg-black px-4 py-2.5 text-sm text-white md:px-4 md:py-4",
                         !walletAddress || !messages?.[0] || isPending
                           ? "cursor-not-allowed opacity-50"
                           : "",
@@ -273,7 +273,7 @@ export default function ChatSection({
                   <button
                     type="submit"
                     className={cn(
-                      "min-h-[38px] min-w-[38px] rounded-full border border-white/25 bg-black text-white md:min-h-[58px] md:min-w-[58px]",
+                      "min-h-[42px] min-w-[42px] rounded-full border border-white/25 bg-black text-white md:min-h-[58px] md:min-w-[58px]",
                       !inputMessage || !walletAddress
                         ? "cursor-not-allowed opacity-50"
                         : "",

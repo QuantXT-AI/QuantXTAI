@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: var(--font-sansation);
-}
 
 @layer base {
   * {
@@ -14,7 +11,6 @@ body {
     @apply bg-background text-foreground;
   }
 
-  /* ===== Scrollbar CSS ===== */
   /* Firefox */
   * {
     scrollbar-width: auto;

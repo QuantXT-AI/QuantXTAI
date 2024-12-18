@@ -22,6 +22,7 @@ import Form from "next/form";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import ChatSection from "./chat-section";
+import Loading from "@/components/loading";
 import { determineWalletAddressType, WalletAddressType } from "@/utils/address-validator";
 
 const chatbotTypeItems = CHARACTERS.map((character) => character.id);
@@ -118,128 +119,129 @@ export default function Container({
   }
 
   return (
-    <section className="relative h-screen w-full">
-      <div className="fixed top-0 z-20 w-full">
-        <div className="grid grid-cols-12">
-          <div className="col-span-12 md:col-span-6">
-            <div className="bg-black/75 px-4 pt-8 pb-2 md:bg-transparent md:p-8">
-              <div className="flex items-center gap-4">
-                <Link
-                  href="/"
-                  className="rounded-lg border border-white/25 bg-white/5 p-2.5 md:p-2.5"
-                >
-                  <ChevronLeftIcon className="h-4 w-4 text-white md:h-6 md:w-6" />
-                </Link>
-                <div className="flex items-center rounded-lg border border-white/25 bg-white/5 p-1">
-                  {chatbotTypeItems?.map((type, index) => {
-                    const isActive = type === chatbotType;
+    <Loading isLoaded={true}>
+      <section className="relative h-screen w-full">
+        <div className="fixed top-0 z-20 w-full">
+          <div className="grid grid-cols-12">
+            <div className="col-span-12 md:col-span-6">
+              <div className="bg-black/75 px-4 pt-8 pb-2 md:bg-transparent md:p-8">
+                <div className="flex items-center gap-4">
+                  <Link
+                    href="/"
+                    className="rounded-lg border border-white/25 bg-white/5 p-2.5 md:p-2.5"
+                  >
+                    <ChevronLeftIcon className="h-4 w-4 text-white md:h-6 md:w-6" />
+                  </Link>
+                  <div className="flex items-center rounded-lg border border-white/25 bg-white/5 p-1">
+                    {chatbotTypeItems?.map((type, index) => {
+                      const isActive = type === chatbotType;
 
-                    return (
-                      <a
-                        href={`/cryaistal-agent?type=${type}${walletAddress ? `&walletAddress=${walletAddress}` : ""}`}
-                        className={cn(
-                          "flex w-24 items-center justify-center rounded-md px-4 py-2 font-medium text-sm text-white",
-                          isActive
-                            ? "bg-gradient-to-b from-white/5 to-white/10"
-                            : "bg-transparent",
-                        )}
-                        key={index}
+                      return (
+                        <a
+                          href={`/cryaistal-agent?type=${type}${walletAddress ? `&walletAddress=${walletAddress}` : ""}`}
+                          className={cn(
+                            "flex w-24 items-center justify-center rounded-md px-4 py-2 font-medium text-sm text-white",
+                            isActive
+                              ? "bg-gradient-to-b from-white/5 to-white/10"
+                              : "bg-transparent",
+                          )}
+                          key={index}
+                        >
+                          {type}
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-span-12 md:col-span-6">
+              <div className="border-white/25 border-b bg-black px-4 pt-2 pb-4 md:bg-black/25 md:p-8">
+                <div className="">
+                  {chatbotType === "GOOD" ? (
+                    <div className="mb-4 hidden items-center gap-4 md:flex">
+                      <Image
+                        src="/assets/chatbot/good-icon.png"
+                        alt="close"
+                        width={480}
+                        height={480}
+                        className="h-12 w-auto"
+                      />
+                      <h4 className="font-bold text-white text-xl">GOOD</h4>
+                    </div>
+                  ) : (
+                    <div className="mb-4 hidden items-center gap-4 md:flex">
+                      <Image
+                        src="/assets/chatbot/evil-icon.png"
+                        alt="close"
+                        width={480}
+                        height={480}
+                        className="h-12 w-auto"
+                      />
+                      <h4 className="font-bold text-white text-xl">EVIL</h4>
+                    </div>
+                  )}
+                  <Form
+                    action=""
+                    onSubmit={(e) => {
+                      e.preventDefault();
+
+                      handleValidateWalletAddress();
+                    }}
+                    className="relative w-full md:max-w-[480px]"
+                  >
+                    <input
+                      type="text"
+                      placeholder="ENTER YOUR ETHEREUM OR SOLANA ADDRESS"
+                      className={`w-full rounded-full px-12 py-2 text-sm text-white md:py-4 ${walletAddress
+                          ? "cursor-not-allowed opacity-50"
+                          : "bg-white/10"
+                        }`}
+                      disabled={!!walletAddress || isResolvingENS}
+                      value={inputWalletAddress}
+                      onChange={(e) => setInputWalletAddress(e.target.value)}
+                    />
+                    <div className="-translate-y-1/2 absolute top-1/2 left-2 md:left-4">
+                      <WalletIcon className="h-4 w-4 text-white md:h-5 md:w-5" />
+                    </div>
+                    {!walletAddress ? (
+                      <button
+                        type="submit"
+                        className="-translate-y-1/2 absolute top-1/2 right-0 md:right-2"
+                        disabled={isResolvingENS}
                       >
-                        {type}
-                      </a>
-                    );
-                  })}
+                        <div className="rounded-full bg-white/10 p-2">
+                          {isResolvingENS ? (
+                            <Loader2Icon className="h-4 w-4 animate-spin text-white md:h-5 md:w-5" />
+                          ) : (
+                            <ArrowRightIcon className="h-4 w-4 text-white md:h-5 md:w-5" />
+                          )}
+                        </div>
+                      </button>
+                    ) : (
+                      <button
+                        type="button"
+                        className="-translate-y-1/2 absolute top-1/2 right-0 md:right-2"
+                        onClick={handleClearWalletAddress}
+                      >
+                        <div className="rounded-full bg-white/10 p-2">
+                          <XIcon className="h-5 w-5 text-white" />
+                        </div>
+                      </button>
+                    )}
+                  </Form>
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-span-12 md:col-span-6">
-            <div className="border-white/25 border-b bg-black px-4 pt-2 pb-4 md:bg-black/25 md:p-8">
-              <div className="">
-                {chatbotType === "GOOD" ? (
-                  <div className="mb-4 hidden items-center gap-4 md:flex">
-                    <Image
-                      src="/assets/chatbot/good-icon.png"
-                      alt="close"
-                      width={480}
-                      height={480}
-                      className="h-12 w-auto"
-                    />
-                    <h4 className="font-bold text-white text-xl">GOOD</h4>
-                  </div>
-                ) : (
-                  <div className="mb-4 hidden items-center gap-4 md:flex">
-                    <Image
-                      src="/assets/chatbot/evil-icon.png"
-                      alt="close"
-                      width={480}
-                      height={480}
-                      className="h-12 w-auto"
-                    />
-                    <h4 className="font-bold text-white text-xl">EVIL</h4>
-                  </div>
-                )}
-                <Form
-                  action=""
-                  onSubmit={(e) => {
-                    e.preventDefault();
-
-                    handleValidateWalletAddress();
-                  }}
-                  className="relative w-full md:max-w-[480px]"
-                >
-                  <input
-                    type="text"
-                    placeholder="ENTER YOUR ETHEREUM OR SOLANA ADDRESS"
-                    className={`w-full rounded-full px-12 py-2 text-sm text-white md:py-4 ${
-                      walletAddress
-                        ? "cursor-not-allowed opacity-50"
-                        : "bg-white/10"
-                    }`}
-                    disabled={!!walletAddress || isResolvingENS}
-                    value={inputWalletAddress}
-                    onChange={(e) => setInputWalletAddress(e.target.value)}
-                  />
-                  <div className="-translate-y-1/2 absolute top-1/2 left-2 md:left-4">
-                    <WalletIcon className="h-4 w-4 text-white md:h-5 md:w-5" />
-                  </div>
-                  {!walletAddress ? (
-                    <button
-                      type="submit"
-                      className="-translate-y-1/2 absolute top-1/2 right-0 md:right-2"
-                      disabled={isResolvingENS}
-                    >
-                      <div className="rounded-full bg-white/10 p-2">
-                        {isResolvingENS ? (
-                          <Loader2Icon className="h-4 w-4 animate-spin text-white md:h-5 md:w-5" />
-                        ) : (
-                          <ArrowRightIcon className="h-4 w-4 text-white md:h-5 md:w-5" />
-                        )}
-                      </div>
-                    </button>
-                  ) : (
-                    <button
-                      type="button"
-                      className="-translate-y-1/2 absolute top-1/2 right-0 md:right-2"
-                      onClick={handleClearWalletAddress}
-                    >
-                      <div className="rounded-full bg-white/10 p-2">
-                        <XIcon className="h-5 w-5 text-white" />
-                      </div>
-                    </button>
-                  )}
-                </Form>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-      <ChatSection
-        chatbotType={chatbotType}
-        walletAddress={walletAddress}
-        firstAskQuestionPromise={firstAskQuestionPromise}
-        errorMessage={errorMessage}
-      />
-    </section>
+        <ChatSection
+          chatbotType={chatbotType}
+          walletAddress={walletAddress}
+          firstAskQuestionPromise={firstAskQuestionPromise}
+          errorMessage={errorMessage}
+        />
+      </section>
+    </Loading>
   );
 }
