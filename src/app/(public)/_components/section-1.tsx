@@ -291,7 +291,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
               </h2>
 
               <Link
-                href="/"
+                href="/cryaistal-agent"
                 className="flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-8 py-4 hover:animate-shake md:justify-start"
                 data-aos="fade-up"
                 data-aos-delay="1400"
