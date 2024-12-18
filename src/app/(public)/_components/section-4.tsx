@@ -1,6 +1,7 @@
 import { isSafari } from "@/utils/boolean";
 
 export default function Section4() {
+  console.log(isSafari,'debug')
   return (
     <section
       id="features"
