@@ -1,6 +1,9 @@
 import Loading from "@/components/loading";
-import Section1 from "./section-1";
-import Section2 from "./section-2";
+import dynamic from "next/dynamic";
+
+const Section1 = dynamic(() => import("./section-1"));
+const Section2 = dynamic(() => import("./section-2"));
+
 
 export default function Container() {
   return (

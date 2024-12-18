@@ -3,6 +3,7 @@
 import Header from "@/components/header";
 import Image from "next/image";
 import Section2 from "./section-2";
+import { isSafari } from "@/utils/boolean";
 
 export default function Section1() {
   return (
@@ -11,11 +12,12 @@ export default function Section1() {
         <div className="absolute bottom-0 top-0 w-full overflow-hidden">
           <div className="-mr-[800px] -mt-[480px]">
             <video
-              src="/assets/about-3/section-1/bg-video.webm"
+              src={`/assets/about-3/section-1/bg-video.${isSafari ? "mov" : "webm"}`}
               autoPlay
               loop
               muted
               className="h-auto w-full opacity-25"
+              playsInline
             />
           </div>
         </div>
