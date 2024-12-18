@@ -57,7 +57,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      setIsSticky(scrollTop >= 1150);
+      setIsSticky(scrollTop >= 950);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -199,26 +199,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                     })}
                   </div>
                 </motion.div>
-                <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen py-16">
-                  <Marquee className="">
-                    <div className="flex items-center justify-center gap-4">
-                      {[...partnerItems, ...partnerItems].map((item, index) => {
-                        return (
-                          <div className="px-8" key={index}>
-                            <Image
-                              src={item}
-                              alt="logo"
-                              width={480}
-                              height={480}
-                              className="h-8 w-auto opacity-50"
-                              priority
-                            />
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </Marquee>
-                </div>
+         
                 <div
                   id="partners"
                   className="flex flex-col items-center justify-center"
@@ -240,6 +221,26 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                       priority
                     />
                   </div>
+                </div>
+                <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen py-16">
+                  <Marquee className="">
+                    <div className="flex items-center justify-center gap-4">
+                      {[...partnerItems, ...partnerItems].map((item, index) => {
+                        return (
+                          <div className="px-8" key={index}>
+                            <Image
+                              src={item}
+                              alt="logo"
+                              width={480}
+                              height={480}
+                              className="h-8 w-auto opacity-50"
+                              priority
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </Marquee>
                 </div>
               </div>
               <div>
