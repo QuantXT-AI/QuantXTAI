@@ -94,7 +94,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
               </div>
               <div>
                 <video
-                  src="/assets/home/section-1/bg-video-2.webm"
+                  src={`/assets/home/section-1/bg-video-2.${isSafari ? "mov" : "webm"}`}
                   autoPlay
                   loop
                   muted
@@ -198,7 +198,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                     })}
                   </div>
                 </motion.div>
-         
+
                 <div
                   id="partners"
                   className="flex flex-col items-center justify-center"
@@ -260,8 +260,8 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
       ) : (
         <>
           <video
-                  src={`/assets/home/section-1/bg-video.${isSafari ? "mov" : "webm"}`}
-                  autoPlay
+            src={`/assets/home/section-1/bg-video.${isSafari ? "mov" : "webm"}`}
+            autoPlay
             loop
             muted
             className="absolute h-[100vh] w-full bg-no-repeat object-cover opacity-50"
