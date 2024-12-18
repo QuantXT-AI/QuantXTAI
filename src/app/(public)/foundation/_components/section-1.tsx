@@ -16,6 +16,7 @@ export default function Section1() {
               loop
               muted
               className="h-auto w-full opacity-5"
+              playsInline
             />
           </div>
         </div>
@@ -98,10 +99,10 @@ export default function Section1() {
                 data-aos="fade-up"
                 data-aos-delay="1400"
               >
-                With over 51 million active crypto traders worldwide, 
-                CryAIstal is more than a platformit’s a movement. By providing tools 
+                With over 51 million active crypto traders worldwide,
+                CryAIstal is more than a platformit’s a movement. By providing tools
                 that were once reserved for elite institutions, CryAIstal opens the door
-                 for anyone to participate in the ever-evolving world of cryptocurrency trading.
+                for anyone to participate in the ever-evolving world of cryptocurrency trading.
                 <br />
                 <br />
                 CryAIstal isn’t just keeping pace with the future of cryptoit’s shaping it
