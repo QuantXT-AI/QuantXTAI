@@ -1,3 +1,5 @@
+import { isSafari } from "@/utils/boolean";
+
 export default function Circle() {
   return (
     <div className="relative h-screen w-screen bg-[url('/assets/components/circle/bg.png')] bg-center bg-contain bg-no-repeat">
@@ -17,7 +19,7 @@ export default function Circle() {
           className="absolute top-0 left-0 z-10 h-screen w-screen"
         >
           <div className="flex h-screen w-screen flex-col items-center justify-center">
-            <h2 
+            <h2
               className="px-4 text-center font-bold text-2xl text-white/75 leading-[1.2] [text-shadow:0px_0px_8px_#6D4C5B] md:text-4xl"
               data-aos="fade-up"
               data-aos-delay="400"
