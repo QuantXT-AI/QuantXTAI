@@ -171,7 +171,7 @@ export default function Container({
                   >
                     <input
                       type="text"
-                      placeholder="ENTER YOUR ETHEREUM ADDRESS OR ENS NAME"
+                      placeholder="ENTER YOUR ETHEREUM/SOLANA ADDRESS"
                       className={`w-full rounded-full px-12 py-2 text-sm text-white md:py-4 ${
                         walletAddress
                           ? "cursor-not-allowed opacity-50"

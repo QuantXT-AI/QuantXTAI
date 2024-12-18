@@ -43,7 +43,7 @@ export default function Section2() {
                     NVIDIA PARTNERSHIP
                   </h2>
                   <p className="text-md mb-8 font-epilogue text-white/75 md:mb-16 md:text-lg">
-                    Building on our experience with Nvidia;s Inception Program.
+                    Building on our experience with Nvidia's Inception Program.
                     we refine AI integration and ecosystem optimization.
                   </p>
                   <Link

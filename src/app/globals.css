@@ -3,34 +3,29 @@
 @tailwind utilities;
 
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+* {
+  @apply transition-all;
 
   /* Firefox */
-  * {
-    scrollbar-width: auto;
-    scrollbar-color: #a1a1aa #ffffff;
-  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
 
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 16px;
-  }
+*::-webkit-scrollbar {
+  display: none;
+}
 
-  *::-webkit-scrollbar-track {
-    background: #ffffff;
-  }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 
-  *::-webkit-scrollbar-thumb {
-    background-color: #a1a1aa;
-    border-radius: 10px;
-    border: 3px solid #ffffff;
-  }
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 @keyframes flicker {

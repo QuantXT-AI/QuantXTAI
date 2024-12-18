@@ -76,7 +76,7 @@ export default function Section6() {
                       </li>
                       <li>
                         <p className="mb-2 text-sm md:text-base">
-                          FUmble and REKT quantification engine
+                          Fumble and REKT quantification engine
                         </p>
                       </li>
                       <li>
@@ -132,7 +132,7 @@ export default function Section6() {
                       </li>
                       <li>
                         <p className="mb-2 text-sm md:text-base">
-                          Full Trader ecosystem, collab with exchanges and
+                          Full TRADER ecosystem, collab with exchanges and
                           platform to incentivize traders
                         </p>
                       </li>
