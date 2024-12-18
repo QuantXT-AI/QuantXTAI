@@ -118,7 +118,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                     <br /> REDEFINED BY AI
                   </h2>
                   <Link
-                    href="/chatbot"
+                    href="/cryaistal-agent"
                     className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-8 py-4 hover:animate-shake"
                     data-aos="fade-up"
                     data-aos-delay="1400"
@@ -184,7 +184,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                           key={index}
                         >
                           <div className="flex items-center">
-                            {/* {index === 0 && (
+                            {index === 0 && (
                               <div className="m-1 flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
                                 <Image
                                   src="/assets/home/section-2/nav-icon.png"
@@ -194,10 +194,12 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                                   className="h-4 w-4"
                                 />
                               </div>
-                            )} */}
+                            )}
                             <p
                               className={cn(
-                                "px-8 py-2 text-sm font-normal text-white",
+                                "px-8 py-2 text-sm font-normal text-white",{
+
+                                }
                               )}
                             >
                               {item?.title}
