@@ -115,6 +115,12 @@ export default function Container({
     }
   }, [type]);
 
+  if (!type) {
+    const defaultType = "GOOD";
+    window.location.href = `/cryaistal-agent?type=${defaultType}${walletAddress ? `&walletAddress=${walletAddress}` : ""}`;
+    return;
+  }
+
   if (!chatbotTypeItems?.includes(type)) {
     return <></>;
   }
