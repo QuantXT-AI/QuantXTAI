@@ -17,6 +17,7 @@ import { getCachedTraderTrades } from "@/data/services/trader-trades-seek-by-tim
 import { WalletAddressRequestSchema } from "@/dto";
 import { getCheckerLink, isExcludedToken } from "@/lib/trade-utils";
 import { formatZodError } from "@/lib/utils";
+import { determineWalletAddressType, WalletAddressType } from "@/utils/address-validator";
 
 export interface PastTradeItem extends EnhancedTradeItem {
   // Market cap analysis
@@ -49,7 +50,9 @@ export async function POST(request: Request) {
 
   const { walletAddress } = result.data;
 
-  const trades = await getCachedTraderTrades(walletAddress, {
+  const addressType = determineWalletAddressType(walletAddress);
+
+  const trades = await getCachedTraderTrades(walletAddress, addressType, {
     limit: 100,
     sortType: "desc",
   });
@@ -99,10 +102,11 @@ export async function POST(request: Request) {
     }
 
     const [marketData, currentPrice, ohlcvData] = await Promise.all([
-      getCachedTokenMarketData(tokenAddress),
-      getCachedPrice(tokenAddress),
+      getCachedTokenMarketData(tokenAddress, addressType),
+      getCachedPrice(tokenAddress, addressType),
       getCachedOhlcvData(
         tokenAddress,
+        addressType,
         entryTime,
         currentTime,
         ohlcvDataTimeFrame as OhlcvDuration,
@@ -121,7 +125,11 @@ export async function POST(request: Request) {
 
   // Get Ethereum price data
   const ETHEREUM_ADDRESS = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
-  const ethereumPrice = await getCachedPrice(ETHEREUM_ADDRESS);
+  const SOLANA_ADDRESS = "So11111111111111111111111111111111111111112";
+
+  const refPrice = addressType === WalletAddressType.ETH 
+    ? await getCachedPrice(ETHEREUM_ADDRESS, WalletAddressType.ETH) : 
+      await getCachedPrice(SOLANA_ADDRESS, WalletAddressType.SOL);
 
   // Process trades using the cached token data
   const pastTrades = enhancedTrades.map((trade) => {
@@ -185,7 +193,7 @@ export async function POST(request: Request) {
       ath_price_during_hold_timestamp: athDuringHold.timestamp,
       ath_price_after_sell_in_usd: athAfterSell.price,
       ath_price_after_sell_timestamp: athAfterSell.timestamp,
-      current_ethereum_price_in_usd: ethereumPrice.data.value,
+      current_ethereum_price_in_usd: refPrice.data.value,
       checker_link: getCheckerLink(trade.address, walletAddress),
       trades: trade.trades,
     };

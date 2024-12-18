@@ -8,7 +8,7 @@ import Link from "next/link";
 
 import type { InitiatePredictionResponse } from "@/app/types";
 import { CHARACTERS } from "@/config";
-import { WalletAddressOrENSRequestSchema } from "@/dto";
+import { WalletAddressOrENSRequestSchema, WalletAddressRequestSchema } from "@/dto";
 import { resolveENS } from "@/lib/ens";
 import { formatZodError } from "@/lib/utils";
 import {
@@ -23,6 +23,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import ChatSection from "./chat-section";
 import Loading from "@/components/loading";
+import { determineWalletAddressType, WalletAddressType } from "@/utils/address-validator";
 
 const chatbotTypeItems = CHARACTERS.map((character) => character.id);
 
@@ -47,6 +48,26 @@ export default function Container({
   const [isResolvingENS, setIsResolvingENS] = useState(false);
 
   const handleValidateWalletAddress = useCallback(async () => {
+    const addressType = determineWalletAddressType(inputWalletAddress);
+
+    if (addressType === WalletAddressType.SOL) {
+      const validate = WalletAddressRequestSchema.safeParse({
+        walletAddress: inputWalletAddress,
+      })
+
+      if (!validate?.success) {
+        console.log("validate", validate);
+        setErrorMessage(formatZodError(validate?.error).details?.[0].message);
+        return;
+      }
+
+      setErrorMessage(null);
+      router.push(
+        `/cryaistal-agent?type=${chatbotType}&walletAddress=${validate.data.walletAddress}`
+      )
+      return;
+    }
+
     const validate = WalletAddressOrENSRequestSchema.safeParse({
       walletAddressOrENS: inputWalletAddress,
     });
@@ -103,7 +124,7 @@ export default function Container({
         <div className="fixed top-0 z-20 w-full">
           <div className="grid grid-cols-12">
             <div className="col-span-12 md:col-span-6">
-              <div className="bg-black/75 px-4 pb-2 pt-8 md:bg-transparent md:p-8">
+              <div className="bg-black/75 px-4 pt-8 pb-2 md:bg-transparent md:p-8">
                 <div className="flex items-center gap-4">
                   <Link
                     href="/"
@@ -119,7 +140,7 @@ export default function Container({
                         <a
                           href={`/cryaistal-agent?type=${type}${walletAddress ? `&walletAddress=${walletAddress}` : ""}`}
                           className={cn(
-                            "flex w-24 items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white",
+                            "flex w-24 items-center justify-center rounded-md px-4 py-2 font-medium text-sm text-white",
                             isActive
                               ? "bg-gradient-to-b from-white/5 to-white/10"
                               : "bg-transparent",
@@ -135,7 +156,7 @@ export default function Container({
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="border-b border-white/25 bg-black px-4 pb-4 pt-2 md:bg-black/25 md:p-8">
+              <div className="border-white/25 border-b bg-black px-4 pt-2 pb-4 md:bg-black/25 md:p-8">
                 <div className="">
                   {chatbotType === "GOOD" ? (
                     <div className="mb-4 hidden items-center gap-4 md:flex">
@@ -146,7 +167,7 @@ export default function Container({
                         height={480}
                         className="h-12 w-auto"
                       />
-                      <h4 className="text-xl font-bold text-white">GOOD</h4>
+                      <h4 className="font-bold text-white text-xl">GOOD</h4>
                     </div>
                   ) : (
                     <div className="mb-4 hidden items-center gap-4 md:flex">
@@ -157,7 +178,7 @@ export default function Container({
                         height={480}
                         className="h-12 w-auto"
                       />
-                      <h4 className="text-xl font-bold text-white">EVIL</h4>
+                      <h4 className="font-bold text-white text-xl">EVIL</h4>
                     </div>
                   )}
                   <Form
@@ -171,23 +192,22 @@ export default function Container({
                   >
                     <input
                       type="text"
-                      placeholder="ENTER YOUR ETHEREUM ADDRESS OR ENS NAME"
-                      className={`w-full rounded-full px-12 py-2 text-sm text-white md:py-4 ${
-                        walletAddress
+                      placeholder="ENTER YOUR ETHEREUM OR SOLANA ADDRESS"
+                      className={`w-full rounded-full px-12 py-2 text-sm text-white md:py-4 ${walletAddress
                           ? "cursor-not-allowed opacity-50"
                           : "bg-white/10"
-                      }`}
+                        }`}
                       disabled={!!walletAddress || isResolvingENS}
                       value={inputWalletAddress}
                       onChange={(e) => setInputWalletAddress(e.target.value)}
                     />
-                    <div className="absolute left-2 top-1/2 -translate-y-1/2 md:left-4">
+                    <div className="-translate-y-1/2 absolute top-1/2 left-2 md:left-4">
                       <WalletIcon className="h-4 w-4 text-white md:h-5 md:w-5" />
                     </div>
                     {!walletAddress ? (
                       <button
                         type="submit"
-                        className="absolute right-0 top-1/2 -translate-y-1/2 md:right-2"
+                        className="-translate-y-1/2 absolute top-1/2 right-0 md:right-2"
                         disabled={isResolvingENS}
                       >
                         <div className="rounded-full bg-white/10 p-2">
@@ -201,7 +221,7 @@ export default function Container({
                     ) : (
                       <button
                         type="button"
-                        className="absolute right-0 top-1/2 -translate-y-1/2 md:right-2"
+                        className="-translate-y-1/2 absolute top-1/2 right-0 md:right-2"
                         onClick={handleClearWalletAddress}
                       >
                         <div className="rounded-full bg-white/10 p-2">

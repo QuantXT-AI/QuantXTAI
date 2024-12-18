@@ -1,4 +1,5 @@
 import { env } from "@/env";
+import { WalletAddressType } from "@/utils/address-validator";
 import { unstable_cache } from "next/cache";
 
 export interface OhlcvItem {
@@ -22,6 +23,7 @@ export type OhlcvDuration = "15m" | "1H" | "4H" | "12H" | "1D" | "1W";
 
 export const getOhlcvData = async (
   tokenAddress: string,
+  addressType: WalletAddressType,
   timeFrom: number,
   timeTo: number,
   duration: OhlcvDuration = "1H", // Default to 1H for better precision
@@ -32,7 +34,7 @@ export const getOhlcvData = async (
       headers: {
         accept: "application/json",
         "X-API-KEY": env.BIRDEYE_API_KEY,
-        "x-chain": "ethereum",
+        "x-chain": addressType,
       },
     },
   );
@@ -48,13 +50,14 @@ export const getOhlcvData = async (
 
 export const getCachedOhlcvData = (
   tokenAddress: string,
+  addressType: WalletAddressType,
   timeFrom: number,
   timeTo: number,
   duration: OhlcvDuration = "1H",
 ) => {
   return unstable_cache(
     async () => {
-      return getOhlcvData(tokenAddress, timeFrom, timeTo, duration);
+      return getOhlcvData(tokenAddress, addressType, timeFrom, timeTo, duration);
     },
     [
       "birdeye",

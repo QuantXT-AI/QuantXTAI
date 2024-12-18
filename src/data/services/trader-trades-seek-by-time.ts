@@ -1,4 +1,5 @@
 import { env } from "@/env";
+import { WalletAddressType } from "@/utils/address-validator";
 
 import { unstable_cache } from "next/cache";
 
@@ -40,6 +41,7 @@ interface TraderTradesResponse {
 
 export const getTraderTrades = async (
   address: string,
+  addressType: WalletAddressType,
   options?: {
     offset?: number;
     limit?: number;
@@ -74,7 +76,7 @@ export const getTraderTrades = async (
       headers: {
         accept: "application/json",
         "X-API-KEY": env.BIRDEYE_API_KEY,
-        "x-chain": "ethereum",
+        "x-chain": addressType,
       },
     },
   );
@@ -101,11 +103,19 @@ export const getTraderTrades = async (
 
 export const getCachedTraderTrades = (
   address: string,
-  options?: Parameters<typeof getTraderTrades>[1],
+  addressType: WalletAddressType,
+  options?: {
+    offset?: number;
+    limit?: number;
+    txType?: string;
+    sortType?: "desc" | "asc";
+    beforeTime?: number;
+    afterTime?: number;
+  },
 ) => {
   return unstable_cache(
     async () => {
-      return getTraderTrades(address, options);
+      return getTraderTrades(address, addressType, options);
     },
     ["birdeye", "trader-trades", address, JSON.stringify(options)],
     {

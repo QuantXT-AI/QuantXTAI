@@ -8,5 +8,8 @@
     "source.organizeImports.biome": "explicit",
     "source.fixAll.biome": "explicit",
     "quickfix.biome": "explicit"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   }
 }
