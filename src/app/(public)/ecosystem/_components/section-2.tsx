@@ -43,11 +43,12 @@ export default function Section2() {
                     NVIDIA PARTNERSHIP
                   </h2>
                   <p className="text-md mb-8 font-epilogue text-white/75 md:mb-16 md:text-lg">
-                    Building on our experience with Nvidia;s Inception Program.
+                    Building on our experience with Nvidia's Inception Program.
                     we refine AI integration and ecosystem optimization.
                   </p>
                   <Link
-                    href="/"
+                    href="https://docs.cryaistal.ai/nvidia-inception"
+                    target="_blank"
                     className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 hover:animate-shake md:px-8 md:py-4"
                   >
                     <span className="font-clash-display text-sm font-normal text-white">
@@ -76,7 +77,8 @@ export default function Section2() {
                     automatically curate discord alpha group informations.
                   </p>
                   <Link
-                    href="/"
+                    href="https://docs.cryaistal.ai/elizas-fusion-ai16z"
+                    target="_blank"
                     className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 hover:animate-shake md:px-8 md:py-4"
                   >
                     <span className="font-clash-display text-sm font-normal text-white">

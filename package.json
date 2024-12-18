@@ -39,6 +39,7 @@
     "embla-carousel-react": "^8.5.1",
     "ethers": "^6.13.4",
     "flowise-sdk": "^1.0.9",
+    "framer-motion": "^11.15.0",
     "jotai": "^2.10.3",
     "lucide-react": "^0.460.0",
     "motion": "^11.14.4",
@@ -75,5 +76,7 @@
     "typescript": "^5.7.2"
   },
   "packageManager": "bun@1.1.38",
-  "trustedDependencies": ["@biomejs/biome"]
+  "trustedDependencies": [
+    "@biomejs/biome"
+  ]
 }

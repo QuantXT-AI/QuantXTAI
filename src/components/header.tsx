@@ -23,7 +23,7 @@ const navItems = [
     href: "/about",
     links: [
       {
-        title: "Protocol",
+        title: "Foundation",
         href: "/protocol",
         icon: "/assets/components/header/item-1.png",
       },
