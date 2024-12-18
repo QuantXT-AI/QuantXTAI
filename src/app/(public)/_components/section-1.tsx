@@ -158,28 +158,29 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
             <div className="container mx-auto -mt-24 max-w-6xl px-4">
               <div className="mb-20">
               <motion.div
-                  style={{
-                    position: isSticky ? "fixed" : "relative",
-                    top: isSticky ? 0 : 130,
-                    left: 0,
-                    right: 0,
-                    y: headerY,
-                    zIndex: 1000,
-                  }}
-                  transition={{
-                    duration: 1000,
-                    ease: [0.32, 0.72, 0, 1],
-                  }}
-                  className="transition-all duration-1000"
+                  // style={{
+                  //   position: isSticky ? "fixed" : "relative",
+                  //   top: isSticky ? 0 : 130,
+                  //   left: 0,
+                  //   right: 0,
+                  //   y: headerY,
+                  //   zIndex: 1000,
+                  // }}
+                  // transition={{
+                  //   duration: 1000,
+                  //   ease: [0.32, 0.72, 0, 1],
+                  // }}
+                  className={cn(" transition-all duration-1000 opacity-100 fixed z-50 top-0 left-0 right-0", {
+                    "opacity-0": !isSticky,
+                  })} 
                 >
-    <div
+                  <div
                     className={cn(
                       "duration-8000 mb-8 flex items-center justify-center gap-4 p-8 transition-all",
-                      {
-                        "py-3": isSticky,
-                      },
+                    
                     )}
-                  >                    {navItems?.map((item, index) => {
+                  >
+                    {navItems?.map((item, index) => {
                       return (
                         <Link
                           href={item?.href}
