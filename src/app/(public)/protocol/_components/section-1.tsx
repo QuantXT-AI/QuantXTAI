@@ -34,7 +34,7 @@ export default function Section1() {
                     className="h-8 w-auto"
                   />
                   <span className="text-sm font-medium text-white/50">
-                    PROTOCOL
+                    FOUNDATION
                   </span>
                 </div>
               </div>
