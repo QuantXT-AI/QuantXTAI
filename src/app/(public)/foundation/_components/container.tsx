@@ -7,7 +7,7 @@ export default function Container() {
     <Loading isLoaded={true}>
       <>
         <Section1 />
-        <Section2 />
+        {/* <Section2 /> */}
       </>
     </Loading>
   );

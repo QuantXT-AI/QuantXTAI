@@ -10,11 +10,11 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;
 }
-  * {
+  /* * {
     scrollbar-width: auto;
     scroll-behavior: smooth;
     scrollbar-color: #a1a1aa #ffffff;
-  }
+  } */
 
 *::-webkit-scrollbar {
   display: none;

@@ -2,12 +2,13 @@
 
 import Header from "@/components/header";
 import Image from "next/image";
+import Section2 from "./section-2";
 
 export default function Section1() {
   return (
-    <section className="relative w-full bg-gradient-to-b from-[#1F0B01] to-[#330B24]">
+    <section className="relative w-full bg-cryaistal bg-[length:120%_300%] bg-top">
       <div className="">
-        <div className="h-[1080px] w-full overflow-hidden">
+        <div className="absolute bottom-0 top-0 w-full overflow-hidden">
           <div className="-mr-[800px] -mt-[480px]">
             <video
               src="/assets/about-3/section-1/bg-video.webm"
@@ -19,7 +20,7 @@ export default function Section1() {
           </div>
         </div>
       </div>
-      <div className="absolute left-0 top-0 h-full w-full">
+      <div className="h-full w-full">
         <div className="container relative mx-auto max-w-6xl px-4">
           <Header />
           <div className="w-full py-16">
@@ -34,7 +35,7 @@ export default function Section1() {
                     className="h-8 w-auto"
                   />
                   <span className="text-xs font-medium text-white/50 md:text-sm">
-                    AI TRADING BOOTCAMP
+                    AI TRADING LAB
                   </span>
                 </div>
               </div>
@@ -53,29 +54,33 @@ export default function Section1() {
                 data-aos="fade-up"
                 data-aos-delay="1800"
               >
-                The CryAIstal Trading Bootcamp is dedicated to nurturing and
-                advancing premier AI-driven cryptocurrency trading solutions,
-                integrating them across multiple leading blockchain networks,
-                including Solana, Ethereum, and Binance Smart Chain.
+                The CryAIstal Trading Forge is where innovation meets strategy,
+                crafting cutting-edge AI-driven trading solutions across top blockchain
+                networks like Solana, Ethereum, hyperliquid, and Binance Smart Chain.
                 <br />
                 <br />
-                Partnering with top-tier AI and blockchain innovators, the
-                CryAIstal Trading Bootcamp offers an intensive 12-week program
-                designed to optimize each trading product for market success.
-                The program focuses on refining AI algorithms, enhancing
-                multi-chain compatibility, and positioning projects for
-                impactful token launches within the crypto ecosystem.
+                <b>Empowering Visionaries</b>
+                <br />
+                The Forge helps refine, test, and launch groundbreaking projects by focusing on:
+                <br />
+                <ul className="list-disc ml-14">
+                  <li>Algorithm Precision: Sharpen AI strategies for volatile markets.</li>
+                  <li>Multi-Chain Integration: Seamless compatibility across ecosystems.</li>
+                  <li>Market Readiness: Tailored tools for impactful token launches.</li>
+                </ul>
+                <br />
+                <b>Rigorous Standards</b>
+                <br />
+                Projects are evaluated on trading strategies, scalability, and unique value propositions,
+                ensuring they stand out in a dynamic crypto landscape.
                 <br />
                 <br />
-                Our team conducts a rigorous evaluation of each applicant to
-                assess their trading strategies, market penetration, and unique
-                value propositions. CryAIstal’s expertise ensures participants
-                unlock their full potential, delivering breakthrough solutions
-                to the ever-evolving cryptocurrency trading market.
+                CryAIstal’s Trading Forge isn’t just a platform, it’s the future of AI-powered crypto trading.
               </p>
             </div>
           </div>
         </div>
+        <Section2 />
       </div>
     </section>
   );
