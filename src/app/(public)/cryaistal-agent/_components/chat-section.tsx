@@ -128,7 +128,6 @@ export default function ChatSection({
           ]);
         }
       } catch (error) {
-        console.log(error);
         setMessages((prev) => [
           ...prev.slice(0, -1),
           {

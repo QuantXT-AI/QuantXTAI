@@ -72,10 +72,10 @@ async function tryFetchWithRotation(query: string, limit: number) {
         throw error;
       }
       // Otherwise continue to next account
-      console.log(
-        `Account ${accountNum} failed, trying next account...`,
-        error,
-      );
+      // console.log(
+      //   `Account ${accountNum} failed, trying next account...`,
+      //   error,
+      // );
     }
   }
 }
