@@ -13,7 +13,7 @@ export async function getInitialMessage({
 }) {
   if (!walletAddress) {
     return Promise.resolve({
-      text: "Hello! Please insert your Ethereum address or ENS name first.",
+      text: "Hello! Please insert your Ethereum address or Solana address first.",
     } as InitiatePredictionResponse);
   }
 

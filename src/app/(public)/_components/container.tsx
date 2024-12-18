@@ -21,7 +21,7 @@ export default function Container() {
 
   return (
     <Loading isLoaded={!isLoading}>
-      <div className="relative min-h-screen overflow-x-hidden">
+      <div className="relative min-h-screen overflow-x-hidden bg-cryaistal bg-[length:120%_300%] bg-top">
         <Section1 isLoading={isLoading} setIsLoading={setIsLoading} />
         <Section4 />
         <Section5 />

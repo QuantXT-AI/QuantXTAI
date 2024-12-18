@@ -91,6 +91,9 @@ export default {
           },
         },
       }),
+      backgroundImage: {
+        "cryaistal": "url('/assets/components/overlay/overlay-landing.png')"
+      }
     },
   },
   // eslint-disable-next-line @typescript-eslint/no-require-imports
