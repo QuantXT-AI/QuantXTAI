@@ -4,11 +4,12 @@ import Header from "@/components/header";
 import Image from "next/image";
 import { useMediaQuery } from "usehooks-ts";
 import React from "react";
+import { isSafari } from "@/utils/boolean";
 
 export default function Section1() {
   const isDesktop = useMediaQuery("(min-width: 769px)");
 
-  const overlayRobot = (children: React.ReactNode) => 
+  const overlayRobot = (children: React.ReactNode) =>
     isDesktop ? (
       <div className="bg-gradient-to-t from-[#190616] to-[rgba(0,0,0,0)]">
         {children}
@@ -26,11 +27,12 @@ export default function Section1() {
               {overlayRobot(
                 <div className="h-screen w-full overflow-hidden">
                   <video
-                    src="/assets/about-1/section-1/bg-video.webm"
+                    src={`/assets/about-1/section-1/bg-video.${isSafari ? "mov" : "webm"}`}
                     autoPlay
                     loop
                     muted
                     className="h-auto w-full object-cover object-bottom opacity-20"
+                    playsInline
                   />
                 </div>
               )}
@@ -39,11 +41,12 @@ export default function Section1() {
         </div>
       ) : (
         <video
-          src="/assets/about-1/section-1/bg-video.webm"
+          src={`/assets/about-1/section-1/bg-video.${isSafari ? "mov" : "webm"}`}
           autoPlay
           loop
           muted
           className="absolute h-full w-auto bg-no-repeat object-cover opacity-50"
+          playsInline
         />
       )}
       <div className="relative h-screen w-screen md:absolute md:left-0 md:top-0">

@@ -1,6 +1,7 @@
 "use client";
 
 import Header from "@/components/header";
+import { isSafari } from "@/utils/boolean";
 import Image from "next/image";
 
 const firstItems = [
@@ -44,11 +45,12 @@ export default function Section1() {
         <div className="h-[1400px] w-full overflow-hidden">
           <div>
             <video
-              src="/assets/about-4/section-1/bg-video.webm"
+              src={`/assets/about-4/section-1/bg-video.${isSafari ? "mov" : "webm"}`}
               autoPlay
               loop
               muted
               className="h-auto w-full opacity-25"
+              playsInline
             />
           </div>
         </div>
