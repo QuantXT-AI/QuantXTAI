@@ -41,13 +41,13 @@ export default function ChatSection({
   const [messages, setMessages] = useState<IMessage[]>([
     ...(firstAskQuestionResponse
       ? [
-          {
-            role: "apiMessage",
-            content: firstAskQuestionResponse?.text,
-            error: false,
-            timestamp: new Date(),
-          } as IMessage,
-        ]
+        {
+          role: "apiMessage",
+          content: firstAskQuestionResponse?.text,
+          error: false,
+          timestamp: new Date(),
+        } as IMessage,
+      ]
       : []),
   ]);
 
@@ -127,6 +127,7 @@ export default function ChatSection({
             },
           ]);
         }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {
         setMessages((prev) => [
           ...prev.slice(0, -1),
@@ -172,9 +173,8 @@ export default function ChatSection({
     <div className="grid grid-cols-12">
       <div
         id="landing"
-        className={`relative col-span-12 w-auto sm:col-span-12 md:col-span-6 lg:col-span-6 ${
-          walletAddress ? "hidden md:block" : ""
-        }`}
+        className={`relative col-span-12 w-auto sm:col-span-12 md:col-span-6 lg:col-span-6 ${walletAddress ? "hidden md:block" : ""
+          }`}
       >
         <div className="z-0 overflow-hidden">
           {chatbotType === "GOOD" ? (
@@ -198,9 +198,8 @@ export default function ChatSection({
       </div>
       <div
         id="chatbot"
-        className={`col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-6 ${
-          !walletAddress ? "hidden md:block" : ""
-        }`}
+        className={`col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-6 ${!walletAddress ? "hidden md:block" : ""
+          }`}
       >
         <div
           className={cn(
