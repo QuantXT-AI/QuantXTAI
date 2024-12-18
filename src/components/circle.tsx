@@ -5,7 +5,7 @@ export default function Circle() {
         <div className="h-screen w-screen overflow-hidden px-4 py-16">
           <div className="flex h-full items-center justify-center">
             <video
-              src="/assets/components/circle/bg-video.webm"
+              src="/assets/components/circle/video-bg.webm"
               autoPlay
               loop
               muted
