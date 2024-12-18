@@ -11,7 +11,6 @@ import Marquee from "react-fast-marquee";
 import { useMediaQuery } from "usehooks-ts";
 import { motion } from "framer-motion";
 
-
 const navItems = [
   {
     title: "PARTNERS",
@@ -52,7 +51,6 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
   const isDesktop = useMediaQuery("(min-width: 769px)");
 
   const [isSticky, setIsSticky] = useState(false);
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -151,7 +149,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
             </div>
             <div className="container mx-auto -mt-24 max-w-6xl px-4">
               <div className="mb-20">
-              <motion.div
+                <motion.div
                   // style={{
                   //   position: isSticky ? "fixed" : "relative",
                   //   top: isSticky ? 0 : 130,
@@ -164,14 +162,14 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                   //   duration: 1000,
                   //   ease: [0.32, 0.72, 0, 1],
                   // }}
-                  className={cn(" transition-all duration-1000 opacity-100 fixed z-50 top-0 left-0 right-0", {
-                    "opacity-0": !isSticky,
-                  })} 
+                  className={cn(
+                    "fixed left-0 right-0 top-0 z-50 opacity-100 transition-all duration-1000",
+                    !isSticky ? "-top-[200px] opacity-0" : "top-0 opacity-100",
+                  )}
                 >
                   <div
                     className={cn(
                       "duration-8000 mb-8 flex items-center justify-center gap-4 p-8 transition-all",
-                    
                     )}
                   >
                     {navItems?.map((item, index) => {
@@ -186,9 +184,8 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                           <div className="flex items-center">
                             <p
                               className={cn(
-                                "px-8 py-2 text-sm font-normal text-white",{
-
-                                }
+                                "px-8 py-2 text-sm font-normal text-white",
+                                {},
                               )}
                             >
                               {item?.title}

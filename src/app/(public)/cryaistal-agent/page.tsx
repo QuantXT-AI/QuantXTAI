@@ -1,7 +1,5 @@
 import type { CHARACTERS } from "@/config";
 import { getInitialMessage } from "@/utils/chat";
-import { redirect } from "next/navigation";
-import { Suspense } from "react";
 import Container from "./_components/container";
 
 interface IPageProps {
@@ -16,9 +14,7 @@ export default async function Page({ searchParams }: IPageProps) {
 
   if (!type) {
     const defaultType = "GOOD";
-    return redirect(
-      `/cryaistal-agent?type=${defaultType}${walletAddress ? `&walletAddress=${walletAddress}` : ""}`,
-    );
+    return (window.location.href = `/cryaistal-agent?type=${defaultType}${walletAddress ? `&walletAddress=${walletAddress}` : ""}`);
   }
 
   const firstAskQuestionPromise = getInitialMessage({
@@ -27,19 +23,12 @@ export default async function Page({ searchParams }: IPageProps) {
   });
 
   return (
-    <Suspense
-      key={walletAddress}
-      fallback={
-        <div className="flex min-h-screen items-center justify-center text-white">
-          Loading...
-        </div>
-      }
-    >
-      <Container
-        type={type as (typeof CHARACTERS)[number]["id"]}
-        walletAddress={walletAddress}
-        firstAskQuestionPromise={firstAskQuestionPromise}
-      />
-    </Suspense>
+    // <Suspense key={walletAddress} fallback={<LoadingStatic />}>
+    <Container
+      type={type as (typeof CHARACTERS)[number]["id"]}
+      walletAddress={walletAddress}
+      firstAskQuestionPromise={firstAskQuestionPromise}
+    />
+    // </Suspense>
   );
 }

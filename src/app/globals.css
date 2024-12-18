@@ -44,11 +44,11 @@ body {
 }
 
 @layer utilities {
-  .first-letter-box::first-letter {
+  /* .first-letter-box::first-letter {
     padding: 0.1em 0.2em;
     margin-right: 0.1em;
     display: inline-block;
     animation: flicker 1.2s ease-in-out infinite;
     @apply bg-primary text-primary-foreground text-4xl;
-  }
+  } */
 }
