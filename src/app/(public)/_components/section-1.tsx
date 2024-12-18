@@ -41,6 +41,7 @@ const partnerItems = [
   "/assets/home/section-3/partner-7.png",
   "/assets/home/section-3/partner-8.png",
   "/assets/home/section-3/partner-9.png",
+  "/assets/home/section-3/partner-10.png",
 ];
 
 interface Section1Props {
