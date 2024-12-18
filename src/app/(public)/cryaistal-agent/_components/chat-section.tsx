@@ -167,7 +167,7 @@ export default function ChatSection({
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     finishRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [walletAddress, messages]);
+  }, [walletAddress]);
 
   return (
     <div className="grid grid-cols-12">
