@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import { useMediaQuery } from "usehooks-ts";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 
 const navItems = [
@@ -50,15 +50,9 @@ interface Section1Props {
 
 export default function Section1({ isLoading, setIsLoading }: Section1Props) {
   const isDesktop = useMediaQuery("(min-width: 769px)");
-  const { scrollY } = useScroll();
 
   const [isSticky, setIsSticky] = useState(false);
 
-  const headerY = useTransform(
-    scrollY,
-    [100, 100],
-    ["0%", isSticky ? "0%" : "-100%"],
-  );
 
   useEffect(() => {
     const handleScroll = () => {
