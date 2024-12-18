@@ -1,4 +1,10 @@
-import Circle from "@/components/circle";
+"use client"
+import dynamic from "next/dynamic";
+
+
+const Circle = dynamic(() => import("@/components/circle"), {
+  ssr: false,
+});
 
 export default function Section2() {
   return (
