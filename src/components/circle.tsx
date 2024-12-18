@@ -12,6 +12,7 @@ export default function Circle() {
               loop
               muted
               className="h-[600px] w-auto"
+              playsInline
             />
           </div>
         </div>
