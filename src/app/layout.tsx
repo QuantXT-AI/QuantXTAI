@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     url: SITE_CONFIG.url,
     images: [
       {
-        url: "/preview.png",
+        url: "/previews.png",
         alt: "Preview",
       },
     ],
