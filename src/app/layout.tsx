@@ -85,16 +85,14 @@ export default function RootLayout({
             "bg-black font-roboto-mono antialiased ",
           )}
         >
-          <SmoothScroll>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="light"
-              disableTransitionOnChange
-            >
-              {children}
-            </ThemeProvider>
-            <Toaster />
-          </SmoothScroll>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+          <Toaster />
         </body>
       </html>
     </>
