@@ -25,10 +25,10 @@ export default function Section6() {
                     alt="roadmap"
                     width={480}
                     height={480}
-                    className="h-[400px] w-auto opacity-30"
+                    className="h-[420px] w-auto opacity-30"
                     priority
                   />
-                  <div className="absolute left-5 top-24 w-[calc(100%-54px)] sm:w-[260px] md:left-12">
+                  <div className="absolute left-5 pr-8 pl-4 top-24 w-[260px] sm:w-[260px] sm:pr-8 sm:pl-4 md:pl-0 md:pr-0 md:left-12">
                     <h4 className="mb-4 text-2xl font-semibold text-[#EBBED6]">
                       Q3 2024
                     </h4>
@@ -66,7 +66,7 @@ export default function Section6() {
                     className="h-[560px] w-auto opacity-30"
                     priority
                   />
-                  <div className="absolute left-5 top-28 w-[calc(100%-54px)] sm:w-[320px] md:left-12">
+                  <div className="absolute left-5 pr-8 pl-4 top-28 w-[280px] sm:w-[280px] sm:pr-8 sm:pl-4 md:pl-0 md:pr-4 md:left-12">
                     <h4 className="mb-4 text-2xl font-semibold text-[#EBBED6]">
                       Q4 2024
                     </h4>
@@ -114,10 +114,10 @@ export default function Section6() {
                     alt="roadmap"
                     width={480}
                     height={480}
-                    className="h-[480px] w-auto opacity-30"
+                    className="h-[520px] w-auto opacity-30"
                     priority
                   />
-                  <div className="absolute left-5 top-28 w-[calc(100%-54px)] sm:w-[300px] md:left-12">
+                  <div className="absolute left-5 pr-8 pl-4 top-28 w-[280] sm:w-[280] sm:pr-8 sm:pl-4 md:pl-0 md:pr-0 md:left-12">
                     <h4 className="mb-4 text-2xl font-semibold text-[#EBBED6]">
                       Q2 2024
                     </h4>
@@ -155,9 +155,9 @@ export default function Section6() {
                     width={480}
                     height={480}
                     priority
-                    className="h-[480px] w-auto opacity-30"
+                    className="h-[530px] w-auto opacity-30"
                   />
-                  <div className="absolute left-5 top-28 w-[calc(100%-54px)] sm:w-[280px] md:left-12">
+                  <div className="absolute left-5 pr-8 pl-4 top-28 w-[280px] sm:w-[280px] sm:pr-8 sm:pl-4 md:pl-0 md:pr-0 md:left-12">
                     <h4 className="mb-4 text-2xl font-semibold text-[#EBBED6]">
                       Q1 2024
                     </h4>
