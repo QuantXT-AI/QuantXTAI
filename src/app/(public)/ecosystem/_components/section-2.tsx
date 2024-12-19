@@ -129,7 +129,7 @@ export default function Section2() {
                     </p>
                   </div>
                   <Link
-                    href="https://docs.cryaistal.ai/nvidia-inception"
+                    href="https://docs.cryaistal.ai/roadmap"
                     target="_blank"
                     className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 hover:animate-shake md:px-8 md:py-4"
                   >
@@ -171,7 +171,7 @@ export default function Section2() {
                     </ul>
                   </p>
                   <Link
-                    href="https://docs.cryaistal.ai/elizas-fusion-ai16z"
+                    href="https://docs.cryaistal.ai/roadmap"
                     target="_blank"
                     className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 hover:animate-shake md:px-8 md:py-4"
                   >
@@ -217,7 +217,7 @@ export default function Section2() {
                     Stay tuned!
                   </p>
                   <Link
-                    href="https://docs.cryaistal.ai/elizas-fusion-ai16z"
+                    href="https://docs.cryaistal.ai/roadmap"
                     target="_blank"
                     className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 hover:animate-shake md:px-8 md:py-4"
                   >
