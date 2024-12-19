@@ -209,7 +209,7 @@ export async function POST(request: Request) {
       ath_price_after_sell_timestamp: athAfterSell.timestamp,
       missed_profit_potential: missedProfitPotential,
       current_ethereum_price_in_usd: refPrice.data.value,
-      checker_link: getCheckerLink(trade.address, walletAddress),
+      checker_link: getCheckerLink(trade.address, walletAddress, determineWalletAddressType(walletAddress)),
       trades: trade.trades,
     };
   }) as FumbleTradeItem[];

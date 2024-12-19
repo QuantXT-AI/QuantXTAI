@@ -199,7 +199,7 @@ export async function POST(request: Request) {
       ath_price_after_sell_in_usd: athAfterSell.price,
       ath_price_after_sell_timestamp: athAfterSell.timestamp,
       current_ethereum_price_in_usd: refPrice.data.value,
-      checker_link: getCheckerLink(trade.address, walletAddress),
+      checker_link: getCheckerLink(trade.address, walletAddress, determineWalletAddressType(walletAddress)),
       trades: trade.trades,
     };
   }) as RektTradeItem[];

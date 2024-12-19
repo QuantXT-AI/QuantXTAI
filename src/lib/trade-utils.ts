@@ -20,8 +20,8 @@ export function isStablecoin(address: string): boolean {
 }
 
 // Helper function to get the checker link
-export function getCheckerLink(address: string, walletAddress: string) {
-  return `https://dexscreener.com/ethereum/${address}?maker=${walletAddress}`;
+export function getCheckerLink(address: string, walletAddress: string, chain: string) {
+  return `https://dexscreener.com/${chain}/${address}?maker=${walletAddress}`;
 }
 
 export const EXCLUDED_TOKENS = [
