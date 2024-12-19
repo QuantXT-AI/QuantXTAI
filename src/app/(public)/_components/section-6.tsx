@@ -117,7 +117,7 @@ export default function Section6() {
                     className="h-[520px] w-auto opacity-30"
                     priority
                   />
-                  <div className="absolute left-5 pr-8 pl-4 top-28 w-[280] sm:w-[280] sm:pr-8 sm:pl-4 md:pl-0 md:pr-0 md:left-12">
+                  <div className="absolute left-5 pr-8 pl-4 top-28 w-[280px] sm:w-[280px] sm:pr-8 sm:pl-4 md:pl-0 md:pr-0 md:left-12">
                     <h4 className="mb-4 text-2xl font-semibold text-[#EBBED6]">
                       Q2 2024
                     </h4>
