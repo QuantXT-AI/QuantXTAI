@@ -166,7 +166,7 @@ export default function Section4() {
                         Through seamless integration with Dexscreener, CryAIstal
                         conducts a deep audit of historical trading activities,
                         offering tailored insights that evaluate user
-                        performance wallets in the blockchain space. wkwkwkwk
+                        performance wallets in the blockchain space.
                       </p>
                     </div>
                   </div>
