@@ -12,6 +12,7 @@ import Aos from "@/components/aos";
 import { Toaster } from "@/components/ui/sonner";
 
 import "./globals.css";
+import SmoothScroll from "@/components/smoothScroll";
 
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
@@ -84,14 +85,16 @@ export default function RootLayout({
             "bg-black font-roboto-mono antialiased ",
           )}
         >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-          <Toaster />
+          <SmoothScroll>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="light"
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>
+            <Toaster />
+          </SmoothScroll>
         </body>
       </html>
     </>
