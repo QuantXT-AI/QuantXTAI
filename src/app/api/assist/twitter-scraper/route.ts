@@ -93,7 +93,7 @@ async function fetchSearchTweets(
 
   try {
     response = await scraper.fetchSearchTweets(
-      sanitizedQuery,
+      `$${sanitizedQuery}`,
       limit,
       SearchMode.Top,
     );
