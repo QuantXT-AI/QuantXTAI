@@ -6,24 +6,20 @@ const items = [
     title: "ABOUT",
     links: [
       {
-        title: "Documentation",
-        href: "/",
+        title: "Foundation",
+        href: "/foundation",
       },
       {
-        title: "Get Token",
-        href: "/",
+        title: "Trading Lab",
+        href: "/trading-lab",
       },
       {
-        title: "Features",
-        href: "/",
+        title: "Ecosystem",
+        href: "/ecosystem",
       },
       {
-        title: "Stacking",
-        href: "/",
-      },
-      {
-        title: "FAQ",
-        href: "/",
+        title: "Partners",
+        href: "/partners",
       },
     ],
   },
@@ -31,24 +27,16 @@ const items = [
     title: "CONNECT",
     links: [
       {
-        title: "About",
-        href: "/",
-      },
-      {
-        title: "Changelog",
-        href: "/",
-      },
-      {
-        title: "Architecture",
-        href: "/",
-      },
-      {
-        title: "Resources",
-        href: "/",
-      },
-      {
         title: "Community",
         href: "/",
+      },
+      {
+        title: "Docs",
+        href: "https://docs.cryaistal.ai/",
+      },
+      {
+        title: "Chatbot",
+        href: "/cryaistal-agent",
       },
     ],
   },
