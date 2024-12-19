@@ -26,11 +26,13 @@ export default function Section4() {
                 >
                   <div className="order-last col-span-12 md:order-first md:col-span-6">
                     <div className="h-auto w-auto overflow-hidden">
-                    <video          muted
-                                                src={`/assets/home/section-4/video-1.${isSafari ? "mov" : "webm"}`}
-
+                      <video
+                        muted
+                        {...(isSafari ? { src: "/assets/home/section-4/video-1.mov" } : { src: "/assets/home/section-4/video-1.webm" })}
                         playsInline
-                        preload="auto"               className="-mb-24 h-[350px] w-auto"  autoPlay loop />
+                        className="-mb-24 h-[350px] w-auto"
+                        autoPlay
+                        loop />
                     </div>
                   </div>
                   <div className="col-span-12 md:col-span-6">
@@ -76,7 +78,6 @@ export default function Section4() {
                         className="-mb-24 ml-8 h-[350px] w-auto"
                         playsInline
                         preload="auto"
-
                       />
                     </div>
                   </div>
@@ -96,7 +97,6 @@ export default function Section4() {
                         className="-mb-24 h-[310px] w-auto"
                         playsInline
                         preload="auto"
-
                       />
                     </div>
                   </div>
@@ -147,6 +147,7 @@ export default function Section4() {
                         playsInline
                         preload="auto"
 
+
                       />
                     </div>
                   </div>
@@ -165,19 +166,21 @@ export default function Section4() {
                         Through seamless integration with Dexscreener, CryAIstal
                         conducts a deep audit of historical trading activities,
                         offering tailored insights that evaluate user
-                        performance wallets in the blockchain space.
+                        performance wallets in the blockchain space. wkwkwkwk
                       </p>
                     </div>
                   </div>
                   <div className="-mt-[52px]">
                     <div className="h-auto w-auto overflow-hidden">
-            
-<video          muted
-                         src={`/assets/home/section-4/video-5.${isSafari ? "mov" : "webm"}`}
+                      <video
+                        muted
                         playsInline
-                        preload="auto"                                     className="-mb-28 h-[350px] w-auto"
-                        autoPlay loop >
-                      </video>
+                        preload="auto"
+                        className="-mb-28 h-[350px] w-auto"
+                        autoPlay
+                        {...(isSafari ? { src: "/assets/home/section-4/video-5.mov" } : { src: "/assets/home/section-4/video-5.webm" })}
+                        loop
+                      />
                     </div>
                   </div>
                 </div>
