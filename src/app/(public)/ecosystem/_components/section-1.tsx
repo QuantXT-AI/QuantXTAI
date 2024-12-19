@@ -71,7 +71,7 @@ export default function Section1() {
               <h2
                 className="text-center text-3xl font-medium leading-[1.2] text-[#F4E0D5]/75 [text-shadow:0px_0px_4px_#F4E0D5] md:text-6xl sm:text-3xl lg:text-7xl"
                 data-aos="fade-up"
-                data-aos-delay="1400"
+                data-aos-delay="1200"
               >
                 ALPHA-GENERATING
                 <br /> INTEGRATION BASE

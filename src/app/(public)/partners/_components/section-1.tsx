@@ -77,14 +77,14 @@ export default function Section1() {
               <h2
                 className="mb-8 text-center text-3xl font-medium leading-[1.2] text-white/75 [text-shadow:0px_0px_4px_#FFFFFF] sm:text-3xl md:text-3xl lg:text-6xl"
                 data-aos="fade-up"
-                data-aos-delay="1400"
+                data-aos-delay="1200"
               >
                 BEST IN CLASS <br />
                 PARTNERSHIPS
               </h2>
             </div>
           </div>
-          <div className="mb-16" data-aos="fade-up" data-aos-delay="1800">
+          <div className="mb-16" data-aos="fade-up" data-aos-delay="1600">
             <div className="mb-8 flex items-center gap-2">
               <p className="text-nowrap text-xl font-normal text-white">
                 INCUBATE BY
@@ -108,7 +108,7 @@ export default function Section1() {
               </div>
             </div>
           </div>
-          <div className="mb-16" data-aos="fade-up" data-aos-delay="400">
+          <div className="mb-16" data-aos="fade-up" data-aos-delay="200">
             <div className="mb-8 flex items-center gap-2">
               <p className="text-nowrap text-xl font-normal text-white">
                 EXCHANGE PARTNERS
@@ -141,7 +141,7 @@ export default function Section1() {
               ))}
             </div>
           </div>
-          <div className="mb-16" data-aos="fade-up" data-aos-delay="800">
+          <div className="mb-16" data-aos="fade-up" data-aos-delay="400">
             <div className="mb-8 flex items-center gap-2">
               <p className="text-nowrap text-xl font-normal text-white">
                 STRATEGIC PARTNERS

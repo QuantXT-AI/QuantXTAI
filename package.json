@@ -21,8 +21,10 @@
     "@radix-ui/react-scroll-area": "^1.2.1",
     "@radix-ui/react-select": "^2.1.2",
     "@radix-ui/react-slot": "^1.1.0",
+    "@solana/web3.js": "^1.95.8",
     "@splinetool/react-spline": "^4.0.0",
     "@splinetool/runtime": "^1.9.48",
+    "@studio-freight/react-lenis": "^0.0.47",
     "@t3-oss/env-nextjs": "^0.11.1",
     "@tailwindcss/typography": "^0.5.15",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
@@ -40,6 +42,7 @@
     "ethers": "^6.13.4",
     "flowise-sdk": "^1.0.9",
     "framer-motion": "^11.15.0",
+    "gsap": "^3.12.5",
     "jotai": "^2.10.3",
     "lucide-react": "^0.460.0",
     "motion": "^11.14.4",
@@ -59,8 +62,7 @@
     "three": "^0.170.0",
     "twitter-api-v2": "^1.18.2",
     "usehooks-ts": "^3.1.0",
-    "zod": "^3.23.8",
-    "@solana/web3.js": "^1.95.8"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

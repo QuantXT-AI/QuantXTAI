@@ -124,7 +124,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                     href="/cryaistal-agent"
                     className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-8 py-4 hover:animate-shake"
                     data-aos="fade-up"
-                    data-aos-delay="1400"
+                    data-aos-delay="1200"
                   >
                     <span className="font-clash-display text-sm font-normal text-white">
                       TRY CRYAISTAL
@@ -183,7 +183,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                           href={item?.href}
                           className="rounded-full border border-white/25 bg-[#46181F]/50 hover:animate-shake"
                           data-aos="fade-up"
-                          data-aos-delay={`${index * 400}`}
+                          data-aos-delay={`${index * 200}`}
                           key={index}
                         >
                           <div className="flex items-center">
@@ -207,12 +207,12 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                   <div id="partners" className="absolute -top-28"></div>
                   <div
                     data-aos="fade-up"
-                    data-aos-delay="400"
+                    data-aos-delay="200"
                     className="mb-8 text-center text-2xl font-normal text-white/50 [text-shadow:0px_0px_4px_#FFFFFF]"
                   >
                     INCEPTION PARTNER OF
                   </div>
-                  <div data-aos="fade-up" data-aos-delay="400">
+                  <div data-aos="fade-up" data-aos-delay="200">
                     <Image
                       src="/assets/home/section-3/partner-main.png"
                       alt="logo"
@@ -248,7 +248,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                 <h2
                   className="absolute bottom-[200px] left-0 right-0 text-center text-5xl font-medium text-white/75 [text-shadow:0px_0px_4px_#FFFFFF]"
                   data-aos="fade-up"
-                  data-aos-delay="400"
+                  data-aos-delay="200"
                 >
                   CRYAISTAL STREAMLINED
                   <br /> PLATFORM CONNECTS USER TO
@@ -286,7 +286,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                 href="/cryaistal-agent"
                 className="flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-8 py-4 hover:animate-shake md:justify-start"
                 data-aos="fade-up"
-                data-aos-delay="1400"
+                data-aos-delay="1200"
               >
                 <span className="font-clash-display text-sm font-normal text-white">
                   TRY CRYAISTAL
@@ -308,12 +308,12 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
             >
               <div
                 data-aos="fade-up"
-                data-aos-delay="400"
+                data-aos-delay="200"
                 className="mb-8 text-center text-2xl font-normal text-white/50 [text-shadow:0px_0px_4px_#FFFFFF]"
               >
                 INCEPTION PARTNER OF
               </div>
-              <div data-aos="zoom-in" data-aos-delay="400">
+              <div data-aos="zoom-in" data-aos-delay="200">
                 <Image
                   src="/assets/home/section-3/partner-main.png"
                   alt="logo"
@@ -347,7 +347,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
             <h2
               className="flex h-screen items-center justify-center px-4 py-10 text-center text-2xl font-medium text-white/75 [text-shadow:0px_0px_4px_#FFFFFF] md:text-4xl"
               data-aos="fade-up"
-              data-aos-delay="400"
+              data-aos-delay="200"
             >
               CRYAISTAL STREAMLINED PLATFORM CONNECTS USER TO THE WHOLE ESSENSE
               THE CRYPTO ECONOMY

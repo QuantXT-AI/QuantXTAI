@@ -17,7 +17,7 @@ export default function Section6() {
               <div
                 className="col-span-12 md:col-span-6"
                 data-aos="fade-right"
-                data-aos-delay="400"
+                data-aos-delay="200"
               >
                 <div className="relative">
                   <Image
@@ -55,7 +55,7 @@ export default function Section6() {
               <div
                 className="col-span-12 md:col-span-6"
                 data-aos="fade-left"
-                data-aos-delay="800"
+                data-aos-delay="400"
               >
                 <div className="relative -mb-24">
                   <Image
@@ -106,7 +106,7 @@ export default function Section6() {
               <div
                 className="col-span-12 md:col-span-6"
                 data-aos="fade-right"
-                data-aos-delay="400"
+                data-aos-delay="200"
               >
                 <div className="relative">
                   <Image
@@ -146,7 +146,7 @@ export default function Section6() {
               <div
                 className="order-first col-span-12 md:order-last md:col-span-6"
                 data-aos="fade-left"
-                data-aos-delay="800"
+                data-aos-delay="400"
               >
                 <div className="relative -mt-16 md:-ml-16">
                   <Image

@@ -44,7 +44,7 @@ export default function Section1() {
               <h2
                 className="mb-4 text-4xl font-medium leading-[1.2] text-white/75 [text-shadow:0px_0px_4px_#FFFFFF] sm:text-4xl md:mb-8 md:text-6xl lg:text-6xl"
                 data-aos="fade-up"
-                data-aos-delay="1400"
+                data-aos-delay="1200"
               >
                 CRYPTO TRADING <br />
                 REVOLUTION, ONE
@@ -54,7 +54,7 @@ export default function Section1() {
               <p
                 className="text-whitse/50 md:text-md max-w-[820px] text-sm font-normal text-white/50 sm:text-sm lg:text-lg"
                 data-aos="fade-up"
-                data-aos-delay="1800"
+                data-aos-delay="1400"
               >
                 The CryAIstal Trading Forge is where innovation meets strategy,
                 crafting cutting-edge AI-driven trading solutions across top blockchain

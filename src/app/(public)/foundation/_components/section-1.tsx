@@ -43,7 +43,7 @@ export default function Section1() {
               <h2
                 className="mb-8 text-4xl font-medium leading-[1.2] text-white/75 [text-shadow:0px_0px_4px_#FFFFFF] sm:text-4xl md:text-6xl lg:text-6xl"
                 data-aos="fade-up"
-                data-aos-delay="1400"
+                data-aos-delay="1200"
               >
                 The Fusion Of AI
                 <br />
@@ -52,7 +52,7 @@ export default function Section1() {
               <p
                 className="text-whitse/50 md:text-md max-w-[820px] text-sm font-normal text-white/50 sm:text-sm lg:text-lg"
                 data-aos="fade-up"
-                data-aos-delay="1400"
+                data-aos-delay="1200"
               >
                 Artificial intelligence has become the next evolutionary step for humanity,
                 reshaping industries and redefining possibilities in just a few short years.
@@ -68,7 +68,7 @@ export default function Section1() {
               <h2
                 className="mt-10 mb-8 text-4xl font-medium leading-[1.2] text-white/75 [text-shadow:0px_0px_4px_#FFFFFF] sm:text-4xl md:text-6xl lg:text-6xl"
                 data-aos="fade-up"
-                data-aos-delay="1400"
+                data-aos-delay="1200"
               >
                 A Unified Platform
                 <br />
@@ -77,7 +77,7 @@ export default function Section1() {
               <p
                 className="text-whitse/50 md:text-md max-w-[820px] text-sm font-normal text-white/50 sm:text-sm lg:text-lg"
                 data-aos="fade-up"
-                data-aos-delay="1400"
+                data-aos-delay="1200"
               >
                 CryAIstal unites cutting-edge tools like predictive analytics,
                 real-time market intelligence, and automated strategies into a single platform.
@@ -88,7 +88,7 @@ export default function Section1() {
               <h2
                 className="mt-10 mb-8 text-4xl font-medium leading-[1.2] text-white/75 [text-shadow:0px_0px_4px_#FFFFFF] sm:text-4xl md:text-6xl lg:text-6xl"
                 data-aos="fade-up"
-                data-aos-delay="1400"
+                data-aos-delay="1200"
               >
                 Democratizing Trading
                 <br />
@@ -97,7 +97,7 @@ export default function Section1() {
               <p
                 className="text-whitse/50 md:text-md max-w-[820px] text-sm font-normal text-white/50 sm:text-sm lg:text-lg"
                 data-aos="fade-up"
-                data-aos-delay="1400"
+                data-aos-delay="1200"
               >
                 With over 51 million active crypto traders worldwide,
                 CryAIstal is more than a platformit’s a movement. By providing tools

@@ -4,17 +4,11 @@
 
 
 * {
-  @apply transition-all;
-
+  transition: none;
   /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;
 }
-  /* * {
-    scrollbar-width: auto;
-    scroll-behavior: smooth;
-    scrollbar-color: #a1a1aa #ffffff;
-  } */
 
 *::-webkit-scrollbar {
   display: none;
@@ -22,10 +16,6 @@
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 html,
@@ -41,14 +31,4 @@ body {
   50% {
     opacity: 0.3;
   }
-}
-
-@layer utilities {
-  /* .first-letter-box::first-letter {
-    padding: 0.1em 0.2em;
-    margin-right: 0.1em;
-    display: inline-block;
-    animation: flicker 1.2s ease-in-out infinite;
-    @apply bg-primary text-primary-foreground text-4xl;
-  } */
 }
