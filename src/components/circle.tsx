@@ -23,7 +23,7 @@ export default function Circle() {
             <h2
               className="px-4 text-center font-bold text-2xl text-white/75 leading-[1.2] [text-shadow:0px_0px_8px_#6D4C5B] md:text-4xl"
               data-aos="fade-up"
-              data-aos-delay="400"
+              data-aos-delay="200"
             >
               DEMOCRITIZING TRADING, FOR
               <br /> OVER 51,000,000 ACTIVE

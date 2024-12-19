@@ -6,7 +6,7 @@ export default function Section5() {
       <div className="container mx-auto w-full max-w-6xl px-4 py-16">
         <div className="flex h-full w-full grid-cols-12 flex-col gap-8 sm:grid md:gap-4">
           <div className="order-last col-span-12 md:order-first md:col-span-6">
-            <div className="md:px-12" data-aos="fade-up" data-aos-delay="800">
+            <div className="md:px-12" data-aos="fade-up" data-aos-delay="400">
               <video
                 src={`/assets/home/section-5/video.${isSafari ? "mov" : "webm"}`}
                 autoPlay
@@ -14,14 +14,14 @@ export default function Section5() {
                 muted
                 className="h-full w-[260px] sm:w-auto"
                 playsInline
-                        preload="auto"               
+                preload="auto"
 
               />
             </div>
           </div>
           <div className="col-span-12 md:col-span-6">
             <div className="flex h-full items-center justify-center">
-              <div data-aos="fade-right" data-aos-delay="400">
+              <div data-aos="fade-right" data-aos-delay="200">
                 <h2 className="mb-4 text-start text-4xl font-medium leading-[1.2] text-[#EFCEE3] [text-shadow:0px_0px_4px_#FFFFFF] md:text-6xl">
                   TOKENOMICS
                 </h2>
