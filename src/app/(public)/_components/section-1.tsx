@@ -80,6 +80,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                   muted
                   className="-mt-8 h-auto w-full object-cover object-bottom opacity-50"
                   playsInline
+                  preload="auto"
                 />
               </div>
               <div>
@@ -90,6 +91,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                   muted
                   className="-mt-8 h-auto w-full object-cover object-bottom opacity-50"
                   playsInline
+                  preload="auto"
                 />
               </div>
               <div>
@@ -100,6 +102,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                   muted
                   className="-mt-8 h-auto w-full object-cover object-bottom opacity-25"
                   playsInline
+                  preload="auto"
                 />
               </div>
             </div>
@@ -265,6 +268,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
             muted
             className="absolute h-[100vh] w-full bg-no-repeat object-cover opacity-50"
             playsInline
+            preload="auto"
           />
           <div className="relative">
             <div className="px-4">
