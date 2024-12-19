@@ -4,8 +4,7 @@
 
 
 * {
-  @apply transition-all;
-
+  transition: none;
   /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;

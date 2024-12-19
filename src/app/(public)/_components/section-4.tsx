@@ -52,7 +52,7 @@ export default function Section4() {
                 <div
                   className="grid grid-cols-12 rounded-lg border border-white/25 bg-white/5 hover:bg-[url('/assets/components/overlay/overlay-landing.png')] hover:bg-cover"
                   data-aos="fade-right"
-                  data-aos-delay="800"
+                  data-aos-delay="400"
                 >
                   <div className="col-span-12 md:col-span-8">
                     <div className="px-8 py-4">
@@ -121,7 +121,7 @@ export default function Section4() {
                 <div
                   className="grid rounded-lg border border-white/25 bg-white/5 hover:bg-[url('/assets/components/overlay/overlay-landing.png')] hover:bg-cover"
                   data-aos="fade-left"
-                  data-aos-delay="800"
+                  data-aos-delay="400"
                 >
                   <div className="mb-4">
                     <div className="px-8 py-4">
