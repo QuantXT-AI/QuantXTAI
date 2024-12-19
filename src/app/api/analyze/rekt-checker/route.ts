@@ -59,11 +59,12 @@ export async function POST(request: Request) {
   });
 
   const parsedTrades = getParsedTrades(trades.data.items);
-
+  
   let enhancedTrades = getEnhancedTrades(parsedTrades);
 
   enhancedTrades = enhancedTrades
     .filter((trade) => !isExcludedToken(trade.symbol))
+    .filter((trade) => trade.remaining_token_amount === 0)
     .sort((a, b) => a.total_pnl_in_usd - b.total_pnl_in_usd);
 
   enhancedTrades = enhancedTrades.slice(0, 5); // 5 Past trades
@@ -183,6 +184,7 @@ export async function POST(request: Request) {
       ohlcvData,
       (item) => item.unixTime > (trade.exit_time ?? 0),
     );
+
 
     return {
       ...Object.fromEntries(
