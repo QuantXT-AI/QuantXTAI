@@ -12,6 +12,7 @@ import Aos from "@/components/aos";
 import { Toaster } from "@/components/ui/sonner";
 
 import "./globals.css";
+import SmoothScroll from "@/components/smoothScroll";
 
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
