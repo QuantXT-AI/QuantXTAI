@@ -21,7 +21,6 @@ export default function Section1() {
   return (
     <section className="relative w-full">
       {isDesktop ? (
-        <div className="bg-[url('/assets/about-1/section-1/bg.png')] bg-[length:100%_auto] bg-bottom bg-no-repeat">
           <div className="bg-[url('/assets/about-1/section-1/robot-1.png')] bg-[length:250px_auto] bg-left-bottom bg-no-repeat">
             <div className="bg-[url('/assets/about-1/section-1/robot-2.png')] bg-[length:250px_auto] bg-right-bottom bg-no-repeat">
               {overlayRobot(
@@ -38,7 +37,6 @@ export default function Section1() {
               )}
             </div>
           </div>
-        </div>
       ) : (
         <video
           src={`/assets/about-1/section-1/bg-video.${isSafari ? "mov" : "webm"}`}

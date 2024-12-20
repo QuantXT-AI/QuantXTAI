@@ -147,7 +147,7 @@ export default function Section2() {
                 data-aos="fade-up"
                 data-aos-delay="1200"
               >
-                <div className="flex flex-col items-start">
+                <div className="flex flex-col items-start h-full justify-between">
                   <h4 className="mb-2 font-epilogue text-xl font-medium text-white md:text-2xl">
                     04
                   </h4>
@@ -190,7 +190,7 @@ export default function Section2() {
                 data-aos="fade-up"
                 data-aos-delay="1200"
               >
-                <div className="flex flex-col items-start">
+                <div className="flex flex-col items-start h-full justify-between">
                   <h4 className="mb-2 font-epilogue text-xl font-medium text-white md:text-2xl">
                     05
                   </h4>

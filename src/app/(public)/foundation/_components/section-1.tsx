@@ -1,5 +1,3 @@
-"use client";
-
 import Header from "@/components/header";
 import Image from "next/image";
 import Section2 from "./section-2";

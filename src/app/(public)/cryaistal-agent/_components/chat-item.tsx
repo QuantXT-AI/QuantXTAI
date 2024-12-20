@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-"use client";
-
 import type { ChatMessage as ChatMessageType } from "@/dto";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
