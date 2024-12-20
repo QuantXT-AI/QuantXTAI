@@ -40,8 +40,7 @@ const secondItems = [
 
 export default function Section1() {
   return (
-    <section className="relative w-full bg-gradient-to-b from-[#1F0B01] to-[#2E0D19]">
-      <div className="bg-[url('/assets/about-4/section-1/bg.png')] bg-cover bg-bottom bg-no-repeat">
+    <section className="relative w-full">
         <div className="h-[1400px] w-full overflow-hidden">
           <div>
             <video
@@ -53,7 +52,6 @@ export default function Section1() {
               playsInline
             />
           </div>
-        </div>
       </div>
       <div className="absolute left-0 top-0 h-full w-full">
         <div className="container relative mx-auto max-w-6xl px-4">

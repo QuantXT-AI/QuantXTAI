@@ -1,10 +1,5 @@
-"use client"
 import Loading from "@/components/loading";
-import dynamic from "next/dynamic";
-
-const Section1 = dynamic(() => import("./section-1"), {
-  ssr: false,
-})
+import Section1 from "./section-1";
 
 export default function Container() {
   return (

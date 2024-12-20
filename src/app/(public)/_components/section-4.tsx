@@ -1,4 +1,3 @@
-"use client"
 import { isSafari } from "@/utils/boolean";
 
 export default function Section4() {
