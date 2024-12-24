@@ -42,6 +42,9 @@ export interface FumbleTradeItem extends EnhancedTradeItem {
   missed_profit_potential: number;
 }
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export async function POST(request: Request) {
   const body = await request.json();
 
