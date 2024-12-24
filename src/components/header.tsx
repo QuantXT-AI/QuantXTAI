@@ -46,7 +46,7 @@ const navItems = [
   },
   {
     title: "DOCS",
-    href: "https://docs.cryaistal.ai",
+    href: process.env.NEXT_PUBLIC_DOCS_URL ?? '',
   },
 ];
 
@@ -231,7 +231,7 @@ export default function Header({ isAbsolute }: { isAbsolute?: boolean }) {
       </div>
       <div className="hidden items-center gap-4 pl-16 md:flex">
         <Link
-          href="/"
+          href={process.env.NEXT_PUBLIC_BUY_URL ?? ''}
           className="rounded-full border border-white/25 bg-white/10 px-8 py-4 font-clash-display text-sm font-normal tracking-widest text-white hover:animate-shake"
         >
           BUY $CRYAISTAL

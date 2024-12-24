@@ -28,11 +28,11 @@ const items = [
     links: [
       {
         title: "Community",
-        href: "/",
+        href: process.env.NEXT_PUBLIC_COMMUNITY_URL ?? '',
       },
       {
         title: "Docs",
-        href: "https://docs.cryaistal.ai/",
+        href: process.env.NEXT_PUBLIC_DOCS_URL ?? '',
       },
       {
         title: "Chatbot",
@@ -45,19 +45,19 @@ const items = [
     links: [
       {
         title: "Twitter",
-        href: "/",
+        href: process.env.NEXT_PUBLIC_X_URL ?? '',
       },
       {
         title: "Instagram",
-        href: "/",
+        href: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? '',
       },
       {
         title: "Discord",
-        href: "/",
+        href: process.env.NEXT_PUBLIC_DISCORD_URL ?? '',
       },
       {
         title: "Telegram",
-        href: "/",
+        href: process.env.NEXT_PUBLIC_TELEGRAM_URL ?? '',
       },
     ],
   },
