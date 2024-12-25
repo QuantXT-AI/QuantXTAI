@@ -42,7 +42,7 @@ export default function ChatItem({ item, isPending, chatbotType }: IProps) {
                 item?.error && "text-red-500",
               )}
               components={{
-                a: ({ node, ...props }) => (
+                a: ({ ...props }) => (
                   <a target="_blank" rel="noopener noreferrer" {...props} />
                 ),
               }}
@@ -96,7 +96,7 @@ export default function ChatItem({ item, isPending, chatbotType }: IProps) {
                 item?.error && "text-red-500",
               )}
               components={{
-                a: ({ node, ...props }) => (
+                a: ({ ...props }) => (
                   <a target="_blank" rel="noopener noreferrer" {...props} />
                 ),
               }}

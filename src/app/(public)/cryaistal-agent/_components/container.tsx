@@ -21,7 +21,6 @@ import {
 } from "lucide-react";
 import Form from "next/form";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import ChatSection from "./chat-section";
 
 const chatbotTypeItems = CHARACTERS.map((character) => character.id);
@@ -50,51 +49,47 @@ export default function Container({
   wallet,
   firstAskQuestionPromise,
 }: ContainerProps) {
-  const router = useRouter();
 
   const [inputWalletAddress, setInputWalletAddress] = useState<string>(
     walletAddress ?? "",
   );
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [chatbotType, setchatbotType] = useState<string>(type);
-  const [isResolvingENS, setIsResolvingENS] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleValidateWalletAddress = useCallback(async () => {
-    setIsLoading(true);
-    const addressType = determineWalletAddressType(inputWalletAddress);
+    try {
+      setIsLoading(true);
 
-    if (addressType === WalletAddressType.SOL) {
-      const validate = WalletAddressRequestSchema.safeParse({
-        walletAddress: inputWalletAddress,
-      })
+      const addressType = determineWalletAddressType(inputWalletAddress);
 
-      if (!validate?.success) {
-        setErrorMessage(formatZodError(validate?.error).details?.[0].message);
+      if (addressType === WalletAddressType.SOL) {
+        const validate = WalletAddressRequestSchema.safeParse({
+          walletAddress: inputWalletAddress,
+        })
+
+        if (!validate?.success) {
+          setErrorMessage(formatZodError(validate?.error).details?.[0].message);
+          setIsLoading(false);
+          return;
+        }
+
+        setErrorMessage(null);
         setIsLoading(false);
+        window.location.href = `/cryaistal-agent?type=${chatbotType}&walletAddress=${validate.data.walletAddress}&wallet=${addressType}`
         return;
       }
 
-      setErrorMessage(null);
-      setIsLoading(false);
-      window.location.href = `/cryaistal-agent?type=${chatbotType}&walletAddress=${validate.data.walletAddress}&wallet=${addressType}`
-      return;
-    }
+      const validate = WalletAddressOrENSRequestSchema.safeParse({
+        walletAddressOrENS: inputWalletAddress,
+      });
 
-    const validate = WalletAddressOrENSRequestSchema.safeParse({
-      walletAddressOrENS: inputWalletAddress,
-    });
+      if (!validate?.success) {
+        setErrorMessage(formatZodError(validate?.error).details?.[0].message);
+        setIsLoading(false)
+        return;
+      }
 
-    if (!validate?.success) {
-      setErrorMessage(formatZodError(validate?.error).details?.[0].message);
-      setIsLoading(false)
-      return;
-    }
-
-    setIsResolvingENS(true);
-    setErrorMessage(null);
-
-    try {
       const resolvedAddress = await resolveENS(inputWalletAddress);
 
       if (!resolvedAddress) {
@@ -108,10 +103,8 @@ export default function Container({
       console.error("Error resolving ENS:", error);
       setErrorMessage("Failed to resolve ENS name");
       setIsLoading(false)
-    } finally {
-      setIsResolvingENS(false);
     }
-  }, [inputWalletAddress, chatbotType, router]);
+  }, [inputWalletAddress, chatbotType]);
 
   const handleClearWalletAddress = () => {
     setIsLoading(true);
@@ -218,7 +211,7 @@ export default function Container({
                       ? "cursor-not-allowed opacity-50"
                       : "bg-white/10"
                       }`}
-                    disabled={!!walletAddress || isResolvingENS}
+                    disabled={!!walletAddress || isLoading}
                     value={wallet ? `You have Entered ${formatType(wallet)} Wallet` : inputWalletAddress}
                     onChange={(e) => setInputWalletAddress(e.target.value)}
                   />
@@ -229,10 +222,10 @@ export default function Container({
                     <button
                       type="submit"
                       className="-translate-y-1/2 absolute top-1/2 right-0 md:right-2"
-                      disabled={isResolvingENS || isLoading}
+                      disabled={isLoading}
                     >
                       <div className="rounded-full bg-white/10 p-2">
-                        {isResolvingENS || isLoading ? (
+                        {isLoading ? (
                           <Loader2Icon className="h-4 w-4 animate-spin text-white md:h-5 md:w-5" />
                         ) : (
                           <ArrowRightIcon className="h-4 w-4 text-white md:h-5 md:w-5" />
