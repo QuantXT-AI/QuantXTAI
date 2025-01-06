@@ -122,6 +122,11 @@ export default function Section6() {
                     <ul className="list-disc pl-4 text-xs font-normal text-white/50">
                       <li>
                         <p className="mb-2 text-sm md:text-base">
+                          Chart technical analysis
+                        </p>
+                      </li>
+                      <li>
+                        <p className="mb-2 text-sm md:text-base">
                           Offline events for brand recognition
                         </p>
                       </li>
