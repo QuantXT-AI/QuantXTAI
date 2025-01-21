@@ -4,7 +4,7 @@ import Section2 from "./section-2";
 
 export default function Section1() {
   return (
-    <section className="relative w-full bg-cryaistal bg-[length:120%_300%] bg-top">
+    <section className="relative w-full bg-quantxt bg-[length:120%_300%] bg-top">
       <div className="">
         <div className="absolute bottom-0 top-0 w-full overflow-hidden">
           <div className="-mr-[600px] -mt-[200px]">
@@ -58,8 +58,8 @@ export default function Section1() {
                 and efficiency that were once unimaginable.
                 <br />
                 <br />
-                CryAIstal sits at the intersection of this transformation, pioneering the integration of AI with blockchain technology.
-                As blockchain adoption continues to grow, CryAIstal leverages the strengths of industry-leading networks
+                QuantXT sits at the intersection of this transformation, pioneering the integration of AI with blockchain technology.
+                As blockchain adoption continues to grow, QuantXT leverages the strengths of industry-leading networks
                 such as Solana and Ethereum, offering traders unmatched scalability, cross-chain compatibility, and
                 sophisticated trading solutions.
               </p>
@@ -77,7 +77,7 @@ export default function Section1() {
                 data-aos="fade-up"
                 data-aos-delay="1200"
               >
-                CryAIstal unites cutting-edge tools like predictive analytics,
+                QuantXT unites cutting-edge tools like predictive analytics,
                 real-time market intelligence, and automated strategies into a single platform.
                 By doing so, it empowers individual traders and institutions alike to navigate the
                 complexities of the crypto market with ease, optimizing performance across diverse
@@ -98,12 +98,12 @@ export default function Section1() {
                 data-aos-delay="1200"
               >
                 With over 51 million active crypto traders worldwide,
-                CryAIstal is more than a platformit’s a movement. By providing tools
-                that were once reserved for elite institutions, CryAIstal opens the door
+                QuantXT is more than a platformit’s a movement. By providing tools
+                that were once reserved for elite institutions, QuantXT opens the door
                 for anyone to participate in the ever-evolving world of cryptocurrency trading.
                 <br />
                 <br />
-                CryAIstal isn’t just keeping pace with the future of cryptoit’s shaping it
+                QuantXT isn’t just keeping pace with the future of cryptoit’s shaping it
               </p>
             </div>
           </div>

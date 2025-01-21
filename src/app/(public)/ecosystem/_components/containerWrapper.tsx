@@ -11,7 +11,7 @@ interface IContainerWrapper {
 const ContainerWrapper = ({ children, isLoaded }: IContainerWrapper) => {
     return (
         <Loading isLoaded={true}>
-            <div className="bg-cryaistal bg-[length:120%_300%] bg-top">
+            <div className="bg-quantxt bg-[length:120%_300%] bg-top">
                 {children}
             </div>
         </Loading>

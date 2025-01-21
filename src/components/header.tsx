@@ -16,7 +16,7 @@ const navItems = [
   },
   {
     title: "CHATBOT",
-    href: "/cryaistal-agent",
+    href: "/quantxt-agent",
   },
   {
     title: "ABOUT",
@@ -234,7 +234,7 @@ export default function Header({ isAbsolute }: { isAbsolute?: boolean }) {
           href={process.env.NEXT_PUBLIC_BUY_URL ?? ''}
           className="rounded-full border border-white/25 bg-white/10 px-8 py-4 font-clash-display text-sm font-normal tracking-widest text-white hover:animate-shake"
         >
-          BUY $CRYAISTAL
+          BUY $QUANTXT
         </Link>
       </div>
     </div>

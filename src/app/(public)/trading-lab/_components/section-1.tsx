@@ -5,7 +5,7 @@ import { isSafari } from "@/utils/boolean";
 
 export default function Section1() {
   return (
-    <section className="relative w-full bg-cryaistal bg-[length:120%_300%] bg-top">
+    <section className="relative w-full bg-quantxt bg-[length:120%_300%] bg-top">
       <div className="">
         <div className="absolute bottom-0 top-0 w-full overflow-hidden">
           <div className="-mr-[800px] -mt-[480px]">
@@ -75,7 +75,7 @@ export default function Section1() {
                 ensuring they stand out in a dynamic crypto landscape.
                 <br />
                 <br />
-                CryAIstal’s Trading Forge isn’t just a platform, it’s the future of AI-powered crypto trading.
+                Quantxt Trading Forge isn’t just a platform, it’s the future of AI-powered crypto trading.
               </p>
             </div>
           </div>

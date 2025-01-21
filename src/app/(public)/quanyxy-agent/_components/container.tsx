@@ -76,7 +76,7 @@ export default function Container({
 
         setErrorMessage(null);
         setIsLoading(false);
-        window.location.href = `/cryaistal-agent?type=${chatbotType}&walletAddress=${validate.data.walletAddress}&wallet=${addressType}`
+        window.location.href = `/quantxt?type=${chatbotType}&walletAddress=${validate.data.walletAddress}&wallet=${addressType}`
         return;
       }
 
@@ -98,7 +98,7 @@ export default function Container({
         return;
       }
 
-      window.location.href = `/cryaistal-agent?type=${chatbotType}&walletAddress=${resolvedAddress}&wallet=${addressType}`
+      window.location.href = `/quantxt?type=${chatbotType}&walletAddress=${resolvedAddress}&wallet=${addressType}`
     } catch (error) {
       console.error("Error resolving ENS:", error);
       setErrorMessage("Failed to resolve ENS name");
@@ -110,7 +110,7 @@ export default function Container({
     setIsLoading(true);
     setInputWalletAddress("");
     setErrorMessage(null);
-    window.location.href = `/cryaistal-agent?type=${chatbotType}`
+    window.location.href = `/quantxt?type=${chatbotType}`
   };
 
   useEffect(() => {
@@ -123,7 +123,7 @@ export default function Container({
 
   if (!type) {
     const defaultType = "GOOD";
-    window.location.href = `/cryaistal-agent?type=${defaultType}${walletAddress ? `&walletAddress=${walletAddress}` : ""}${wallet ? `&wallet=${wallet}` : ""}`
+    window.location.href = `/quantxt?type=${defaultType}${walletAddress ? `&walletAddress=${walletAddress}` : ""}${wallet ? `&wallet=${wallet}` : ""}`
 
     return
   }
@@ -152,7 +152,7 @@ export default function Container({
 
                     return (
                       <a
-                        href={`/cryaistal-agent?type=${type}${walletAddress ? `&walletAddress=${walletAddress}` : ""}${wallet ? `&wallet=${wallet}` : ""}`}
+                        href={`/quantxt?type=${type}${walletAddress ? `&walletAddress=${walletAddress}` : ""}${wallet ? `&wallet=${wallet}` : ""}`}
                         className={cn(
                           "flex w-24 items-center justify-center rounded-md px-4 py-2 font-medium text-sm text-white",
                           isActive

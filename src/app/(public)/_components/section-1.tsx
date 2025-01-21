@@ -121,13 +121,13 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                     <br /> REDEFINED BY AI
                   </h2>
                   <Link
-                    href="/cryaistal-agent"
+                    href="/quantxt-agent"
                     className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-8 py-4 hover:animate-shake"
                     data-aos="fade-up"
                     data-aos-delay="1200"
                   >
                     <span className="font-clash-display text-sm font-normal text-white">
-                      TRY CRYAISTAL
+                      TRY QUANTXT
                     </span>
                     <ArrowUpRightIcon className="h-4 w-4 text-white" />
                   </Link>
@@ -250,7 +250,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
                   data-aos="fade-up"
                   data-aos-delay="200"
                 >
-                  CRYAISTAL STREAMLINED
+                  QUANTXT STREAMLINED
                   <br /> PLATFORM CONNECTS USER TO
                   <br /> THE WHOLE ESSENSE THE
                   <br /> CRYPTO ECONOMY
@@ -283,13 +283,13 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
               </h2>
 
               <Link
-                href="/cryaistal-agent"
+                href="/quantxt-agent"
                 className="flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-8 py-4 hover:animate-shake md:justify-start"
                 data-aos="fade-up"
                 data-aos-delay="1200"
               >
                 <span className="font-clash-display text-sm font-normal text-white">
-                  TRY CRYAISTAL
+                  TRY QUANTXT
                 </span>
                 <ArrowUpRightIcon className="h-4 w-4 text-white" />
               </Link>
@@ -349,7 +349,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              CRYAISTAL STREAMLINED PLATFORM CONNECTS USER TO THE WHOLE ESSENSE
+              QUANTXT STREAMLINED PLATFORM CONNECTS USER TO THE WHOLE ESSENSE
               THE CRYPTO ECONOMY
             </h2>
           </div>

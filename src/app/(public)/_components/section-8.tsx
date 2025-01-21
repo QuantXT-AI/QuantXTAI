@@ -36,7 +36,7 @@ const items = [
       },
       {
         title: "Chatbot",
-        href: "/cryaistal-agent",
+        href: "/quantxt-agent",
       },
     ],
   },

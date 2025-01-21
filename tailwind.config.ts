@@ -92,7 +92,7 @@ export default {
         },
       }),
       backgroundImage: {
-        "cryaistal": "url('/assets/components/overlay/overlay-landing.png')"
+        "quanxt": "url('/assets/components/overlay/overlay-landing.png')"
       }
     },
   },

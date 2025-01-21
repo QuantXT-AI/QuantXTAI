@@ -37,12 +37,12 @@ export default function () {
     accept: "*/*",
     "content-type": "application/json",
     cookie: "characterId=good",
-    origin: "https://cryaistal.ai",
-    referer: `https://cryaistal.ai/cryaistal-agent?type=EVIL&walletAddress=${payload.walletAddress}`,
+    origin: "https://quantxt.ai",
+    referer: `https://quantxt.ai/quantxt-agent?type=EVIL&walletAddress=${payload.walletAddress}`,
   };
 
   const response = http.post(
-    "https://cryaistal.ai/ask-question",
+    "https://quantxt.ai/ask-question",
     JSON.stringify(payload),
     { headers: headers },
   );

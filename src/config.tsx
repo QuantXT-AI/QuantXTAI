@@ -1,14 +1,14 @@
 import { XIcon } from "@/components/icons";
 
 export const SITE_CONFIG = {
-  url: "https://cryaistal.ai",
-  title: "CryAIstal AI Trading Agent",
+  url: "https://quantxt.ai",
+  title: "QuantXT AI Trading Agent",
   description: "Precision Crypto Trading, Redefined by AI",
-  twitterHandle: "cryaistal",
+  twitterHandle: "quantxt",
   whitepaperUrl: "https://google.com",
   caUrl: "https://pump.fun/xxxx",
   socialLinks: {
-    aiX: "https://x.com/cryaistal",
+    aiX: "https://x.com/quantxt",
     devX: "https://x.com",
   },
 } as const;

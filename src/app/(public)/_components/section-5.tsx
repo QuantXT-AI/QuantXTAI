@@ -26,8 +26,8 @@ export default function Section5() {
                   TOKENOMICS
                 </h2>
                 <p className="text-xs font-normal text-[#EFCEE3] md:text-base">
-                  CryAIstal&apos;s tokenomics promote growth <br /> and
-                  long-term $CSTAL holding with
+                  QuantXT&apos;s tokenomics promote growth <br /> and
+                  long-term $QUANTXT holding with
                   <br /> ERC-20 and $ETH for liquidity
                 </p>
               </div>

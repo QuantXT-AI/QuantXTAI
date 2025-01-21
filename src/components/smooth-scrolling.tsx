@@ -8,9 +8,9 @@ interface SmoothScrollingProps {
 
 function SmoothScrolling({ children }: SmoothScrollingProps) {
     const pathname = usePathname();
-    const isCryaistalAgent = pathname.includes("/cryaistal-agent");
+    const isQuanXT = pathname.includes("/quantxt-agent");
 
-    if (isCryaistalAgent) {
+    if (isQuanXT) {
         return children;
     }
 

@@ -40,7 +40,7 @@ export default function Section4() {
                         ADVANCED MARKET INTELLIGENCE CURATED BY ELITE TRADERS
                       </h4>
                       <p className="text-xs font-normal text-white/50">
-                        CryAIstal leverages insights and datasets derived from
+                        QuantXT leverages insights and datasets derived from
                         the top 100 most consistently high-performing traders in
                         the crypto ecosystem, synthesizing their strategiies
                         into actionable intelligence
@@ -60,7 +60,7 @@ export default function Section4() {
                       </h4>
                       <p className="text-xs font-normal text-white/50">
                         By interfacing with the expansive blockchain and smart
-                        contract ecosystems, CryAIstal employs advanced on chain
+                        contract ecosystems, QuantXT employs advanced on chain
                         analytics to quantify the extent of trading missteps,
                         providing a granular evaluation of user performance
                         across market cycles.
@@ -105,7 +105,7 @@ export default function Section4() {
                         DYNAMIC TICKER DATA AGGREGATION
                       </h4>
                       <p className="text-xs font-normal text-white/50">
-                        CryAIstal&apos;s advanced partnerships with X (via
+                        QuantXT&apos;s advanced partnerships with X (via
                         a16z), leading Discord Aloha communities, and the top 10
                         most-utiized Telegram trading bots enable robus data
                         convergence.
@@ -128,7 +128,7 @@ export default function Section4() {
                         ADAPTIVE NEURAL PERSONALITY (ANP)
                       </h4>
                       <p className="text-xs font-normal text-white/50">
-                        CryAistal&apos;s adaptive framework adjusts its tone and
+                        QuantXT&apos;s adaptive framework adjusts its tone and
                         context based on user bahvior, shifting fluidly between
                         incisive analysis, thought-provoking challenges, and
                         playful antagonism.
@@ -162,7 +162,7 @@ export default function Section4() {
                         COMPREHENSIVE RETROSPECTIVE TRADE ANALYSIS
                       </h4>
                       <p className="text-xs font-normal text-white/50">
-                        Through seamless integration with Dexscreener, CryAIstal
+                        Through seamless integration with Dexscreener, QuantXT
                         conducts a deep audit of historical trading activities,
                         offering tailored insights that evaluate user
                         performance wallets in the blockchain space.

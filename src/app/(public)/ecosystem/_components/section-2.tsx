@@ -48,7 +48,7 @@ export default function Section2() {
                     we refine AI integration and ecosystem optimization.
                   </p>
                   <Link
-                    href="https://docs.cryaistal.ai/nvidia-inception"
+                    href="https://docs.quantxt.ai/nvidia-inception"
                     target="_blank"
                     className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 hover:animate-shake md:px-8 md:py-4"
                   >
@@ -78,7 +78,7 @@ export default function Section2() {
                     automatically curate discord alpha group informations.
                   </p>
                   <Link
-                    href="https://docs.cryaistal.ai/elizas-fusion-ai16z"
+                    href="https://docs.quantxt.ai/elizas-fusion-ai16z"
                     target="_blank"
                     className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 hover:animate-shake md:px-8 md:py-4"
                   >
@@ -116,7 +116,7 @@ export default function Section2() {
                       TRADINGVIEW INTEGRATION
                     </h2>
                     <p className="text-md mb-8 font-epilogue text-white/75 md:mb-16 md:text-lg">
-                      CryAIstal will integrate TradingView&apos;s advanced charting tools,
+                      QuantXT will integrate TradingView&apos;s advanced charting tools,
                       offering intuitive visuals and rich data to traders.
                       <br />
                       <br />
@@ -129,7 +129,7 @@ export default function Section2() {
                     </p>
                   </div>
                   <Link
-                    href="https://docs.cryaistal.ai/roadmap"
+                    href="https://docs.quantxt.ai/roadmap"
                     target="_blank"
                     className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 hover:animate-shake md:px-8 md:py-4"
                   >
@@ -156,7 +156,7 @@ export default function Section2() {
                     DATA AGGREGATION
                   </h2>
                   <p className="text-md mb-8 font-epilogue text-white/75 md:mb-16 md:text-lg">
-                    CryAIstal will integrate with top centralized and decentralized exchanges
+                    QuantXT will integrate with top centralized and decentralized exchanges
                     to aggregate data, delivering a complete market overview without execution.
                     <br />
                     <br />
@@ -171,7 +171,7 @@ export default function Section2() {
                     </ul>
                   </p>
                   <Link
-                    href="https://docs.cryaistal.ai/roadmap"
+                    href="https://docs.quantxt.ai/roadmap"
                     target="_blank"
                     className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 hover:animate-shake md:px-8 md:py-4"
                   >
@@ -212,12 +212,12 @@ export default function Section2() {
                       </li>
                     </ul>
                     <br />
-                    CryAIstal continues to evolve, delivering cutting-edge tools for
+                    QuantXT continues to evolve, delivering cutting-edge tools for
                     navigating the crypto market and redefining AI-driven trading intelligence.
                     Stay tuned!
                   </p>
                   <Link
-                    href="https://docs.cryaistal.ai/roadmap"
+                    href="https://docs.quantxt.ai/roadmap"
                     target="_blank"
                     className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 hover:animate-shake md:px-8 md:py-4"
                   >

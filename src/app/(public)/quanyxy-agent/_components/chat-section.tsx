@@ -9,13 +9,13 @@ import {
   useTransition,
 } from "react";
 
-import { QuickChatOptions } from "@/app/(public)/cryaistal-agent/_components/quick-chat-options";
 import type { InitiatePredictionResponse } from "@/app/types";
 import { cn } from "@/lib/utils";
 import Form from "next/form";
 import Image from "next/image";
 import ChatItem, { type IMessage } from "./chat-item";
 import { FAQComponent } from "./faq-component";
+import { QuickChatOptions } from "./quick-chat-options";
 
 interface ChatSectionProps {
   chatbotType: string;
@@ -133,7 +133,7 @@ export default function ChatSection({
           ...prev.slice(0, -1),
           {
             role: "apiMessage",
-            content: "Sorry, CryAIstal is busy. Please try again.",
+            content: "Sorry, QuantXT is busy. Please try again.",
             error: true,
             timestamp: new Date(),
           },

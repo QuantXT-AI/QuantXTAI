@@ -8,10 +8,10 @@ interface IContainerWrapper {
 /**
  * For Preventing ClientSideRender
  */
-const ContainerWrapper = ({ children, isLoading } : IContainerWrapper) => {
+const ContainerWrapper = ({ children, isLoading }: IContainerWrapper) => {
     return (
         <Loading isLoaded={!isLoading}>
-            <div className="relative min-h-screen overflow-x-hidden bg-cryaistal bg-[length:120%_300%] bg-top">
+            <div className="relative min-h-screen overflow-x-hidden bg-quantxt bg-[length:120%_300%] bg-top">
                 {children}
             </div>
         </Loading>
