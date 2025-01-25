@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Section6() {
   return (
     <section id="roadmap" className="w-full">
-      <div className="h-full w-full bg-[url('/assets/home/section-6/bg-gradient.png')] bg-contain bg-bottom bg-no-repeat">
+      <div className="h-full w-full bg-[url('/assets/home/section-6/bg.png')] bg-contain bg-bottom bg-no-repeat">
         <div className="container mx-auto w-full max-w-6xl px-4 py-16">
           <div className="flex flex-col gap-4">
             <div>

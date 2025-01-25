@@ -19,7 +19,7 @@ export default function Section4() {
             <div className="col-span-12 md:col-span-7">
               <div className="flex flex-col gap-4">
                 <div
-                  className="grid grid-cols-12 rounded-lg border border-white/25 bg-white/5 hover:bg-[url('/assets/components/overlay/overlay-landing.png')] hover:bg-cover"
+                  className="grid grid-cols-12 rounded-lg border border-white/25 bg-white/5 hover:bg-[url('/assets/components/overlay/overlay-land.png')] hover:bg-cover"
                   data-aos="fade-right"
                   data-aos-delay="400"
                 >
@@ -49,7 +49,7 @@ export default function Section4() {
                   </div>
                 </div>
                 <div
-                  className="grid grid-cols-12 rounded-lg border border-white/25 bg-white/5 hover:bg-[url('/assets/components/overlay/overlay-landing.png')] hover:bg-cover"
+                  className="grid grid-cols-12 rounded-lg border border-white/25 bg-white/5 hover:bg-[url('/assets/components/overlay/overlay-land.png')] hover:bg-cover"
                   data-aos="fade-right"
                   data-aos-delay="400"
                 >
@@ -82,7 +82,7 @@ export default function Section4() {
                   </div>
                 </div>
                 <div
-                  className="grid grid-cols-12 rounded-lg border border-white/25 bg-white/5 hover:bg-[url('/assets/components/overlay/overlay-landing.png')] hover:bg-cover"
+                  className="grid grid-cols-12 rounded-lg border border-white/25 bg-white/5 hover:bg-[url('/assets/components/overlay/overlay-land.png')] hover:bg-cover"
                   data-aos="fade-right"
                   data-aos-delay="1200"
                 >
@@ -118,7 +118,7 @@ export default function Section4() {
             <div className="col-span-12 md:col-span-5">
               <div className="flex flex-col gap-4">
                 <div
-                  className="grid rounded-lg border border-white/25 bg-white/5 hover:bg-[url('/assets/components/overlay/overlay-landing.png')] hover:bg-cover"
+                  className="grid rounded-lg border border-white/25 bg-white/5 hover:bg-[url('/assets/components/overlay/overlay-land.png')] hover:bg-cover"
                   data-aos="fade-left"
                   data-aos-delay="400"
                 >
@@ -152,7 +152,7 @@ export default function Section4() {
                   </div>
                 </div>
                 <div
-                  className="grid rounded-lg border border-white/25 bg-white/5 hover:bg-[url('/assets/components/overlay/overlay-landing.png')] hover:bg-cover"
+                  className="grid rounded-lg border border-white/25 bg-white/5 hover:bg-[url('/assets/components/overlay/overlay-land.png')] hover:bg-cover"
                   data-aos="fade-left"
                   data-aos-delay="1200"
                 >

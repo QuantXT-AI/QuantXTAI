@@ -2,8 +2,8 @@ import { isSafari } from "@/utils/boolean";
 
 export default function Circle() {
   return (
-    <div className="relative h-screen w-screen bg-[url('/assets/components/circle/bg.png')] bg-center bg-contain bg-no-repeat">
-      <div className="absolute top-0 left-0 z-0 mx-auto h-screen w-screen bg-[url('/assets/components/circle/bg-gradient.png')] bg-center bg-contain bg-no-repeat">
+    <div className="relative h-screen w-screen bg-[url('/assets/components/circle/bg-2.png')] bg-center bg-contain bg-no-repeat">
+      <div className="absolute top-0 left-0 z-0 mx-auto h-screen w-screen bg-[url('/assets/components/circle/bg.png')] bg-center bg-contain bg-no-repeat">
         <div className="h-screen w-screen overflow-hidden px-4 py-16">
           <div className="flex h-full items-center justify-center">
             <video

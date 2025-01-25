@@ -107,7 +107,7 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
               </div>
             </div>
           </div>
-          <div className="absolute left-0 top-0 h-full w-full bg-[url('/assets/home/section-1/bg-gradient.png')] bg-cover bg-bottom bg-no-repeat">
+          <div className="absolute left-0 top-0 h-full w-full bg-[url('/assets/home/section-1/bg.png')] bg-cover bg-bottom bg-no-repeat">
             <div className="container mx-auto max-w-6xl px-4">
               <Header />
               <div className="h-full w-full pt-16">
@@ -155,20 +155,8 @@ export default function Section1({ isLoading, setIsLoading }: Section1Props) {
             <div className="container mx-auto -mt-24 max-w-6xl px-4">
               <div className="mb-20">
                 <motion.div
-                  // style={{
-                  //   position: isSticky ? "fixed" : "relative",
-                  //   top: isSticky ? 0 : 130,
-                  //   left: 0,
-                  //   right: 0,
-                  //   y: headerY,
-                  //   zIndex: 1000,
-                  // }}
-                  // transition={{
-                  //   duration: 1000,
-                  //   ease: [0.32, 0.72, 0, 1],
-                  // }}
                   className={cn(
-                    "fixed left-0 right-0 top-0 z-50 opacity-100 transition-all duration-1000",
+                    "fixed left-0 right-0 top-0 z-40 opacity-100 transition-all duration-1000",
                     !isSticky ? "-top-[200px] opacity-0" : "top-0 opacity-100",
                   )}
                 >

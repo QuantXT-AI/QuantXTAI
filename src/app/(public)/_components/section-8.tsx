@@ -92,7 +92,7 @@ export default function Section8() {
                         return (
                           <Link
                             href={link?.href}
-                            className="text-sm font-normal text-white/50 md:text-base"
+                            className="text-sm font-normal text-white/50 md:text-base hover:text-white transition-all"
                             key={index}
                           >
                             {link?.title}

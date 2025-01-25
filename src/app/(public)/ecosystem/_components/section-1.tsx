@@ -21,22 +21,22 @@ export default function Section1() {
   return (
     <section className="relative w-full">
       {isDesktop ? (
-          <div className="bg-[url('/assets/about-1/section-1/robot-1.png')] bg-[length:250px_auto] bg-left-bottom bg-no-repeat">
-            <div className="bg-[url('/assets/about-1/section-1/robot-2.png')] bg-[length:250px_auto] bg-right-bottom bg-no-repeat">
-              {overlayRobot(
-                <div className="h-screen w-full overflow-hidden">
-                  <video
-                    src={`/assets/about-1/section-1/bg-video.${isSafari ? "mov" : "webm"}`}
-                    autoPlay
-                    loop
-                    muted
-                    className="h-auto w-full object-cover object-bottom opacity-20"
-                    playsInline
-                  />
-                </div>
-              )}
-            </div>
+        <div className="bg-[url('/assets/about-1/section-1/robot.png')] bg-[length:250px_auto] bg-left-bottom bg-no-repeat">
+          <div className="bg-[url('/assets/about-1/section-1/robot2.png')] bg-[length:250px_auto] bg-right-bottom bg-no-repeat">
+            {overlayRobot(
+              <div className="h-screen w-full overflow-hidden">
+                <video
+                  src={`/assets/about-1/section-1/bg-video.${isSafari ? "mov" : "webm"}`}
+                  autoPlay
+                  loop
+                  muted
+                  className="h-auto w-full object-cover object-bottom opacity-20"
+                  playsInline
+                />
+              </div>
+            )}
           </div>
+        </div>
       ) : (
         <video
           src={`/assets/about-1/section-1/bg-video.${isSafari ? "mov" : "webm"}`}
