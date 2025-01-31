@@ -130,5 +130,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Stay Connected 🌐
 
-- [Website](https://quantxt.io)
-- [Twitter](https://twitter.com/quantxt)
+- [Website](https://quantxt.app)
+- [Twitter](https://x.com/quantxt_ai?s=11)
