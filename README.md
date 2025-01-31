@@ -1,4 +1,5 @@
 # QuantXT 🤖💰
+![banner](https://github.com/user-attachments/assets/5d9191d5-4139-4e32-aa5a-5b290808b40e)
 
 QuantXT is an AI-powered chatbot that provides deep insights into your cryptocurrency portfolio across Ethereum and Solana networks. With dual personality modes and real-time analysis powered by Birdeye API, QuantXT helps you track your crypto journey - from your biggest wins to your most painful "rekt" moments.
 
